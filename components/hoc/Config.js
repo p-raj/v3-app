@@ -12,8 +12,8 @@ import Request, { STATE }from 're-quests';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import RN from 'react-native';
-import { Widgets } from '../../../app/common/endpoints';
-import { saveWidgetConfig } from '../../../app/redux/actions/config';
+import { Widgets } from '../../../common/endpoints';
+import { saveWidgetConfig } from '../../../redux/actions/config';
 
 export function withConfig(WrappedComponent) {
     class WithConfig extends React.Component {

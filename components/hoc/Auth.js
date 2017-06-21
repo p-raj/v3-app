@@ -13,11 +13,11 @@ import { connect } from 'react-redux';
 
 import _ from 'lodash';
 
-import AuthScreen from '../../../app/screens/AuthScreen';
+import AuthScreen from '../../../screens/AuthScreen';
 
-import loadPersistentData from '../../../app/redux/actions/storage';
-import refreshToken from '../../../app/redux/actions/refreshToken';
-import { FAILED, START } from '../../../app/common/constants';
+import loadPersistentData from '../../../redux/actions/storage';
+import refreshToken from '../../../../src/redux/actions/refreshToken';
+import { FAILED, START } from '../../../../src/common/constants';
 import { withConfig } from './Config';
 
 

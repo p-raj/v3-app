@@ -11,9 +11,9 @@ import {
     TextArea,
     TextInput,
     RecyclerView
-} from '../../re-render';
+} from '../re-render';
 
-import Divider from '../../app/components/ui/Divider';
+import Divider from '../components/ui/Divider';
 import HorizontalLayout from './layouts/HorizontalLayout';
 import VerticalLayout from './layouts/VerticalLayout';
 
