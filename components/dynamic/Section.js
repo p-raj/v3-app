@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import View from '../../../app/components/ui/View/index';
+import View from '../../components/ui/View/index';
 
 import Item from './Item';
 
