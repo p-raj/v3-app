@@ -212,6 +212,9 @@ class Widget extends React.Component {
                 // But this time loadValues will also load the properties to be changed
                 this.props.dispatch(actions.execute(action, this.actionContext, this.data));
                 break;
+            default:
+                this.props.dispatch(actions.execute(action, this.actionContext, this.data));
+                break;
         }
     };
 
