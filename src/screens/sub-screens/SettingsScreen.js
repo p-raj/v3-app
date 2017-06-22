@@ -3,9 +3,9 @@ import { StyleSheet, View, Dimensions, TouchableHighlight, Text } from 'react-na
 import { connect } from 'react-redux';
 import { withAuthentication } from '../../v3-core/components/hoc/Auth';
 import BlurView from '../../v3-core/components/ui/BlurView';
-import IconComponent from '../screen-components/IconComponent';
+import IconComponent from '../../components/ui-components/IconComponent';
 import PopupDialog from 'react-native-popup-dialog';
-import theme from '../../common/theme';
+import theme from '../../utils/theme';
 import { logout } from '../../redux/actions/auth';
 
 const {height, width} = Dimensions.get('window');

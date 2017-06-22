@@ -7,17 +7,17 @@ import {
 
 import { Label } from 're-render';
 import WidgetContainer from './WidgetContainer';
-import { widgetSuccess } from '../redux/actions/widget';
-import { clearSessionData, getSessionData } from '../redux/actions/session';
-import APIServerRequestViaClient from '../v3-core/utils/network/APIServerRequestViaClient';
-import { LIST_RUNTIMES } from '../common/endpoints';
+import { widgetSuccess } from '../../redux/actions/widget';
+import { clearSessionData, getSessionData } from '../../redux/actions/session';
+import APIServerRequestViaClient from '../../v3-core/utils/network/APIServerRequestViaClient';
+import { LIST_RUNTIMES } from '../../utils/endpoints';
 import Request from 're-quests';
-import RequestProcess from '../v3-core/utils/network/RequestProcess';
-import { Redirect } from '../v3-core/utils/router';
+import RequestProcess from '../../v3-core/utils/network/RequestProcess';
+import { Redirect } from '../../v3-core/utils/router/index';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import theme from '../common/theme'
+import theme from '../../utils/theme'
 import PopupDialog, { DialogTitle } from 'react-native-popup-dialog';
-import StarRatingComponent from '../v3-core/components/ui/StarRating';
+import StarRatingComponent from '../../v3-core/components/ui/StarRating/index';
 const {height, width} = Dimensions.get('window');
 
 

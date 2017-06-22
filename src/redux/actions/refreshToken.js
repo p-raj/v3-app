@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import * as URL from '../../common/endpoints';
+import * as URL from '../../utils/endpoints';
 
 export const REFRESH_TOKEN_START = 'REFRESH_TOKEN_START';
 export const REFRESH_TOKEN_SUCCESS = 'REFRESH_TOKEN_SUCCESS';

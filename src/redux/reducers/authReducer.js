@@ -1,4 +1,4 @@
-import { FAILED, START, SUCCESS } from '../../common/constants';
+import { FAILED, START, SUCCESS } from '../../utils/constants';
 
 import * as TYPE from '../actions/auth';
 import { LOAD_REDUX_STATE } from '../actions/storage';

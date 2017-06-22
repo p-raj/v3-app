@@ -3,9 +3,9 @@ import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'reac
 import { authSuccess } from '../redux/actions/auth';
 import { Spinner } from 're-render';
 import _ from 'lodash';
-import RequestProcess from '../utils/RequestProcess';
+import RequestProcess from '../v3-core/utils/network/RequestProcess';
 import Request from 're-quests'
-import theme from '../common/theme'
+import theme from '../utils/theme'
 
 const styles = StyleSheet.create({
     container: {

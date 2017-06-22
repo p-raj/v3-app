@@ -25,8 +25,8 @@ import ProfileScreen from './sub-screens/ProfileScreen';
 import  BlurView from '../v3-core/components/ui/BlurView'
 import SettingsScreen from './sub-screens/SettingsScreen';
 import MarketplaceScreen from './sub-screens/MarketplaceScreen';
-import theme from '../common/theme'
-import IconComponent from './screen-components/IconComponent';
+import theme from '../utils/theme'
+import IconComponent from '../components/ui-components/IconComponent';
 
 
 const styles = StyleSheet.create({

@@ -3,8 +3,8 @@ import { StyleSheet, View, Image, TextInput, ActivityIndicator, Text, Platform, 
 import { Button } from 're-render';
 import { connect } from 'react-redux';
 import { withAuthentication } from '../../v3-core/components/hoc/Auth';
-import theme from '../../common/theme'
-import RequestProcess from '../../utils/RequestProcess';
+import theme from '../../utils/theme'
+import RequestProcess from '../../v3-core/utils/network/RequestProcess';
 import Request from 're-quests';
 
 

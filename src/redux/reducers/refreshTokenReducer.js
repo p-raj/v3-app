@@ -1,4 +1,4 @@
-import { FAILED, START, SUCCESS } from '../../common/constants';
+import { FAILED, START, SUCCESS } from '../../utils/constants';
 
 import * as TYPE from '../actions/refreshToken';
 import { REQUEST_AUTH_SUCCESS } from '../actions/auth';

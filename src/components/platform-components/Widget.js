@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { Dimensions, StyleSheet, View } from 'react-native';
 import _ from 'lodash';
 
-import WidgetLayout from '../v3-core/components/dynamic/WidgetLayout';
-import * as actions from '../redux/actions/actions';
-import updateComponentData from '../redux/actions/updateComponentData';
-import { dequeueAction, enqueueAction } from '../redux/actions/actionQueue';
+import WidgetLayout from '../../v3-core/components/dynamic/WidgetLayout';
+import * as actions from '../../redux/actions/actions';
+import updateComponentData from '../../redux/actions/updateComponentData';
+import { dequeueAction, enqueueAction } from '../../redux/actions/actionQueue';
 import { Spinner } from 're-render';
 
 const {width} = Dimensions.get('window');

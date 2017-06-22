@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Provider } from 'react-redux';
-import PickerContainer from './components/PickerContainer';
+import PickerContainer from './components/platform-components/PickerContainer';
 import store from './redux/store';
 import HomeScreen from './screens/HomeScreen';
 import RuntimeScreen from './screens/RuntimeScreen';

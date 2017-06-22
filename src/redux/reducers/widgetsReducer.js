@@ -1,4 +1,4 @@
-import { FAILED, START, SUCCESS } from '../../common/constants';
+import { FAILED, START, SUCCESS } from '../../utils/constants';
 import * as TYPE from '../actions/widget';
 import { CLEAR_SESSION_DATA } from '../actions/session';
 

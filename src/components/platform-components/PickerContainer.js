@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
-import ImagePicker from '../v3-core/components/pickers/ImagePicker';
-import { closePicker } from '../redux/actions/picker';
-import updateComponentData from '../redux/actions/updateComponentData';
+import ImagePicker from '../../v3-core/components/pickers/ImagePicker/index';
+import { closePicker } from '../../redux/actions/picker';
+import updateComponentData from '../../redux/actions/updateComponentData';
 
 export const PIC_FROM_CAMERA = 'PIC_FROM_CAMERA';
 export const PIC_FROM_GALLERY = 'PIC_FROM_GALLERY';

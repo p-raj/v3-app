@@ -3,15 +3,15 @@ import Request from 're-quests';
 import React from 'react';
 import { ActivityIndicator, StyleSheet, Text, View, Dimensions, Platform } from 'react-native';
 import { Redirect } from '../../v3-core/utils/router';
-import RequestProcess from '../../utils/RequestProcess';
-import theme from '../../common/theme'
-import IconComponent from '../screen-components/IconComponent';
+import RequestProcess from '../../v3-core/utils/network/RequestProcess';
+import theme from '../../utils/theme'
+import IconComponent from '../../components/ui-components/IconComponent';
 import SortableGrid from 'react-native-sortable-grid'
-import CarouselComponent from '../screen-components/CarouselComponent';
+import CarouselComponent from '../../v3-core/components/ui/CarouselComponent';
 import { connect } from 'react-redux';
 import { withAuthentication } from '../../v3-core/components/hoc/Auth';
 import { saveMemberships, selectMembership } from '../../redux/actions/membership';
-import OrganizationComponent from '../screen-components/OrganizationComponent';
+import OrganizationComponent from '../../components/ui-components/OrganizationComponent';
 
 
 const styles = StyleSheet.create({

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as URL from '../../common/endpoints';
+import * as URL from '../../utils/endpoints';
 
 export const GET_SESSION_DATA_START = 'GET_SESSION_DATA_START';
 export const GET_SESSION_DATA_SUCCESS = 'GET_SESSION_DATA_SUCCESS';
