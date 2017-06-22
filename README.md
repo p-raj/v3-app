@@ -9,7 +9,7 @@ This project manages the web and native(android & ios) interfaces for v3 and the
 
 ##
 ###Solution
-- React-Native along with [react-native-web](https://github.com/necolas/react-native-web) was the obvious and best (at the time we began) way to go with to solve the problem of write once use everywhere.
+- At the time we began this project (December of 2016), react-native along with [react-native-web](https://github.com/necolas/react-native-web) was the obvious and best way to go with to solve the problem of write once use everywhere.
 - Implementation of  [Jasonette](https://docs.jasonette.com/) is what we were inspired from and mostly followed to solve the problem of rendering at runtime.
 
 ##
