@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Request from 're-quests';
-import { BASE_URL } from '../../../common/endpoints';
+import { BASE_URL } from '../../../utils/endpoints';
 
 
 class RequestProcess extends React.Component {

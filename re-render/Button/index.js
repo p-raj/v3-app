@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button as RNButton, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import theme from '../../../common/theme';
+import theme from '../../../utils/theme';
 
 
 const styles = StyleSheet.create({

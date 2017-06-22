@@ -1,4 +1,4 @@
-import store from '../../app/redux/store';
+import store from '../../redux/store';
 
 // Remember to change this whenever reducer's key changes in root reducer.
 const SESSION_DATA_REDUX_KEY = 'componentData';

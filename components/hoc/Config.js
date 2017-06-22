@@ -12,7 +12,7 @@ import Request, { STATE }from 're-quests';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import RN from 'react-native';
-import { Widgets } from '../../../common/endpoints';
+import { Widgets } from '../../../utils/endpoints';
 import { saveWidgetConfig } from '../../../redux/actions/config';
 
 export function withConfig(WrappedComponent) {

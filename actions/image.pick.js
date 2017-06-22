@@ -1,6 +1,6 @@
-import store from '../../app/redux/store';
-import { openPicker } from '../../app/redux/actions/picker';
-import { PIC_FROM_CAMERA, PIC_FROM_GALLERY } from '../../app/components/PickerContainer';
+import store from '../../redux/store';
+import { openPicker } from '../../redux/actions/picker';
+import { PIC_FROM_CAMERA, PIC_FROM_GALLERY } from '../../components/platform-components/PickerContainer';
 
 
 export default function imagePick(obj) {

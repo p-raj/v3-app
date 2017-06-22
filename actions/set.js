@@ -1,5 +1,5 @@
-import store from '../../app/redux/store';
-import updateComponentData from '../../app/redux/actions/updateComponentData';
+import store from '../../redux/store';
+import updateComponentData from '../../redux/actions/updateComponentData';
 
 export default function set(obj) {
     // eslint-disable-next-line

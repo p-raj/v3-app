@@ -1,6 +1,6 @@
 import axios from 'axios';
 import _ from 'lodash';
-import { RUNTIMES_API } from '../../app/common/endpoints';
+import { RUNTIMES_API } from '../../utils/endpoints';
 
 
 export default function (obj) {

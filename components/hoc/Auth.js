@@ -17,7 +17,7 @@ import AuthScreen from '../../../screens/AuthScreen';
 
 import loadPersistentData from '../../../redux/actions/storage';
 import refreshToken from '../../../../src/redux/actions/refreshToken';
-import { FAILED, START } from '../../../../src/common/constants';
+import { FAILED, START } from '../../../utils/constants';
 import { withConfig } from './Config';
 
 

@@ -1,4 +1,4 @@
-import ActionRegistry from '../../app/redux/actions/index';
+import ActionRegistry from '../../redux/actions/index';
 
 
 export default class Action {
