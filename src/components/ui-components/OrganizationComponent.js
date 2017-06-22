@@ -1,8 +1,8 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View, Dimensions } from 'react-native';
-import humanReadableDateTime from '../../utils/HumanReadableDateTime';
-import theme from '../../common/theme'
-import { withAuthentication } from '../../v3-core/components/hoc/Auth';
+import humanReadableDateTime from '../utils/HumanReadableDateTime';
+import theme from '../common/theme'
+import { withAuthentication } from '../v3-core/components/hoc/Auth';
 
 
 const {height, width} = Dimensions.get('window');

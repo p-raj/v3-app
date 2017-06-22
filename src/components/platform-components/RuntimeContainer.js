@@ -8,7 +8,7 @@ import * as STATE from 're-quests/dist/States';
 import HorizontalLayout from '../v3-core/components/layouts/HorizontalLayout/index';
 import { LIST_RUNTIMES } from '../common/endpoints';
 import { saveRuntimes } from '../redux/actions/runtime';
-import APIServerRequestViaClient from '../utils/APIServerRequestViaClient';
+import APIServerRequestViaClient from '../v3-core/utils/network/APIServerRequestViaClient';
 
 import Runtime from './Runtime';
 

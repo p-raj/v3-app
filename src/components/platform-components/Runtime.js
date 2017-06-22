@@ -5,22 +5,20 @@ import {
     TextInput
 } from 'react-native';
 
-import { Button, Label, Spinner } from 're-render';
+import { Label } from 're-render';
 import WidgetContainer from './WidgetContainer';
-
 import { widgetSuccess } from '../redux/actions/widget';
 import { clearSessionData, getSessionData } from '../redux/actions/session';
-import APIServerRequestViaClient from '../utils/APIServerRequestViaClient';
+import APIServerRequestViaClient from '../v3-core/utils/network/APIServerRequestViaClient';
 import { LIST_RUNTIMES } from '../common/endpoints';
 import Request from 're-quests';
-import RequestProcess from '../utils/RequestProcess';
+import RequestProcess from '../v3-core/utils/network/RequestProcess';
 import { Redirect } from '../v3-core/utils/router';
 import Icon from 'react-native-vector-icons/FontAwesome';
-const {height, width} = Dimensions.get('window');
 import theme from '../common/theme'
 import PopupDialog, { DialogTitle } from 'react-native-popup-dialog';
-import Widget from './Widget';
 import StarRatingComponent from '../v3-core/components/ui/StarRating';
+const {height, width} = Dimensions.get('window');
 
 
 const styles = StyleSheet.create({
@@ -178,7 +176,7 @@ class Runtime extends React.Component {
                                     </TouchableOpacity>
                                     <TouchableOpacity
                                         style={[styles.buttonContainer]}
-                                        onPress={()=>this.onRuntimeFinished(true)}>
+                                        onPress={() => this.onRuntimeFinished(true)}>
                                         <Text style={styles.buttonText}>
                                             Done
                                         </Text>
@@ -346,12 +344,12 @@ class Runtime extends React.Component {
 
         // Send current session's data to server
         // this.props.dispatch(sendSessionData(session, this.props.componentData, this.props.auth.access_token));
-        if (showFeedback.toString()  ==="true") {
+        if (showFeedback.toString() === "true") {
             this.setState({showFeedbackWidget: true});
             return;
         }
         this.props.dispatch(clearSessionData(this.props.runtime));
-        this.setState({initiated: false, closeSession:true});
+        this.setState({initiated: false, closeSession: true});
     };
 
     getWidgets = () => {

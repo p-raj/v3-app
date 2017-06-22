@@ -18,7 +18,7 @@
 import React  from 'react';
 import RN, { Image, Text, TouchableHighlight, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import theme from '../../common/theme'
+import theme from '../common/theme'
 
 
 const styles = RN.StyleSheet.create({
