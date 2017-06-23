@@ -80,7 +80,6 @@ export function withRecyclerViewProps(WrappedComponent) {
                 item,
                 ...passThroughProps
             } = this.props;
-            console.log('value', value);
 
             const RVItem = withValues(WithValueItem);
             const horizontal = orientation === 'horizontal';
