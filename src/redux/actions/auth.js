@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as URL from '../../utils/endpoints';
+import * as URL from '../../../src/utils/endpoints';
 
 export const REQUEST_AUTH_START = 'REQUEST_AUTH_START';
 export const REQUEST_AUTH_SUCCESS = 'REQUEST_AUTH_SUCCESS';
