@@ -5,7 +5,7 @@ import theme from '../../utils/theme'
 import { withAuthentication } from '../../v3-core/components/hoc/Auth';
 
 
-const {height, width} = Dimensions.get('window');
+const { width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     container: {

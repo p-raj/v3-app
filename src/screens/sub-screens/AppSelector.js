@@ -1,18 +1,14 @@
 import * as _ from 'lodash';
 import Request from 're-quests';
 import React from 'react';
-import { ActivityIndicator, StyleSheet, Text, View, Dimensions, Platform } from 'react-native';
-import { Redirect } from '../../v3-core/utils/router';
+import { ActivityIndicator, StyleSheet, Text, View, Platform } from 'react-native';
 import RequestProcess from '../../v3-core/utils/network/RequestProcess';
 import theme from '../../utils/theme'
-import IconComponent from '../../components/ui-components/IconComponent';
-import SortableGrid from 'react-native-sortable-grid'
 import CarouselComponent from '../../v3-core/components/ui/CarouselComponent';
 import { connect } from 'react-redux';
 import { withAuthentication } from '../../v3-core/components/hoc/Auth';
-import { saveMemberships, selectMembership } from '../../redux/actions/membership';
-import OrganizationComponent from '../../components/ui-components/OrganizationComponent';
-
+import { saveMemberships } from '../../redux/actions/membership';
+import OrganizationPane from './OrganizationPane';
 
 const styles = StyleSheet.create({
     container: {
@@ -58,9 +54,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         flexDirection: 'row',
+    },
+    loadingContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
-const {height, width} = Dimensions.get('window');
 
 class AppSelector extends React.Component {
     constructor(props) {
@@ -73,87 +73,14 @@ class AppSelector extends React.Component {
     getOrganizations = () => {
         return this.props.memberships.map((value, key) => {
             return (
-                <View key={key.toString()} style={[styles.container]}>
-                    <View style={{
-                        flex: 3,
-                        marginTop: (Platform.OS === 'android') ? height * 0.02 : height * 0.1,
-                        marginBottom: (Platform.OS === 'android') ? height * 0.02 : height * 0.1
-                    }}>
-                        <OrganizationComponent organizationName={value.organization.name}
-                                               image={value.organization.avatar}
-                                               date={value.created_at}/>
-                    </View>
-                    <View style={{
-                        flex: 14, ...Platform.select({
-                            web: {
-                                minHeight: height * 0.48,
-                            }
-                        })
-                    }}>
-                        <RequestProcess name="get_applications"
-                                        data={{"VERIS-RESOURCE": `Veris organization:${value.organization.uuid}:member:${value.uuid}`}}
-                                        onSuccess={(response) => {
-                                            this.setState({
-                                                [`application-${key}-data`]: response.data.results,
-                                                [`membership-${key}-uuid`]: value.uuid,
-                                                [`organization-${key}-uuid`]: value.organization.uuid,
-                                            })
-                                        }}>
-                            <View style={{flex: 1}}>
-                                <Request.Start>
-                                    <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
-                                        <ActivityIndicator size={'large'} style={styles.activityIndicator}
-                                                           color={theme.black}/>
-                                        <Text style={styles.loadingText}>Loading Apps</Text>
-                                    </View>
-                                </Request.Start>
-                                {!_.isEmpty(this.state[`application-${key}-data`]) &&
-                                <Request.Success>
-                                    <View style={[{flex: 1}]}>
-                                        <SortableGrid
-                                            blockTransitionDuration={ 400 }
-                                            activeBlockCenteringDuration={ 200 }
-                                            itemsPerRow={ 3 }
-                                            dragActivationTreshold={ 200 }
-                                            onDragRelease={ (itemOrder) => console.log("Drag was released, the blocks are in the following order: ", itemOrder) }
-                                            onDragStart={ () => console.log("Some block is being dragged now!") }>
-
-                                            {
-                                                this.state[`application-${key}-data`].map((data, index) => {
-                                                    return (
-                                                        <View key={index}
-                                                              style={{justifyContent: 'center', alignItems: 'center'}}>
-                                                            <IconComponent imageUrl={data.logo} iconText={data.name}
-                                                                           iconSize={75}
-                                                                           showImage={true}
-                                                                           onIconPress={() => {
-                                                                               this.onMembershipSelected(value);
-                                                                               this.setState({
-                                                                                   applicationUUID: data.uuid,
-                                                                                   redirect: true,
-                                                                                   membershipKey: key
-                                                                               })
-                                                                           }}/>
-                                                        </View>
-                                                    )
-                                                })
-                                            }
-
-                                        </SortableGrid>
-                                    </View>
-
-
-                                </Request.Success>}
-                            </View>
-                        </RequestProcess>
-                    </View>
+                <View style={styles.container}>
+                    <OrganizationPane key={key} value={value}/>
                 </View>
             );
         });
     };
 
     render() {
-        let search = `?auth=organization:${this.state[`organization-${this.state.membershipKey}-uuid`]}:member:${this.state[`membership-${this.state.membershipKey}-uuid`]}`;
         return (
             <RequestProcess
                 name={'list_user_memberships'}
@@ -162,28 +89,19 @@ class AppSelector extends React.Component {
                 <View style={styles.container}>
                     <Request.Start>
                         <View
-                            style={{
-                                flex: 1, justifyContent: 'center', alignItems: 'center', ...Platform.select({
-                                    web: {
-                                        minHeight: height,
-                                    }
-                                })
-                            }}>
+                            style={styles.loadingContainer}>
                             <ActivityIndicator size={'large'} color={theme.black}/>
                             <Text style={styles.loadingText}>Fetching Memberships</Text>
                         </View>
                     </Request.Start>
                     <Request.Success>
                         <View style={styles.container}>
-                            {this.state.redirect &&
-                            <Redirect push to={{
-                                pathname: `applications/${this.state.applicationUUID}`,
-                                search: search
-                            }}/>}
                             {this.getOrganizations().length > 0 ?
-                                <CarouselComponent>
-                                    {this.getOrganizations()}
-                                </CarouselComponent> : null}
+                                <View style={{flex: 1}}>
+                                    <CarouselComponent>
+                                        {this.getOrganizations()}
+                                    </CarouselComponent>
+                                </View> : null}
                         </View>
                     </Request.Success>
                 </View>
@@ -195,11 +113,6 @@ class AppSelector extends React.Component {
     onMembershipsFetched = (response) => {
         this.props.dispatch(saveMemberships(response.data));
     };
-    onMembershipSelected = (membership) => {
-        this.props.dispatch(selectMembership(membership));
-    };
-
-
 }
 
 AppSelector = connect((state) => {

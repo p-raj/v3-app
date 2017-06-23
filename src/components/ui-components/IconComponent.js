@@ -23,7 +23,7 @@ import theme from '../../utils/theme'
 
 const styles = RN.StyleSheet.create({
     iconContainer: {
-        height: 95,
+        height: 80,
         width: 80,
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -45,6 +45,7 @@ const styles = RN.StyleSheet.create({
     iconText: {
         color: theme.black,
         flex: 1,
+        backgroundColor: 'transparent',
         textAlign: 'center',
         fontSize: theme.h6,
         paddingTop: theme.paddingMinimal
