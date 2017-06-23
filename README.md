@@ -14,6 +14,10 @@ This project manages the web and native(android & ios) interfaces for v3 and the
 
 ##
 ###Installation
+
+ 1. Add the remote `v3-core` repository
+ 2. git subtree add --prefix `src/v3-core` `remote-of-core-repository` master
+
 ```
 Fork and clone this repo (never direclty clone and push to main repo)
 

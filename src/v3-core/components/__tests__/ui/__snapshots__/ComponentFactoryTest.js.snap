@@ -1,0 +1,37 @@
+exports[`Suite for calling and rendering components from componentFactory: renders babel component as expected 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail" />
+`;
+
+exports[`Suite for calling and rendering components from componentFactory: renders image component as expected 1`] = `
+<Image
+  onPress={[Function]}
+  source={
+    Object {
+      "uri": undefined,
+    }
+  } />
+`;
+
+exports[`Suite for calling and rendering components from componentFactory: renders textarea component as expected 1`] = `
+<TextInput
+  editable={true}
+  multiline={true}
+  numberOfLines={4}
+  onChangeText={[Function]} />
+`;
+
+exports[`Suite for calling and rendering components from componentFactory: renders textfield component as expected 1`] = `
+<TextInput
+  defaultValue={undefined}
+  onChangeText={[Function]}
+  secureTextEntry={false}
+  style={
+    Object {
+      "height": 60,
+      "width": 150,
+    }
+  } />
+`;
