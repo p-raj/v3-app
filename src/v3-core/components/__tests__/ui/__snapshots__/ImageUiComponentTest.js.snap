@@ -1,0 +1,11 @@
+exports[`Suite for testing image component: renders the image component as expected (matches the snapshot) 1`] = `
+<Image
+  source={undefined}
+  style={
+    Object {
+      "height": 50,
+      "width": 50,
+    }
+  }
+  url="https://facebook.github.io/react/img/logo_og.png" />
+`;
