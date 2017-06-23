@@ -9,6 +9,7 @@ import * as actions from '../../redux/actions/actions';
 import updateComponentData from '../../redux/actions/updateComponentData';
 import { dequeueAction, enqueueAction } from '../../redux/actions/actionQueue';
 import { Spinner } from 're-render';
+import { toDotNotation } from '../../v3-core/utils';
 
 const {width} = Dimensions.get('window');
 const styles = StyleSheet.create({
@@ -16,22 +17,6 @@ const styles = StyleSheet.create({
         width: width
     }
 });
-
-const toDotNotation = (json = {}, prefix = undefined) => {
-    let obj = JSON.parse(JSON.stringify(json));
-    let dot = {};
-    for (let key of Object.keys(obj)) {
-        const k = prefix ? `${prefix}.${key}` : key;
-        if (typeof (obj[key]) === typeof ({})) {
-            dot = {
-                ...toDotNotation(obj[key], k)
-            };
-        } else {
-            dot[k] = obj[key];
-        }
-    }
-    return dot;
-};
 
 
 /**
@@ -107,7 +92,7 @@ class Widget extends React.Component {
         if (templateName !== templateNameNew) {
             const actions = widget.template[templateNameNew]['pre-render'] || [];
             actions.map((action) => {
-                this.execute(action);
+                return this.execute(action);
             });
         }
 
