@@ -19,22 +19,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Item from '../../dynamic/Item';
 import { withValues } from '../withValues';
+import { toDotNotation } from '../../../utils';
 
-const toDotNotation = (json = {}, prefix = undefined) => {
-    let obj = JSON.parse(JSON.stringify(json));
-    let dot = {};
-    for (let key of Object.keys(obj)) {
-        const k = prefix ? `${prefix}.${key}` : key;
-        if (typeof (obj[key]) === typeof ({})) {
-            dot = {
-                ...toDotNotation(obj[key], k)
-            };
-        } else {
-            dot[k] = obj[key];
-        }
-    }
-    return dot;
-};
 
 class WithValueItem extends React.Component {
     // noinspection JSUnusedGlobalSymbols
@@ -94,6 +80,7 @@ export function withRecyclerViewProps(WrappedComponent) {
                 item,
                 ...passThroughProps
             } = this.props;
+            console.log('value', value);
 
             const RVItem = withValues(WithValueItem);
             const horizontal = orientation === 'horizontal';
