@@ -1,0 +1,36 @@
+exports[`Suite for testing textInput component: renders textInput on android as expected (matches the snapshot) 1`] = `
+<TextInput
+  defaultValue="TextInput"
+  secureTextEntry={true}
+  style={
+    Object {
+      "height": 50,
+      "width": 50,
+    }
+  }
+  underlineColorAndroid="transparent" />
+`;
+
+exports[`Suite for testing textInput component: renders textInput on iOS as expected (matches the snapshot) 1`] = `
+<TextInput
+  defaultValue="TextInput"
+  secureTextEntry={true}
+  style={
+    Object {
+      "height": 60,
+      "width": 150,
+    }
+  } />
+`;
+
+exports[`Suite for testing textInput component: renders textInput on web as expected (matches the snapshot) 1`] = `
+<TextInput
+  defaultValue="TextInput"
+  secureTextEntry={true}
+  style={
+    Object {
+      "height": 50,
+      "width": 50,
+    }
+  } />
+`;
