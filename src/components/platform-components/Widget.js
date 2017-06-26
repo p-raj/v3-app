@@ -59,6 +59,7 @@ class Widget extends React.Component {
         };
 
         this.data = {};
+        this.intervals = [];
 
         // FIXME:
         // remove hardcoded data :/
@@ -148,7 +149,7 @@ class Widget extends React.Component {
         const template = widget.template[templateName];
         const actions = template['pre-render'] || [];
         actions.map((action) => {
-            this.execute(action);
+            return this.execute(action);
         });
 
         if (_.isEmpty(template) || _.isEmpty(template.sections) || _.isEmpty(template.sections[0].items)) return;
@@ -162,7 +163,22 @@ class Widget extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        this.intervals.map((id) => {
+            return clearInterval(id);
+        });
+    }
+
     execute = (action, data) => {
+        const {repeat, ...act} = action;
+
+        // periodic tasks
+        if (repeat) {
+            this.intervals.push(setInterval(() => {
+                this.execute(act, data);
+            }, repeat));
+        }
+
         switch (action.type) {
             case '$prop.change':
                 // Set the properties to be changed in local state
