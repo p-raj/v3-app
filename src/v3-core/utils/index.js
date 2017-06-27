@@ -21,6 +21,7 @@ export const toDotNotation = (json = {}, prefix = undefined) => {
         const k = prefix ? `${prefix}.${key}` : key;
         if (typeof (obj[key]) === typeof ({}) && !Array.isArray(obj[key])) {
             dot = {
+                ...dot,
                 ...toDotNotation(obj[key], k)
             };
         } else {
