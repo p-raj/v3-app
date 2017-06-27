@@ -1,4 +1,3 @@
-import * as _ from 'lodash';
 import Request from 're-quests';
 import React from 'react';
 import { ActivityIndicator, StyleSheet, Text, View, Platform } from 'react-native';
@@ -9,6 +8,7 @@ import { connect } from 'react-redux';
 import { withAuthentication } from '../../v3-core/components/hoc/Auth';
 import { saveMemberships } from '../../redux/actions/membership';
 import OrganizationPane from './OrganizationPane';
+import * as _ from 'lodash';
 
 const styles = StyleSheet.create({
     container: {
@@ -81,6 +81,20 @@ class AppSelector extends React.Component {
     };
 
     render() {
+
+        if (!_.isEmpty(this.props.memberships)) {
+            return (
+                <View style={styles.container}>
+                    {this.getOrganizations().length > 0 ?
+                        <View style={{flex: 1}}>
+                            <CarouselComponent>
+                                {this.getOrganizations()}
+                            </CarouselComponent>
+                        </View> : null}
+                </View>
+            )
+        }
+
         return (
             <RequestProcess
                 name={'list_user_memberships'}
@@ -94,19 +108,8 @@ class AppSelector extends React.Component {
                             <Text style={styles.loadingText}>Fetching Memberships</Text>
                         </View>
                     </Request.Start>
-                    <Request.Success>
-                        <View style={styles.container}>
-                            {this.getOrganizations().length > 0 ?
-                                <View style={{flex: 1}}>
-                                    <CarouselComponent>
-                                        {this.getOrganizations()}
-                                    </CarouselComponent>
-                                </View> : null}
-                        </View>
-                    </Request.Success>
                 </View>
             </RequestProcess>
-
         )
     }
 

@@ -24,8 +24,8 @@ import PropTypes from 'prop-types';
 
 const styles = RN.StyleSheet.create({
     iconContainer: {
-        height: 80,
         width: 80,
+        height: 80,
         alignItems: 'center',
         justifyContent: 'space-between',
     },
@@ -33,9 +33,9 @@ const styles = RN.StyleSheet.create({
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
-
-        // backgroundColor: theme.flatColorShades[Math.floor((Math.random() * 10) + 1)]
-
+        width: 60,
+        height: 60,
+        backgroundColor: '#333'
     },
     icon: {
         color: theme.iconColor,
@@ -62,22 +62,11 @@ class IconComponent extends React.Component {
 
     render() {
         return (
-            <View style={styles.iconContainer}>
+            <View style={[styles.iconContainer, {...this.props.iconContainerStyle}]}>
                 <TouchableHighlight
-                    style={[styles.iconShape, {
-                        width: this.props.iconSize || 60,
-                        height: this.props.iconSize || 60,
-                        backgroundColor: this.props.showImage ? 'white' : '#333'
-                    }]}
+                    style={styles.iconShape}
                     onPress={this.props.onIconPress}>
-                    {this.props.showImage ?
-                        <Image source={{uri: this.props.imageUrl}}
-                               width={75}
-                               height={75}
-                               style={{width: 75, height: 75, backgroundColor: 'white', alignSelf: 'center'}}
-                               resizeMethod={'contain'}/> :
-                        <Icon name={this.props.iconLogo} size={32}
-                              style={styles.icon}/>}
+                    <Icon name={this.props.iconLogo} size={32} color={theme.white}/>
                 </TouchableHighlight>
                 <Text numberOfLines={1} style={styles.iconText}>{this.props.iconText}</Text>
             </View>

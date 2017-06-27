@@ -11,18 +11,20 @@ import { connect } from 'react-redux';
 import { withAuthentication } from '../../v3-core/components/hoc/Auth';
 import { selectMembership } from '../../redux/actions/membership';
 import OrganizationComponent from '../../components/ui-components/OrganizationComponent';
+import ImageIconComponent from '../../components/ui-components/ImageIconComponent';
 
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingHorizontal: '5%'
     },
     grid: {
         flex: 1,
         justifyContent: 'space-between'
     },
     organizationName: {
-        fontSize: (Platform.OS === 'android') ? theme.h0 : theme.h1,
+        fontSize: theme.h0,
         color: theme.black,
         marginTop: theme.marginNormal,
         backgroundColor: 'transparent',
@@ -76,12 +78,12 @@ class OrganizationPane extends React.Component {
                     pathname: `applications/${this.state.applicationUUID}`,
                     search: search
                 }}/>}
-                <View style={{flex: 1, backgroundColor: 'red'}}>
+                <View style={{flex: 2}}>
                     <OrganizationComponent organizationName={value.organization.name}
                                            image={value.organization.avatar}
                                            date={value.created_at}/>
                 </View>
-                <View style={{flex: 5, backgroundColor: 'steelblue'}}>
+                <View style={{flex: 5}}>
                     <RequestProcess name="get_applications"
                                     data={{"VERIS-RESOURCE": `Veris organization:${value.organization.uuid}:member:${value.uuid}`}}
                                     onSuccess={(response) => {
@@ -101,31 +103,27 @@ class OrganizationPane extends React.Component {
                             </Request.Start>
                             {!_.isEmpty(this.state[`application-${key}-data`]) &&
                             <Request.Success>
-                                <View style={[{flex: 1}]}>
+                                <View style={[{flexGrow: 1, justifyContent: 'center'}]}>
                                     <SortableGrid
                                         blockTransitionDuration={ 400 }
                                         activeBlockCenteringDuration={ 200 }
                                         itemsPerRow={ 3 }
-                                        dragActivationTreshold={ 200 }
-                                        onDragRelease={ (itemOrder) => console.log("Drag was released, the blocks are in the following order: ", itemOrder) }
-                                        onDragStart={ () => console.log("Some block is being dragged now!") }>
-
+                                        dragActivationTreshold={ 200 }>
                                         {
                                             this.state[`application-${key}-data`].map((data, index) => {
                                                 return (
                                                     <View key={index}
                                                           style={{justifyContent: 'center', alignItems: 'center'}}>
-                                                        <IconComponent imageUrl={data.logo} iconText={data.name}
-                                                                       iconSize={75}
-                                                                       showImage={true}
-                                                                       onIconPress={() => {
-                                                                           this.onMembershipSelected(value);
-                                                                           this.setState({
-                                                                               applicationUUID: data.uuid,
-                                                                               redirect: true,
-                                                                               membershipKey: key
-                                                                           })
-                                                                       }}/>
+                                                        <ImageIconComponent imageUrl={data.logo}
+                                                                            iconText={data.name}
+                                                                            onIconPress={() => {
+                                                                                this.onMembershipSelected(value);
+                                                                                this.setState({
+                                                                                    applicationUUID: data.uuid,
+                                                                                    redirect: true,
+                                                                                    membershipKey: key
+                                                                                })
+                                                                            }}/>
                                                     </View>
                                                 )
                                             })
@@ -133,8 +131,6 @@ class OrganizationPane extends React.Component {
 
                                     </SortableGrid>
                                 </View>
-
-
                             </Request.Success>}
                         </View>
                     </RequestProcess>
@@ -154,9 +150,7 @@ class OrganizationPane extends React.Component {
 
 OrganizationPane = connect((state) => {
     return {
-        auth: state.auth,
-        membership: state.memberships.selected,
-        memberships: state.memberships.results || []
+        auth: state.auth
     }
 })(OrganizationPane);
 

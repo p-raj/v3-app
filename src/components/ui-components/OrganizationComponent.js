@@ -1,26 +1,24 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View, Dimensions } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import humanReadableDateTime from '../../utils/HumanReadableDateTime';
 import theme from '../../utils/theme'
 import { withAuthentication } from '../../v3-core/components/hoc/Auth';
 
 
-const { width} = Dimensions.get('window');
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingHorizontal: width*0.09,
     },
     row: {
         flex: 1,
-        alignItems: 'center',
         justifyContent: 'space-between',
         flexDirection: 'row',
     },
     textContainer: {
-        justifyContent: 'space-between',
-        maxWidth: '70%'
+        alignSelf: 'flex-end',
+        maxWidth: '70%',
+        maxHeight: 100,
+        flex: 1,
     },
     organizationName: {
         fontSize: theme.h0,
@@ -35,6 +33,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent'
     },
     image: {
+        alignSelf: 'center',
         borderRadius: 10,
         backgroundColor: theme.white,
         height: 70,

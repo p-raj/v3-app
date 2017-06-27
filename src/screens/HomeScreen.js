@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     dock: {
         flex: 1.5,
         justifyContent: 'space-between',
+        paddingHorizontal: '5%',
         alignItems: 'center',
         flexDirection: 'row',
         backgroundColor: '#e2e2e2',
@@ -47,11 +48,6 @@ const styles = StyleSheet.create({
             width: 1, height: 1
         },
         shadowOpacity: 0.2,
-    },
-    iconBox: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
     },
     loadingText: {
         fontSize: theme.h4,
@@ -87,30 +83,22 @@ class HomeScreen extends React.Component {
                     style={styles.dock}
                     blurType="light"
                     blurAmount={100}>
-                    <View style={styles.iconBox}>
-                        <IconComponent iconLogo={'home'} iconText={'Home'}
-                                       onIconPress={() => {
-                                           this.setState({selectedIcon: 'home'})
-                                       }}/>
-                    </View>
-                    <View style={styles.iconBox}>
-                        <IconComponent iconLogo={'user'} iconText={'Profile'}
-                                       onIconPress={() => {
-                                           this.setState({selectedIcon: 'profile'})
-                                       }}/>
-                    </View>
-                    <View style={styles.iconBox}>
-                        <IconComponent iconLogo={'play'} iconText={'Marketplace'}
-                                       onIconPress={() => {
-                                           this.setState({selectedIcon: 'marketplace'})
-                                       }}/>
-                    </View>
-                    <View style={styles.iconBox}>
-                        <IconComponent iconLogo={'cog'} iconText={'Settings'}
-                                       onIconPress={() => {
-                                           this.setState({selectedIcon: 'settings'})
-                                       }}/>
-                    </View>
+                    <IconComponent iconLogo={'home'} iconText={'Home'}
+                                   onIconPress={() => {
+                                       this.setState({selectedIcon: 'home'})
+                                   }}/>
+                    <IconComponent iconLogo={'user'} iconText={'Profile'}
+                                   onIconPress={() => {
+                                       this.setState({selectedIcon: 'profile'})
+                                   }}/>
+                    <IconComponent iconLogo={'play'} iconText={'Marketplace'}
+                                   onIconPress={() => {
+                                       this.setState({selectedIcon: 'marketplace'})
+                                   }}/>
+                    <IconComponent iconLogo={'cog'} iconText={'Settings'}
+                                   onIconPress={() => {
+                                       this.setState({selectedIcon: 'settings'})
+                                   }}/>
                 </BlurView>
             </View>
         )
