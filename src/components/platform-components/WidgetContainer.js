@@ -22,7 +22,7 @@ class WidgetContainer extends React.Component {
             });
 
         return (
-            <ScrollView>
+            <ScrollView style={{flex: 1}}>
                 {widgets}
             </ScrollView>
         );

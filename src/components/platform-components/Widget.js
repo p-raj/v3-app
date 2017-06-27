@@ -14,7 +14,7 @@ import { toDotNotation } from '../../v3-core/utils';
 const {width} = Dimensions.get('window');
 const styles = StyleSheet.create({
     container: {
-        width: width
+        width: width * 0.92
     }
 });
 

@@ -21,10 +21,8 @@ class RuntimeScreen extends React.Component {
 
     render() {
         const resource = queryString.parse(this.props.location.search);
-
         // TODO
         // remove me
-
         const splits = resource.auth.split(':');
         this.props.dispatch(selectMembership({
             uuid: splits[3],
@@ -42,9 +40,9 @@ class RuntimeScreen extends React.Component {
                 }}
                 onSuccess={this.onRuntimeFetched}>
                 <HorizontalLayout
-                    style={{height: '100%', width: '100%', justifyContent: 'center', alignItems: 'center'}}>
+                    style={{flex: 1}}>
                     <Request.Start>
-                        <View>
+                        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
                             <RN.ActivityIndicator size={"large"} color="black"/>
                             <Text style={{fontSize: 18, fontWeight: '400'}}>
                                 Loading Application
