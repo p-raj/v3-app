@@ -204,7 +204,7 @@ class Widget extends React.Component {
                 // Set the properties to be changed in local state
                 // A change in state will trigger re-render and so will the loadValues method
                 // But this time loadValues will also load the properties to be changed
-                this.data[action.options.as] = this.data[action.options.key];
+                this.data[action.options.as] = toDotNotation(this.data)[action.options.key];
                 this.props.dispatch(actions.execute(action, this.actionContext, data));
                 break;
             case '$operation':
