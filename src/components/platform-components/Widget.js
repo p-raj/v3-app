@@ -8,7 +8,7 @@ import WidgetLayout from '../../v3-core/components/dynamic/WidgetLayout';
 import * as actions from '../../redux/actions/actions';
 import updateComponentData from '../../redux/actions/updateComponentData';
 import { dequeueAction, enqueueAction } from '../../redux/actions/actionQueue';
-import { Spinner } from 're-render';
+import { Spinner } from '../../v3-core/re-render';
 import { toDotNotation } from '../../v3-core/utils';
 
 const {width} = Dimensions.get('window');
