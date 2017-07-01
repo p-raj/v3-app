@@ -1,3 +1,3 @@
-import { ProgressBar } from 're-render';
+import { ProgressBar } from '../../../re-render';
 
 export default ProgressBar;

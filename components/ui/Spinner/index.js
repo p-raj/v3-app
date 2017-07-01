@@ -1,3 +1,3 @@
-import { Spinner } from 're-render';
+import { Spinner } from '../../../re-render';
 
 export default Spinner;

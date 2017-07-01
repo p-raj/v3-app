@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Camera from 'react-native-camera';
 import { Dimensions, StyleSheet, View } from 'react-native';
-import { IconButton } from 're-render';
+import { Icon as IconButton } from '../../../re-render';
 let {width, height} = Dimensions.get('window');
 
 let timer = undefined;

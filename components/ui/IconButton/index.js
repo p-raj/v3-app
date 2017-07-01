@@ -1,3 +1,3 @@
-import { IconButton } from 're-render';
+import { Icon as IconButton } from '../../../re-render';
 
 export default IconButton;

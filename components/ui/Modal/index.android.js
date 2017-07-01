@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, Text, TouchableHighlight, View } from 'react-native';
-import { IconButton } from 're-render';
+import { Icon as IconButton } from '../../../re-render';
 
 export default class M extends Component {
     state = {

@@ -1,3 +1,3 @@
-import { Image } from 're-render';
+import { Image } from '../../../re-render';
 
 export default Image;

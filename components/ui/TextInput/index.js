@@ -1,3 +1,3 @@
-import { TextInput } from 're-render';
+import { TextInput } from '../../../re-render';
 
 export default TextInput;

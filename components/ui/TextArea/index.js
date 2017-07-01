@@ -1,3 +1,3 @@
-import { TextArea } from 're-render';
+import { TextArea } from '../../../re-render';
 
 export default TextArea;

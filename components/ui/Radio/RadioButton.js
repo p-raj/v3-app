@@ -1,3 +1,3 @@
-import { RadioButton } from 're-render';
+import { RadioButton } from '../../../re-render';
 
 export default RadioButton;

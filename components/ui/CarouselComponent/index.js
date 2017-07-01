@@ -2,6 +2,7 @@ import React from 'react';
 import  Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { View } from 'react-native';
 
 export default class CarouselComponent extends React.Component {
 
@@ -20,11 +21,16 @@ export default class CarouselComponent extends React.Component {
             slidesToScroll: 1
         };
         return (
-            <Slider {...settings}>
-                {this.props.children}
-            </Slider>
+            <View style={{
+                flexGrow: 1,
+                margin: 0,
+                padding: 0,
+                display: 'flex'
+            }}>
+                <Slider {...settings}>
+                    {this.props.children}
+                </Slider>
+            </View>
         )
     }
 }
-
-
