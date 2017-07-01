@@ -1,3 +1,3 @@
-import { RecyclerView } from 're-render';
+import { RecyclerView } from '../../../re-render';
 
 export default RecyclerView;

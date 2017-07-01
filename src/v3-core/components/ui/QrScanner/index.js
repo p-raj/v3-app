@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { View } from 'react-native';
 import QrReader from 'react-qr-reader';
-import { IconButton } from 're-render';
+import { Icon as IconButton } from '../../../re-render';
 
 const defaultHeight = 240, defaultWidth = 320;
 
