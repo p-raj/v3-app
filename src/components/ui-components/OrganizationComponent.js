@@ -63,7 +63,11 @@ class OrganizationComponent extends React.Component {
                         </Text>
                     </View>
                     <Image
-                        source={{uri: `${this.props.image}`}}
+                        source={{
+                            uri: this.props.image.startsWith('http') ?
+                                this.props.image :
+                                "http://via.placeholder.com/70x70"
+                        }}
                         resizeMode="contain"
                         style={styles.image}/>
                 </View>
