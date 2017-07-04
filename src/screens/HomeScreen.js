@@ -71,7 +71,9 @@ class HomeScreen extends React.Component {
             <View style={styles.container}>
                 <View style={styles.mainArea}>
                     {this.state.selectedIcon === 'home' &&
-                    <AppSelector/>}
+                    <View style={{flex: 1}}>
+                        <AppSelector/>
+                    </View>}
                     {this.state.selectedIcon === 'marketplace' &&
                     <MarketplaceScreen/>}
                     {this.state.selectedIcon === 'profile' &&
