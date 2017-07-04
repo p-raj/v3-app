@@ -16,8 +16,7 @@ import ImageIconComponent from '../../components/ui-components/ImageIconComponen
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        paddingHorizontal: '5%'
+        flexGrow: 1,
     },
     grid: {
         flex: 1,
@@ -78,7 +77,7 @@ class OrganizationPane extends React.Component {
                     pathname: `applications/${this.state.applicationUUID}`,
                     search: search
                 }}/>}
-                <View style={{flex: 2}}>
+                <View style={{flex: 2,padding: '5%'}}>
                     <OrganizationComponent organizationName={value.organization.name}
                                            image={value.organization.avatar}
                                            date={value.created_at}/>

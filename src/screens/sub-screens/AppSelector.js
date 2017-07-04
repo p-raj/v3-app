@@ -81,7 +81,6 @@ class AppSelector extends React.Component {
     };
 
     render() {
-
         if (!_.isEmpty(this.props.memberships)) {
             return (
                 <View style={styles.container}>
@@ -94,7 +93,6 @@ class AppSelector extends React.Component {
                 </View>
             )
         }
-
         return (
             <RequestProcess
                 name={'list_user_memberships'}
