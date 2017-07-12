@@ -8,10 +8,9 @@
  *
  * */
 import React from 'react';
-import Request, { STATE }from 're-quests';
-import { Text, View } from 'react-native';
+import Request from 're-quests';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
-import RN from 'react-native';
 import { Widgets } from '../../../utils/endpoints';
 import { saveWidgetConfig } from '../../../redux/actions/config';
 
@@ -40,12 +39,6 @@ export function withConfig(WrappedComponent) {
                     }}
                     onSuccess={this.onSuccess}>
                     <View>
-                        <Request.RenderIf stateIn={[STATE.INIT]}>
-                            <View>
-                                <RN.ActivityIndicator size={"large"} color='black'/>
-                                <Text>Downloading Config</Text>
-                            </View>
-                        </Request.RenderIf>
                     </View>
                 </Request>
             );
