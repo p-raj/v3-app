@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Image, TextInput, ActivityIndicator, Text, Platform, Dimensions } from 'react-native';
-import { Button } from '../../v3-core/re-render';
+import { StyleSheet, View, Image, ActivityIndicator, Text, Platform, Dimensions } from 'react-native';
+import { Button, TextInput } from '../../v3-core/re-render';
 import { connect } from 'react-redux';
 import { withAuthentication } from '../../v3-core/components/hoc/Auth';
 import theme from '../../utils/theme'
