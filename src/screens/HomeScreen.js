@@ -38,8 +38,7 @@ const styles = StyleSheet.create({
     },
     dock: {
         flex: 1.5,
-        justifyContent: 'space-between',
-        paddingHorizontal: '5%',
+        justifyContent: 'space-around',
         alignItems: 'center',
         flexDirection: 'row',
         backgroundColor: '#e2e2e2',
