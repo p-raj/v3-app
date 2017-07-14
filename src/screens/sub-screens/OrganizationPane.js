@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     grid: {
         flex: 1,
-        justifyContent: 'space-between'
+        justifyContent: 'space-around'
     },
     organizationName: {
         fontSize: theme.h0,
@@ -107,7 +107,7 @@ class OrganizationPane extends React.Component {
                                         blockTransitionDuration={ 400 }
                                         activeBlockCenteringDuration={ 200 }
                                         itemsPerRow={ 3 }
-                                        dragActivationTreshold={ 200 }>
+                                        dragActivationTreshold={ 0 }>
                                         {
                                             this.state[`application-${key}-data`].map((data, index) => {
                                                 return (

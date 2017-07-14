@@ -13,7 +13,7 @@ class CarouselComponent extends React.Component {
 
     render() {
         let settings = {
-            dots: true,
+            dots: false,
             infinite: true,
             speed: 800,
             slidesToShow: 1,
