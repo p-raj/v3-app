@@ -38,8 +38,7 @@ class ImageIconComponent extends React.Component {
             <View style={styles.iconContainer}>
                 <TouchableHighlight onPress={this.props.onIconPress}>
                     <Image source={{uri: this.props.imageUrl || "http://via.placeholder.com/65x65"}}
-                           style={styles.image}
-                           resizeMethod={'contain'}/>
+                           style={styles.image}/>
                 </TouchableHighlight>
                 <Text numberOfLines={1} style={styles.iconText}>{this.props.iconText}</Text>
             </View>
