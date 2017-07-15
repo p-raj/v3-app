@@ -8,7 +8,7 @@ import WidgetLayout from '../../v3-core/components/dynamic/WidgetLayout';
 import * as actions from '../../redux/actions/actions';
 import updateComponentData from '../../redux/actions/updateComponentData';
 import { dequeueAction, enqueueAction } from '../../redux/actions/actionQueue';
-import { Spinner } from 're-render';
+import { Spinner } from '../../v3-core/re-render';
 import { toDotNotation } from '../../v3-core/utils';
 
 const {width} = Dimensions.get('window');
@@ -204,7 +204,7 @@ class Widget extends React.Component {
                 // Set the properties to be changed in local state
                 // A change in state will trigger re-render and so will the loadValues method
                 // But this time loadValues will also load the properties to be changed
-                this.data[action.options.as] = this.data[action.options.key];
+                this.data[action.options.as] = toDotNotation(this.data)[action.options.key];
                 this.props.dispatch(actions.execute(action, this.actionContext, data));
                 break;
             case '$operation':

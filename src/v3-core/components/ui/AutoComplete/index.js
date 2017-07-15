@@ -1,3 +1,3 @@
-import { AutoComplete } from 're-render';
+import { AutoComplete } from '../../../re-render';
 
 export default AutoComplete;

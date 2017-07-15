@@ -1,3 +1,3 @@
-import {CheckBox} from 're-render';
+import {CheckBox} from '../../../re-render';
 
 export default CheckBox;

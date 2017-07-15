@@ -1,3 +1,3 @@
-import { MultiSelect, MultiSelectItem } from 're-render';
+import { MultiSelect, MultiSelectItem } from '../../../re-render';
 
 export default {MultiSelect, MultiSelectItem};

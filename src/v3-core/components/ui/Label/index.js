@@ -1,3 +1,3 @@
-import { Label } from 're-render';
+import { Text as Label } from '../../../re-render';
 
 export default Label;

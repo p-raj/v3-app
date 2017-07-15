@@ -1,3 +1,3 @@
-import { Dropdown } from 're-render';
+import { Dropdown } from '../../../re-render';
 
 export default Dropdown;
