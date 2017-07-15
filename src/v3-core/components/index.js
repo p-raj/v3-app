@@ -19,6 +19,7 @@ import VerticalLayout from './layouts/VerticalLayout';
 
 import { withValues } from './hoc/withValues';
 import { withFormat } from './hoc/withFormat';
+import { withStyle } from './hoc/withStyle';
 
 import { withButtonProps } from './hoc/Button/Props';
 import { withTextInputProps } from './hoc/TextInput/Props';
@@ -44,7 +45,11 @@ import { withRecyclerViewProps } from './hoc/RecyclerView/Props';
 class ComponentFactory {
     static get(type) {
         const Component = this.find(type);
-        return withValues(withFormat(Component));
+        return withValues(
+            withFormat(
+                withStyle(Component)
+            )
+        );
     }
 
     static find(type) {
