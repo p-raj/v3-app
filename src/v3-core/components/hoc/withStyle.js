@@ -23,9 +23,11 @@ export function withStyle(WrappedComponent) {
                 );
             }
 
-            const sheet = StyleSheet.create({style});
+            // TODO
+            // validate incoming styles
+            // const sheet = StyleSheet.create({style});
             return (
-                <WrappedComponent {...props} style={[sheet.style]} />
+                <WrappedComponent {...props} style={style} />
             );
         }
     }
