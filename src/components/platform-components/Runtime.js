@@ -71,7 +71,6 @@ class Runtime extends React.Component {
                             <View style={styles.wrapper}>
                                 <View style={{flex: 0.5}}>
                                     <NavBarComponent
-                                        appName={this.props.runtime.name}
                                         onCloseClicked={this.onAppClosed}
                                         onBackClicked={this.onBackClicked}/>
                                 </View>
@@ -154,3 +153,47 @@ Runtime = connect((store) => {
 })(Runtime);
 
 export default Runtime;
+
+
+/**
+ *
+ * System Process implementation for api used above to get widgets, doesn't works as of now because it doesn't return session ID
+ * Issue from backend (A.P.'s side)
+ *
+ <RequestProcess
+ name="get_application_widgets"
+ data={{
+        uuid: this.props.runtime.uuid,
+        'VERIS-RESOURCE': `Veris organization:${this.props.membership.organization.uuid}:member:${this.props.membership.uuid}`
+
+    }}
+ onSuccess={ (response) => {
+        this.setState({sessionId: response.headers["x-vrt-session"]});
+        this.props.dispatch(widgetSuccess(this.props.runtime, response));
+    }}>
+ <View>
+ <Request.Start>
+ <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
+ <ActivityIndicator size={'large'} style={styles.activityIndicator}
+ color={theme.black}/>
+ </View>
+ </Request.Start>
+ <Request.Success>
+ <View style={styles.wrapper}>
+ <View style={{flex: 0.5}}>
+ <NavBarComponent
+ appName={this.props.runtime.name}
+ onCloseClicked={this.onAppClosed}
+ onBackClicked={this.onBackClicked}/>
+ </View>
+ <View style={{flex: 9, alignItems: 'center'}}>
+ <WidgetContainer
+ session={this.getSession()}
+ widgets={this.getWidgets()}
+ runtime={this.props.runtime}/>
+ </View>
+ </View>
+ </Request.Success>
+ </View>
+ </RequestProcess>
+ **/

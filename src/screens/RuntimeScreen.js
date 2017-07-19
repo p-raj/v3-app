@@ -15,7 +15,7 @@ class RuntimeScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            runtime: ''
+            runtime: undefined
         }
     }
 

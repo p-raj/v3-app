@@ -5,7 +5,6 @@ export const BASE_URL = (Platform.OS === 'web') ? '' :
 
 
 export const LIST_RUNTIMES = `${BASE_URL}/api/v1/runtimes/`;
-export const LOGIN = `${BASE_URL}/micro-service/user/login/`;
 export const REFRESH_TOKEN = `${BASE_URL}/api/v1/token/`;
 export const GET_SESSION_DATA = `${BASE_URL}/api/v1/sessions/`;
 export const RUNTIMES_API = `${BASE_URL}/api/v1/runtimes/`;

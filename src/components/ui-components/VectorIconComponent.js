@@ -1,20 +1,3 @@
-/**
- * Home Screen decides the layout of the components like
- * MembershipBar & RuntimeContainer.
- *
- * Lifting the state up, things have changed since
- * the last time this file created:
- * MembershipBar was supposed to hide when logged in a terminal.
- * No longer the case, we don't have any special case.
- * Every membership has Runtime associated with it.
- * Terminal - a type of membership now.
- *
- * Now, we need to show a Component showing,
- * no memberships assigned.
- * The current implementation will show this in 2 splits:
- * No memberships & no runtimes. :(
- *
- * */
 import React  from 'react';
 import RN, { Text, TouchableHighlight, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';

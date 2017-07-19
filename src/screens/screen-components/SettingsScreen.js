@@ -3,7 +3,7 @@ import { StyleSheet, View, Dimensions, } from 'react-native';
 import { connect } from 'react-redux';
 import { withAuthentication } from '../../v3-core/components/hoc/Auth';
 import BlurView from '../../v3-core/components/ui/BlurView';
-import IconComponent from '../../components/ui-components/IconComponent';
+import IconComponent from '../../components/ui-components/VectorIconComponent';
 import { logout } from '../../redux/actions/auth';
 
 const {height, width} = Dimensions.get('window');

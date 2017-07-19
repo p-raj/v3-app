@@ -3,8 +3,8 @@ import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
 import { authSuccess } from '../redux/actions/auth';
 import _ from 'lodash';
 import theme from '../utils/theme'
-import SignupComponent from '../components/ui-components/SignupComponent';
-import LoginComponent from '../components/ui-components/LoginComponent';
+import SignupComponent from './screen-components/SignupComponent';
+import LoginComponent from './screen-components/LoginComponent';
 
 const styles = StyleSheet.create({
     container: {

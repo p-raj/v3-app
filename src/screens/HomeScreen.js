@@ -1,32 +1,18 @@
 /**
- * Home Screen decides the layout of the components like
- * MembershipBar & RuntimeContainer.
- *
- * Lifting the state up, things have changed since
- * the last time this file created:
- * MembershipBar was supposed to hide when logged in a terminal.
- * No longer the case, we don't have any special case.
- * Every membership has Runtime associated with it.
- * Terminal - a type of membership now.
- *
- * Now, we need to show a Component showing,
- * no memberships assigned.
- * The current implementation will show this in 2 splits:
- * No memberships & no runtimes. :(
- *
+
  * */
 import React from 'react';
 import { StyleSheet }  from 'react-native';
 import { connect } from 'react-redux';
 import View from '../v3-core/components/ui/View';
 import { withAuthentication } from '../v3-core/components/hoc/Auth';
-import AppSelector from './sub-screens/AppSelector';
-import ProfileScreen from './sub-screens/ProfileScreen';
+import AppSelector from './screen-components/AppSelector';
+import ProfileScreen from './screen-components/ProfileScreen';
 import  BlurView from '../v3-core/components/ui/BlurView'
-import SettingsScreen from './sub-screens/SettingsScreen';
-import MarketplaceScreen from './sub-screens/MarketplaceScreen';
+import SettingsScreen from './screen-components/SettingsScreen';
+import MarketplaceScreen from './screen-components/MarketplaceScreen';
 import theme from '../utils/theme'
-import IconComponent from '../components/ui-components/IconComponent';
+import IconComponent from '../components/ui-components/VectorIconComponent';
 
 const styles = StyleSheet.create({
     container: {
