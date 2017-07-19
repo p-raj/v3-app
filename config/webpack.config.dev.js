@@ -139,7 +139,7 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                exclude: /node_modules\/(?!(react-native-elements|react-jsoneditor|react-native-sortable-grid|react-native-looped-carousel|react-native-grid-component|react-native-modalbox|re-render|react-native-tab-view|react-native-vector-icons|react-native-drawer|react-native-scrollable-tab-view|react-native-popup-dialog|react-native-side-menu|react-native-tab-navigator)\/).*/,
+                exclude: /node_modules\/(?!(react-native-elements|react-jsoneditor|react-native-sortable-grid|react-native-looped-carousel|react-native-modalbox|re-render|react-native-tab-view|react-native-vector-icons|react-native-drawer|react-native-scrollable-tab-view|react-native-popup-dialog|react-native-side-menu|react-native-tab-navigator)\/).*/,
                 loader: 'babel-loader'
             },
             // "postcss" loader applies autoprefixer to our CSS.

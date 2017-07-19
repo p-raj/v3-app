@@ -25,7 +25,7 @@ import { toDotNotation } from '../../../utils';
 class WithValueItem extends React.Component {
     // noinspection JSUnusedGlobalSymbols
     getChildContext() {
-        const {value, ...props} = this.props;
+        const {value} = this.props;
 
         // TODO
         // a possibility is if some component
@@ -39,7 +39,7 @@ class WithValueItem extends React.Component {
 
     render() {
         // eslint-disable-next-line
-        const {item, value, ...props} = this.props;
+        const {item, ...props} = this.props;
         return (
             <Item item={item} {...props}/>
         )
@@ -73,8 +73,6 @@ export function withRecyclerViewProps(WrappedComponent) {
         render() {
             // eslint-disable-next-line
             const {
-                action,
-                setVariable,
                 value,
                 orientation,
                 item,

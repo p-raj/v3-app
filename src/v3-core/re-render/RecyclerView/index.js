@@ -12,10 +12,6 @@ class RecyclerViewItem extends React.Component {
     render() {
         // eslint-disable-next-line
         const {
-            rowData,
-            sectionId,
-            rowId,
-            highlightRow,
             overlay,
             ...props
         } = this.props;

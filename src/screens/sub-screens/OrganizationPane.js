@@ -1,11 +1,10 @@
 import * as _ from 'lodash';
 import Request from 're-quests';
 import React from 'react';
-import { ActivityIndicator, StyleSheet, Text, View, Platform } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { Redirect } from '../../v3-core/utils/router';
 import RequestProcess from '../../v3-core/utils/network/RequestProcess';
 import theme from '../../utils/theme'
-import IconComponent from '../../components/ui-components/IconComponent';
 import SortableGrid from 'react-native-sortable-grid'
 import { connect } from 'react-redux';
 import { withAuthentication } from '../../v3-core/components/hoc/Auth';
@@ -77,7 +76,7 @@ class OrganizationPane extends React.Component {
                     pathname: `applications/${this.state.applicationUUID}`,
                     search: search
                 }}/>}
-                <View style={{flex: 2,padding: '5%'}}>
+                <View style={{flex: 2, padding: '5%'}}>
                     <OrganizationComponent organizationName={value.organization.name}
                                            image={value.organization.avatar}
                                            date={value.created_at}/>

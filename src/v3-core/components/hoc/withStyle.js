@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 /**
@@ -23,9 +22,9 @@ export function withStyle(WrappedComponent) {
                 );
             }
 
-            const sheet = StyleSheet.create({style});
+            // const sheet = StyleSheet.create({style});
             return (
-                <WrappedComponent {...props} style={[sheet.style]} />
+                <WrappedComponent {...props} style={style} />
             );
         }
     }

@@ -16,7 +16,6 @@ class Item extends React.Component {
     render() {
         const {
             item,
-            onItemSelect,
             showBorder,
             isSelectableItem
         } = this.props;

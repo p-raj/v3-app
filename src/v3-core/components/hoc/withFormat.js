@@ -43,7 +43,8 @@ export function withFormat(WrappedComponent) {
 
             if (type === 'date') {
                 const date = new Date(value);
-                value = date.toLocaleString(locale, opts);
+
+                value = `${date.toLocaleString(locale, opts)}`;
             }
 
             return (

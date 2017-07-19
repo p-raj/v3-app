@@ -1,7 +1,6 @@
 import React  from 'react';
 import RN, { Image, Text, TouchableHighlight, View } from 'react-native';
 import theme from '../../utils/theme'
-import PropTypes from 'prop-types';
 
 
 const styles = RN.StyleSheet.create({

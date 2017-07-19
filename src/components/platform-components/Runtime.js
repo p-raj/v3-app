@@ -69,7 +69,7 @@ class Runtime extends React.Component {
                         </Request.Start>
                         <Request.Success>
                             <View style={styles.wrapper}>
-                                <View style={{flex: 1.5}}>
+                                <View style={{flex: 0.5}}>
                                     <NavBarComponent
                                         onCloseClicked={this.onAppClosed}
                                         onBackClicked={this.onBackClicked}/>

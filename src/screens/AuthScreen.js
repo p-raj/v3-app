@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View, ActivityIndicator } from 'react-native';
+import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
 import { authSuccess } from '../redux/actions/auth';
 import _ from 'lodash';
 import theme from '../utils/theme'
@@ -98,7 +98,7 @@ class AuthScreen extends React.Component {
                             placeholderTextColor={"#b2b2b2"}
                             style={styles.textInput}
                             autoCapitalize={"none"}
-                            autoComplete={false}
+                            autoComplete={"false"}
                             underlineColorAndroid={"transparent"}
                             keyboardType="email-address"
                             autoFocus={true}
@@ -116,7 +116,7 @@ class AuthScreen extends React.Component {
                             placeholderTextColor={"#b2b2b2"}
                             style={styles.textInput}
                             underlineColorAndroid={"transparent"}
-                            autoComplete={false}
+                            autoComplete={"false"}
                             secureTextEntry={true}
                             keyboardType="default"
                             enablesReturnKeyAutomatically={true}

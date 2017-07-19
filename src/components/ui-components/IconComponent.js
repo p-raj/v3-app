@@ -16,10 +16,9 @@
  *
  * */
 import React  from 'react';
-import RN, { Image, Text, TouchableHighlight, View } from 'react-native';
+import RN, { Text, TouchableHighlight, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import theme from '../../utils/theme'
-import PropTypes from 'prop-types';
 
 
 const styles = RN.StyleSheet.create({

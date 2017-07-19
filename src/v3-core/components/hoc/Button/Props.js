@@ -32,7 +32,6 @@ export function withButtonProps(WrappedComponent) {
             // eslint-disable-next-line
             const {
                 value,
-                action,
                 style,
                 ...passThroughProps
             } = this.props;
