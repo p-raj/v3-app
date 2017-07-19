@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
         color: theme.black,
         backgroundColor: 'transparent',
         padding: 10,
+        fontWeight:"500",
         fontSize: theme.h4
     },
     buttonContainer: {
@@ -52,7 +53,7 @@ class NavBarComponent extends React.Component {
                     <Icon name="chevron-left" color="black" size={theme.h3}/>
                 </TouchableOpacity>
                 <Text style={styles.text}>
-                    App Name
+                    {this.props.appName || "Application Name"}
                 </Text>
                 <TouchableOpacity onPress={this.props.onCloseClicked}>
                     <Icon name="home" color="black" size={theme.h3}/>

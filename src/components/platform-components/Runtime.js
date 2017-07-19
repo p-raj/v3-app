@@ -71,6 +71,7 @@ class Runtime extends React.Component {
                             <View style={styles.wrapper}>
                                 <View style={{flex: 0.5}}>
                                     <NavBarComponent
+                                        appName={this.props.runtime.name}
                                         onCloseClicked={this.onAppClosed}
                                         onBackClicked={this.onBackClicked}/>
                                 </View>
