@@ -2,10 +2,12 @@
   "name": "v3App",
   "version": "0.0.1",
   "private": true,
+  "main": "index.electron.js",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest --watch",
     "web": "node scripts/start.js",
+    "electron": "electron .",
     "build": "node scripts/build.js",
     "test-web": "node scripts/test.js --env=jsdom"
   },
@@ -68,6 +70,7 @@
     "css-loader": "0.26.0",
     "detect-port": "1.0.1",
     "dotenv": "2.0.0",
+    "electron": "^1.6.11",
     "enzyme": "^2.7.1",
     "eslint": "3.8.1",
     "eslint-config-react-app": "^0.5.0",
@@ -105,7 +108,6 @@
     "whatwg-fetch": "1.0.0"
   },
   "description": "This is the cross platform NoApp.",
-  "main": "index.js",
   "preset": "react-native",
   "author": "Digicred Technologies Pvt. Ltd.",
   "license": "ISC",
