@@ -15,7 +15,7 @@ import configReducer from './configReducer';
 
 let reducer = combineReducers({
     storage: storageReducer,
-    routing: routerReducer,
+    route: routerReducer,
     auth: authReducer,
     refreshToken: refreshTokenReducer,
     memberships: membershipsReducer,
