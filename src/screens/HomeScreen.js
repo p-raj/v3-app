@@ -13,6 +13,7 @@ import SettingsScreen from './screen-components/SettingsScreen';
 import MarketplaceScreen from './screen-components/MarketplaceScreen';
 import theme from '../utils/theme'
 import IconComponent from '../components/ui-components/VectorIconComponent';
+import ToastComponent from '../components/ui-components/ToastComponent';
 
 const styles = StyleSheet.create({
     container: {
@@ -46,6 +47,7 @@ const styles = StyleSheet.create({
 class HomeScreen extends React.Component {
     constructor(props) {
         super(props);
+        this.toast = undefined;
         this.state = {
             selectedIcon: 'home',
         };
@@ -54,6 +56,13 @@ class HomeScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <ToastComponent ref={(self) => this.toast = self}
+                                styleBoard={{backgroundColor: theme.black, borderRadius: 10}}
+                                positionFromTop={0.9}
+                                styleText={{
+                                    fontSize: 16,
+                                    color: theme.extraLightWhite
+                                }}/>
                 <View style={styles.mainArea}>
                     {this.state.selectedIcon === 'home' &&
                     <View style={{flex: 1}}>

@@ -6,6 +6,7 @@ import { withAuthentication } from '../../v3-core/components/hoc/Auth';
 import theme from '../../utils/theme'
 import RequestProcess from '../../v3-core/utils/network/RequestProcess';
 import Request from 're-quests';
+import ToastComponent from '../../components/ui-components/ToastComponent';
 
 
 const styles = StyleSheet.create({
@@ -36,6 +37,9 @@ class ProfileScreen extends React.Component {
         this.state = {};
     }
 
+    profileUpdated = () => {
+        this.toast.show("This is a toast");
+    };
 
     render() {
         return (
@@ -126,7 +130,7 @@ class ProfileScreen extends React.Component {
                         this.updateProfile = request;
                     }}
                     data={{uuid: this.props.auth.uuid, name: this.state.name}}
-                    >
+                    onSuccess={this.profileUpdated}>
                     <View style={styles.container}>
                         <Request.Start>
                             <View
@@ -143,7 +147,6 @@ class ProfileScreen extends React.Component {
                         </Request.Start>
                     </View>
                 </RequestProcess>
-
             </View>
         )
     }
