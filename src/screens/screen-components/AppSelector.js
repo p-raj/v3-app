@@ -73,7 +73,7 @@ class AppSelector extends React.Component {
     getOrganizations = () => {
         return this.props.memberships.map((value, key) => {
             return (
-                <View style={styles.container}>
+                <View style={styles.container} key={key}>
                     <OrganizationPane key={key} value={value}/>
                 </View>
             );

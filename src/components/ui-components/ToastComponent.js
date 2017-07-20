@@ -10,6 +10,37 @@ import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/FontAwesome';
 const {height, width} = Dimensions.get('window');
 
+const styles = StyleSheet.create({
+    containerBasicBefore: {
+        ...StyleSheet.absoluteFillObject,
+        justifyContent: 'center',
+        alignItems: 'center',
+        opacity: 0,
+        zIndex: 30
+    },
+    containerBasicAfter: {
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        top: 0,
+        opacity: 1
+    },
+    containerFrame: {
+        position: 'absolute',
+        padding: 10
+    },
+    boardDefault: {
+        backgroundColor: 'black',
+        borderRadius: 5
+    },
+    textDefault: {
+        color: 'white',
+        fontSize: 14,
+        textAlign: 'center',
+        marginLeft: 10
+    }
+});
+
 export default class ToastComponent extends Component {
     constructor(props) {
         super(props);
@@ -141,36 +172,7 @@ export default class ToastComponent extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    containerBasicBefore: {
-        ...StyleSheet.absoluteFillObject,
-        justifyContent: 'center',
-        alignItems: 'center',
-        opacity: 0,
-        zIndex: 30
-    },
-    containerBasicAfter: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        top: 0,
-        opacity: 1
-    },
-    containerFrame: {
-        position: 'absolute',
-        padding: 10
-    },
-    boardDefault: {
-        backgroundColor: 'black',
-        borderRadius: 5
-    },
-    textDefault: {
-        color: 'white',
-        fontSize: 14,
-        textAlign: 'center',
-        marginLeft: 10
-    }
-});
+
 
 ToastComponent.defaultProps = {
     id: undefined,
