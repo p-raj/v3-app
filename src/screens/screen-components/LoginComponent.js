@@ -3,6 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View, ActivityIndicator } from 'rea
 import RequestProcess from '../../v3-core/utils/network/RequestProcess';
 import Request from 're-quests'
 import theme from '../../utils/theme'
+import ToastComponent from '../../components/ui-components/ToastComponent';
 
 const styles = StyleSheet.create({
     container: {
@@ -34,6 +35,10 @@ class LoginComponent extends React.Component {
         this.state = {};
     }
 
+    showError = (statusCode, responseObject) => {
+        this.toast.show('Invalid username or password', 2000, 2000);
+    };
+
     render() {
         return (
             <View style={styles.container}>
@@ -47,10 +52,13 @@ class LoginComponent extends React.Component {
                         email: this.props.email,
                         password: this.props.password
                     }}
-                    onError={(response) => this.setState({
-                        buttonPressed: false,
-                        backendErrorMessage: response
-                    })}
+                    onError={(response) => {
+                        this.setState({
+                            buttonPressed: false,
+                        });
+                        this.showError(response.response.status === 401, response.response)
+                    }}
+
                     onSuccess={(response) => this.props.onAuthSuccessful(response.data)}>
                     <View style={{
                         width: '100%',

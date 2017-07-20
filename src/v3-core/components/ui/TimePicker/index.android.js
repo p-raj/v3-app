@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Text, TimePickerAndroid, TouchableHighlight, View } from 'react-native';
+import { Text, TimePickerAndroid, TouchableOpacity, View } from 'react-native';
 import Moment from 'moment';
 
 
@@ -20,7 +20,7 @@ class TimePicker extends Component {
 
     render() {
         return (
-            <TouchableHighlight
+            <TouchableOpacity
                 underlayColor={'transparent'}
                 onPress={this.onPressTime}>
                 <View>
@@ -28,7 +28,7 @@ class TimePicker extends Component {
                         <Text>{this.props.defaultTime ? String(Moment(this.state.selectedTime).format(this.state.is24Hour ? 'HH:mm' : 'hh:mm A')) : this.props.placeholder}</Text>
                     </View>
                 </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
         );
     }
 

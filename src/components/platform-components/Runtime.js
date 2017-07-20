@@ -31,13 +31,11 @@ import NavBarComponent from '../ui-components/NavBarComponent';
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
     },
     wrapper: {
-        width: '100%',
-        height: '100%',
-        paddingVertical: '2%',
-        paddingHorizontal: '4%',
+        flex: 1,
+        margin: '4%',
     }
 });
 
@@ -56,11 +54,11 @@ class Runtime extends React.Component {
                 <APIServerRequestViaClient
                     url={`${LIST_RUNTIMES}${this.props.runtime.uuid}/widgets/`}
                     method={'get'}
-                    onSuccess={ (response) => {
+                    onSuccess={(response) => {
                         this.setState({sessionId: response.headers["x-vrt-session"]});
                         this.props.dispatch(widgetSuccess(this.props.runtime, response));
                     }}>
-                    <View>
+                    <View style={{flex:1}}>
                         <Request.Start>
                             <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
                                 <ActivityIndicator size={'large'} style={styles.activityIndicator}
@@ -69,8 +67,9 @@ class Runtime extends React.Component {
                         </Request.Start>
                         <Request.Success>
                             <View style={styles.wrapper}>
-                                <View style={{flex: 0.5}}>
+                                <View style={{flex: 1}}>
                                     <NavBarComponent
+                                        appName={this.props.runtime.name}
                                         onCloseClicked={this.onAppClosed}
                                         onBackClicked={this.onBackClicked}/>
                                 </View>
@@ -85,7 +84,7 @@ class Runtime extends React.Component {
                     </View>
 
                 </APIServerRequestViaClient>
-                { this.state.closeSession &&
+                {this.state.closeSession &&
                 <RequestProcess
                     name="session_cancel"
                     data={{uuid: this.state.sessionId}}>

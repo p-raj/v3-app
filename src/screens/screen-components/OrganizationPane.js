@@ -101,7 +101,7 @@ class OrganizationPane extends React.Component {
                             </Request.Start>
                             {!_.isEmpty(this.state[`application-${key}-data`]) &&
                             <Request.Success>
-                                <View style={{flex: 1, alignContent: 'flex-start'}}>
+                                <View style={{flex: 1, justifyContent: 'flex-start'}}>
                                     <SortableGrid
                                         blockTransitionDuration={ 400 }
                                         activeBlockCenteringDuration={ 200 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
-import { authSuccess } from '../redux/actions/auth';
+import { authSuccess } from '../../redux/actions/auth';
 import _ from 'lodash';
-import theme from '../utils/theme'
-import SignupComponent from './screen-components/SignupComponent';
-import LoginComponent from './screen-components/LoginComponent';
+import theme from '../../utils/theme'
+import SignupComponent from './SignupComponent';
+import LoginComponent from './LoginComponent';
 
 const styles = StyleSheet.create({
     container: {
@@ -85,7 +85,7 @@ class AuthScreen extends React.Component {
                     <View style={{flexDirection: 'row', flex: 1, alignItems: 'center'}}>
                         <View style={{flex: 1, alignItems:'flex-start'}}>
                             <Image
-                                source={require('../assets/images/EkkaLogo.png')}
+                                source={require('../../assets/images/EkkaLogo.png')}
                                 resizeMode={'contain'}
                                 style={styles.logo}
                             />

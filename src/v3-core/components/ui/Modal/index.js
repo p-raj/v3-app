@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TouchableHighlight, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import ReactModal from 'react-modal';
 import { IconButton } from 're-render';
 
@@ -59,12 +59,12 @@ export default class M extends Component {
                     </View>
                 </ReactModal>
 
-                <TouchableHighlight
+                <TouchableOpacity
                     onPress={() => {
                         this.setModalVisible(true)
                     }}>
                     <Text>{this.props.buttonText}</Text>
-                </TouchableHighlight>
+                </TouchableOpacity>
 
             </View>
         );

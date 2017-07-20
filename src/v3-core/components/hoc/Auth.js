@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 
 import _ from 'lodash';
 
-import AuthScreen from '../../../screens/AuthScreen';
+import AuthScreen from '../../../screens/screen-components/AuthComponent';
 
 import loadPersistentData from '../../../redux/actions/storage';
 import refreshToken from '../../../../src/redux/actions/refreshToken';

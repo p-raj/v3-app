@@ -1,6 +1,7 @@
-import React  from 'react';
-import RN, { Image, Text, TouchableHighlight, View } from 'react-native';
+import React from 'react';
+import RN, { Image, Text, TouchableOpacity, View } from 'react-native';
 import theme from '../../utils/theme'
+import * as _ from 'lodash';
 
 
 const styles = RN.StyleSheet.create({
@@ -35,10 +36,11 @@ class ImageIconComponent extends React.Component {
     render() {
         return (
             <View style={styles.iconContainer}>
-                <TouchableHighlight onPress={this.props.onIconPress}>
-                    <Image source={{uri: this.props.imageUrl || "http://via.placeholder.com/65x65"}}
-                           style={styles.image}/>
-                </TouchableHighlight>
+                <TouchableOpacity onPress={this.props.onIconPress}>
+                    <Image
+                        source={{uri: _.isEmpty(this.props.imageUrl) ? "http://via.placeholder.com/65x65" : this.props.imageUrl}}
+                        style={styles.image}/>
+                </TouchableOpacity>
                 <Text numberOfLines={1} style={styles.iconText}>{this.props.iconText}</Text>
             </View>
         )

@@ -259,6 +259,13 @@
 			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
 			remoteInfo = RNVectorIcons;
 		};
+		CAFFC0101F20AB4100761D92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36F3A91C9BD847278FF72D62 /* RNBlur.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 64D1BD361EEFE88700F3F219;
+			remoteInfo = "RNBlur-tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -540,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				CABF4C031EE92D02001C1279 /* libRNBlur.a */,
+				CAFFC0111F20AB4100761D92 /* libRNBlur.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -929,6 +937,13 @@
 			remoteRef = CAC4F95B1E9B88F1006F6262 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		CAFFC0111F20AB4100761D92 /* libRNBlur.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNBlur.a;
+			remoteRef = CAFFC0101F20AB4100761D92 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1083,7 +1098,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = in.veris.v3;
+				PRODUCT_BUNDLE_IDENTIFIER = noapp.world.ekka;
 				PRODUCT_NAME = veris_client;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1109,7 +1124,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = in.veris.v3;
+				PRODUCT_BUNDLE_IDENTIFIER = noapp.world.ekka;
 				PRODUCT_NAME = veris_client;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

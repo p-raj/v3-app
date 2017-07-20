@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import humanReadableDateTime from '../../utils/HumanReadableDateTime';
 import theme from '../../utils/theme'
 import { withAuthentication } from '../../v3-core/components/hoc/Auth';
+import * as _ from 'lodash';
 
 
 const styles = StyleSheet.create({
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     image: {
         alignSelf: 'center',
         borderRadius: 10,
-        backgroundColor: theme.white,
+        backgroundColor: 'transparent',
         height: 70,
         width: 70,
         padding: 16
@@ -64,9 +65,9 @@ class OrganizationComponent extends React.Component {
                     </View>
                     <Image
                         source={{
-                            uri: this.props.image.startsWith('http') ?
-                                this.props.image :
-                                "http://via.placeholder.com/70x70"
+                            uri: _.isEmpty(this.props.image) ?
+                                "http://via.placeholder.com/70x70" :
+                                this.props.image
                         }}
                         resizeMode="contain"
                         style={styles.image}/>

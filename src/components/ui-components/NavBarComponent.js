@@ -16,18 +16,19 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottomWidth: 1,
+        borderBottomWidth: 0.5,
         borderColor: theme.extraLightBlack,
-        padding: 10,
-        marginBottom: 20
+        marginVertical: 10,
     },
     text: {
         alignSelf: 'center',
         color: theme.black,
         backgroundColor: 'transparent',
-        padding: 10,
-        fontWeight:"500",
-        fontSize: theme.h4
+        margin: 10,
+        fontWeight: "500",
+        fontSize: theme.h4,
+        flex: 1,
+        textAlign:'center'
     },
     buttonContainer: {
         flex: 1,
@@ -52,7 +53,8 @@ class NavBarComponent extends React.Component {
                 <TouchableOpacity onPress={this.props.onBackClicked}>
                     <Icon name="chevron-left" color="black" size={theme.h3}/>
                 </TouchableOpacity>
-                <Text style={styles.text}>
+                <Text style={styles.text}
+                      numberOfLines={1}>
                     {this.props.appName || "Application Name"}
                 </Text>
                 <TouchableOpacity onPress={this.props.onCloseClicked}>

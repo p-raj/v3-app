@@ -1,5 +1,5 @@
 import React  from 'react';
-import RN, { Text, TouchableHighlight, View } from 'react-native';
+import RN, { Text, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import theme from '../../utils/theme'
 
@@ -45,11 +45,11 @@ class IconComponent extends React.Component {
     render() {
         return (
             <View style={[styles.iconContainer, {...this.props.iconContainerStyle}]}>
-                <TouchableHighlight
+                <TouchableOpacity
                     style={styles.iconShape}
                     onPress={this.props.onIconPress}>
                     <Icon name={this.props.iconLogo} size={32} color={theme.white}/>
-                </TouchableHighlight>
+                </TouchableOpacity>
                 <Text numberOfLines={1} style={styles.iconText}>{this.props.iconText}</Text>
             </View>
         )

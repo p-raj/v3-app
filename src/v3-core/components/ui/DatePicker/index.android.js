@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { DatePickerAndroid, Text, TouchableHighlight, View } from 'react-native';
+import { DatePickerAndroid, Text, TouchableOpacity, View } from 'react-native';
 import Moment from 'moment';
 
 
@@ -20,7 +20,7 @@ class DatePicker extends Component {
 
     render() {
         return (
-            <TouchableHighlight
+            <TouchableOpacity
                 underlayColor={'transparent'}
                 onPress={this.onPressDate}>
                 <View>
@@ -28,7 +28,7 @@ class DatePicker extends Component {
                         <Text>{this.props.placeholder}</Text>
                     </View>
                 </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
         );
     }
 

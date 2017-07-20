@@ -6,7 +6,6 @@ import { withAuthentication } from '../../v3-core/components/hoc/Auth';
 import theme from '../../utils/theme'
 import RequestProcess from '../../v3-core/utils/network/RequestProcess';
 import Request from 're-quests';
-import ToastComponent from '../../components/ui-components/ToastComponent';
 
 
 const styles = StyleSheet.create({
@@ -28,6 +27,14 @@ const styles = StyleSheet.create({
         minWidth: '80%',
         marginBottom: 10,
     },
+    image: {
+        borderRadius: 45,
+        backgroundColor: theme.black,
+        height: 90,
+        width: 90,
+        marginBottom: 20,
+        marginTop: 40
+    }
 });
 const {height} = Dimensions.get('window');
 
@@ -46,14 +53,7 @@ class ProfileScreen extends React.Component {
             <View style={styles.container}>
                 <Image
                     source={{uri: this.props.auth.avatar_thumbnail}}
-                    style={{
-                        borderRadius: 45,
-                        backgroundColor: theme.black,
-                        height: 90,
-                        width: 90,
-                        marginBottom: 20,
-                        marginTop: 40
-                    }}/>
+                    style={styles.image}/>
                 <View style={{justifyContent: 'center', alignItems: 'center'}}>
                     <View style={styles.texInputWrapper}>
                         <TextInput
@@ -91,7 +91,7 @@ class ProfileScreen extends React.Component {
                             secureTextEntry={true}
                             placeholderTextColor={theme.extraLightBlack}
                             onChangeText={(currentPassword) => this.setState({currentPassword})}
-                            value={ this.state.currentPassword} style={styles.textInput}/>
+                            value={this.state.currentPassword} style={styles.textInput}/>
                     </View>
                     <View style={styles.texInputWrapper}>
                         <TextInput
@@ -103,7 +103,7 @@ class ProfileScreen extends React.Component {
                             secureTextEntry={true}
                             placeholderTextColor={theme.extraLightBlack}
                             onChangeText={(newPassword) => this.setState({newPassword})}
-                            value={ this.state.newPassword || ""} style={styles.textInput}/>
+                            value={this.state.newPassword || ""} style={styles.textInput}/>
                     </View>
                     <View style={styles.texInputWrapper}>
                         <TextInput
@@ -115,10 +115,10 @@ class ProfileScreen extends React.Component {
                             secureTextEntry={true}
                             placeholderTextColor={theme.extraLightBlack}
                             onChangeText={(confirmNewPassword) => this.setState({confirmNewPassword})}
-                            value={ this.state.confirmNewPassword} style={styles.textInput}/>
+                            value={this.state.confirmNewPassword} style={styles.textInput}/>
                     </View>
                 </View>
-                <View style={{marginVertical: 10, borderColor: theme.black, borderWidth: 1, minWidth: '80%',}}>
+                <View style={{marginVertical: 10, borderColor: theme.black, borderWidth: 1, minWidth: '80%'}}>
                     <Button style={{backgroundColor: "transparent", color: theme.black}} onPress={() => {
                         this.updateProfile.getWrappedInstance().fire();
                     }} title="Update Profile"/>
