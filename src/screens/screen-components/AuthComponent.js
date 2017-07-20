@@ -9,12 +9,13 @@ import LoginComponent from './screen-components/LoginComponent';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'space-between',
+        padding: '10%',
     },
     logo: {
-        width: 150,
-        height: 150,
-        marginBottom: 30
+        flex: 1,
+        alignSelf: 'flex-start',
+        width: 140,
+        height: 140
     },
     texInputWrapper: {
         borderBottomWidth: 1,
@@ -23,23 +24,23 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     textInput: {
-        height: 50,
-        fontSize: 22,
+        height: 40,
+        fontSize: 20,
         borderWidth: 0,
         color: theme.black,
     },
     buttonContainer: {
         flexDirection: 'row',
         width: '100%',
-        height: 50,
-        borderWidth: 1,
-        borderColor: theme.lightBlack,
+        height: 40,
+        justifyContent: 'space-between',
+        marginVertical: 20
     },
     error: {
         color: theme.errorMessageColor
     },
     divider: {
-        width: 1,
+        width: 0.7,
         height: '80%',
         backgroundColor: theme.lightBlack,
         alignSelf: 'center'
@@ -47,9 +48,14 @@ const styles = StyleSheet.create({
     welcome: {
         backgroundColor: 'transparent',
         fontSize: 36,
-        marginBottom: 10,
-        textAlign: 'left',
         color: theme.black
+    },
+    button: {
+        width: "45%",
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: theme.lightBlack
     }
 
 });
@@ -75,23 +81,46 @@ class AuthScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={{padding: '10%'}}>
-                    <Image
-                        source={require('../assets/images/logo.png')}
-                        resizeMode={'contain'}
-                        style={styles.logo}
-                    />
-                    <Text style={styles.welcome}>
-                        Welcome
-                    </Text>
-                    <Text style={{backgroundColor: 'transparent', fontSize: 20, color: theme.black}}>
-                        {"Discover amazing apps, "}
-                    </Text>
-                    <Text style={{backgroundColor: 'transparent', fontSize: 20, marginBottom: 10, color: theme.black}}>
-                        {"specially crafted for your taste. "}
-                    </Text>
+                <View style={{flex: 4}}>
+                    <View style={{flexDirection: 'row', flex: 1, alignItems: 'center'}}>
+                        <View style={{flex: 1, alignItems:'flex-start'}}>
+                            <Image
+                                source={require('../assets/images/EkkaLogo.png')}
+                                resizeMode={'contain'}
+                                style={styles.logo}
+                            />
+                        </View>
+                        <View style={{flex: 1}}>
+                            <Text style={styles.welcome}>
+                                EKKA
+                            </Text>
+                            <Text
+                                numberOfLines={1}
+                                style={{
+                                    backgroundColor: 'transparent',
+                                    fontSize: 13,
+                                    color: theme.black
+                                }}>
+                                World is your wokplace
+                            </Text>
+                        </View>
+                    </View>
+                    <View style={{flex: 1, alignItems: 'flex-start'}}>
+                        <Text style={{backgroundColor: 'transparent', fontSize: 20, marginTop: 10, color: theme.black}}>
+                            {"Discover amazing apps, "}
+                        </Text>
+                        <Text style={{
+                            backgroundColor: 'transparent',
+                            fontSize: 20,
+                            marginBottom: 10,
+                            color: theme.black
+                        }}>
+                            {"specially crafted for your taste. "}
+                        </Text>
+                    </View>
                 </View>
-                <View style={{flex: 1, padding: '10%',}}>
+
+                <View style={{flex: 6}}>
                     <View style={styles.texInputWrapper}>
                         <TextInput
                             placeholder="Email"
@@ -99,6 +128,7 @@ class AuthScreen extends React.Component {
                             style={styles.textInput}
                             autoCapitalize={"none"}
                             autoComplete={"false"}
+                            autoCorrect={false}
                             underlineColorAndroid={"transparent"}
                             keyboardType="email-address"
                             autoFocus={true}
@@ -115,6 +145,7 @@ class AuthScreen extends React.Component {
                             placeholder="Password"
                             placeholderTextColor={"#b2b2b2"}
                             style={styles.textInput}
+                            autoCorrect={false}
                             underlineColorAndroid={"transparent"}
                             autoComplete={"false"}
                             secureTextEntry={true}
@@ -132,25 +163,19 @@ class AuthScreen extends React.Component {
                     <Text style={styles.error}>
                         Incorrect email or password.
                     </Text>}
-                    { this.state.backendErrorMessage &&
+                    {this.state.backendErrorMessage &&
                     <Text style={styles.error}>
                         {this.state.backendErrorMessage.toString()}
                     </Text>}
-                </View>
-                <View style={{flex: 1, justifyContent: 'flex-end'}}>
                     <View style={styles.buttonContainer}>
-                        <View style={{width: "50%", justifyContent: 'center', alignItems: 'center'}}>
+                        <View style={styles.button}>
                             <LoginComponent
                                 email={this.state.email}
                                 password={this.state.password}
                                 onAuthSuccessful={this.onAuthSuccessful}/>
                         </View>
-                        <View style={styles.divider}/>
-                        <View style={{
-                            width: "50%",
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}>
+                        {/*<View style={styles.divider}/>*/}
+                        <View style={styles.button}>
                             <SignupComponent
                                 email={this.state.email}
                                 password={this.state.password}
