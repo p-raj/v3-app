@@ -83,11 +83,11 @@ class HomeScreen extends React.Component {
                                    onIconPress={() => {
                                        this.setState({selectedIcon: 'home'})
                                    }}/>
-                    <IconComponent iconLogo={'user'} iconText={'Profile'}
+                    <IconComponent iconLogo={'users'} iconText={'Memberships'}
                                    onIconPress={() => {
                                        this.setState({selectedIcon: 'profile'})
                                    }}/>
-                    <IconComponent iconLogo={'play'} iconText={'Marketplace'}
+                    <IconComponent iconLogo={'shopping-bag'} iconText={'Marketplace'}
                                    onIconPress={() => {
                                        this.setState({selectedIcon: 'marketplace'})
                                    }}/>
