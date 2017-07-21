@@ -5,6 +5,7 @@
  * the state of the request is stored here as well.
  */
 import * as TYPE from '../actions/membership';
+import {LOGOUT_CURRENT_USER} from '../actions/auth';
 import { LOAD_REDUX_STATE } from '../actions/storage';
 
 
@@ -39,6 +40,8 @@ export default function membershipReducer(state = {}, action) {
                 ...state,
                 // selected: action.payload.memberships.selected
             };
+        case LOGOUT_CURRENT_USER:
+            return {};
         default:
             return state;
     }
