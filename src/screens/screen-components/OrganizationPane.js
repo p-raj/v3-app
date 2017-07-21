@@ -5,12 +5,12 @@ import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { Redirect } from '../../v3-core/utils/router';
 import RequestProcess from '../../v3-core/utils/network/RequestProcess';
 import theme from '../../utils/theme'
-import SortableGrid from 'react-native-sortable-grid'
 import { connect } from 'react-redux';
 import { withAuthentication } from '../../v3-core/components/hoc/Auth';
 import { selectMembership } from '../../redux/actions/membership';
 import OrganizationComponent from '../../components/ui-components/OrganizationComponent';
 import ImageIconComponent from '../../components/ui-components/ImageIconComponent';
+import Grid from 'react-native-grid-component';
 
 
 const styles = StyleSheet.create({
@@ -102,32 +102,37 @@ class OrganizationPane extends React.Component {
                             {!_.isEmpty(this.state[`application-${key}-data`]) &&
                             <Request.Success>
                                 <View style={{flex: 1, justifyContent: 'flex-start'}}>
-                                    <SortableGrid
-                                        blockTransitionDuration={ 400 }
-                                        activeBlockCenteringDuration={ 200 }
-                                        itemsPerRow={ 3 }
-                                        dragActivationTreshold={ 0 }>
-                                        {
-                                            this.state[`application-${key}-data`].map((data, index) => {
-                                                return (
-                                                    <View key={index}
-                                                          style={{justifyContent: 'center', alignItems: 'center'}}>
-                                                        <ImageIconComponent imageUrl={data.logo}
-                                                                            iconText={data.name}
-                                                                            onIconPress={() => {
-                                                                                this.onMembershipSelected(value);
-                                                                                this.setState({
-                                                                                    applicationUUID: data.uuid,
-                                                                                    redirect: true,
-                                                                                    membershipKey: key
-                                                                                })
-                                                                            }}/>
-                                                    </View>
-                                                )
-                                            })
-                                        }
+                                    <Grid
+                                        style={{flex: 1, justifyContent: 'space-around', backgroundColor: 'orange'}}
+                                        renderPlaceholder={(items) => {
+                                            if (items === 1 || items === 2) {
+                                                return <View style={{flex: 1}} key={`key-${items}`}/>
+                                            }
+                                        }}
+                                        renderItem={(data, index) => {
+                                            return (
+                                                <View key={index} style={{
+                                                    flex: 1,
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center'
+                                                }}>
+                                                    <ImageIconComponent imageUrl={data.logo}
+                                                                        iconText={data.name}
+                                                                        onIconPress={() => {
+                                                                            this.onMembershipSelected(value);
+                                                                            this.setState({
+                                                                                applicationUUID: data.uuid,
+                                                                                redirect: true,
+                                                                                membershipKey: key
+                                                                            })
+                                                                        }}/>
+                                                </View>
+                                            );
 
-                                    </SortableGrid>
+                                        }}
+                                        data={this.state[`application-${key}-data`]}
+                                        itemsPerRow={3}
+                                    />
                                 </View>
                             </Request.Success>}
                         </View>
