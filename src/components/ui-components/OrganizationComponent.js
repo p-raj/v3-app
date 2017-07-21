@@ -12,34 +12,26 @@ const styles = StyleSheet.create({
     },
     row: {
         flex: 1,
-        justifyContent: 'space-between',
         flexDirection: 'row',
     },
     textContainer: {
-        alignSelf: 'flex-end',
-        maxWidth: '70%',
-        maxHeight: 100,
-        flex: 1,
+        flex: 3,
+        justifyContent: 'center',
     },
     organizationName: {
         fontSize: theme.h0,
         color: theme.black,
         backgroundColor: 'transparent',
         fontWeight: '700',
-        flex: 1,
     },
     membershipInfo: {
-        fontSize: theme.h4,
-        color: theme.black,
+        fontSize: theme.h5,
+        color: theme.lightBlack,
         backgroundColor: 'transparent'
     },
     image: {
-        alignSelf: 'center',
-        borderRadius: 10,
         backgroundColor: 'transparent',
-        height: 70,
-        width: 70,
-        padding: 16
+        flex: 1,
     }
 });
 
@@ -63,14 +55,16 @@ class OrganizationComponent extends React.Component {
                             {`Member since ${humanReadableDateTime(this.props.date) || "N/A"}`}
                         </Text>
                     </View>
-                    <Image
-                        source={{
-                            uri: _.isEmpty(this.props.image) ?
-                                "http://via.placeholder.com/70x70" :
-                                this.props.image
-                        }}
-                        resizeMode="contain"
-                        style={styles.image}/>
+                    <View style={{flex: 1}}>
+                        <Image
+                            source={{
+                                uri: _.isEmpty(this.props.image) ?
+                                    "http://via.placeholder.com/70x70" :
+                                    this.props.image
+                            }}
+                            resizeMode="contain"
+                            style={styles.image}/>
+                    </View>
                 </View>
                 <View
                     style={{
