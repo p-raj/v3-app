@@ -22,6 +22,11 @@ export default function auth(state = {}, action) {
                 created_at_millis: new Date().getTime(),
                 status: SUCCESS
             };
+        case TYPE.UPDATE_USER_PROFILE:
+            return {
+                ...state,
+                ...action.payload,
+            };
         case TYPE.REQUEST_AUTH_ERROR:
             return {
                 ...state,

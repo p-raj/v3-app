@@ -3,7 +3,6 @@ import { StyleSheet, Text, TouchableOpacity, View, ActivityIndicator } from 'rea
 import RequestProcess from '../../v3-core/utils/network/RequestProcess';
 import Request from 're-quests'
 import theme from '../../utils/theme'
-import ToastComponent from '../../components/ui-components/ToastComponent';
 
 const styles = StyleSheet.create({
     container: {

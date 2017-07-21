@@ -83,18 +83,19 @@ class HomeScreen extends React.Component {
                                    onIconPress={() => {
                                        this.setState({selectedIcon: 'home'})
                                    }}/>
-                    <IconComponent iconLogo={'users'} iconText={'Memberships'}
-                                   onIconPress={() => {
-                                       this.setState({selectedIcon: 'profile'})
-                                   }}/>
                     <IconComponent iconLogo={'shopping-bag'} iconText={'Marketplace'}
                                    onIconPress={() => {
                                        this.setState({selectedIcon: 'marketplace'})
+                                   }}/>
+                    <IconComponent iconLogo={'user'} iconText={'Profile'}
+                                   onIconPress={() => {
+                                       this.setState({selectedIcon: 'profile'})
                                    }}/>
                     <IconComponent iconLogo={'cog'} iconText={'Settings'}
                                    onIconPress={() => {
                                        this.setState({selectedIcon: 'settings'})
                                    }}/>
+
                 </BlurView>
             </View>
         )
