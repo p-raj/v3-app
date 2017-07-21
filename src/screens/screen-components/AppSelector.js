@@ -73,7 +73,8 @@ class AppSelector extends React.Component {
     getOrganizations = () => {
         return this.props.memberships.map((value, key) => {
             return (
-                <View style={styles.container} key={key}>
+                // FIXME: this "80vh" below is a hack because carousel for web doesn't support flex
+                <View style={{flex: 1, height: (Platform.OS === 'web') ? '80vh' : '100%'}} key={key}>
                     <OrganizationPane key={key} value={value}/>
                 </View>
             );
