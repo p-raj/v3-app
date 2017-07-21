@@ -38,7 +38,7 @@ class ImageIconComponent extends React.Component {
             <View style={styles.iconContainer}>
                 <TouchableOpacity onPress={this.props.onIconPress}>
                     <Image
-                        source={{uri: _.isEmpty(this.props.imageUrl) ? "http://via.placeholder.com/65x65" : this.props.imageUrl}}
+                        source={_.isEmpty(this.props.imageUrl) ? require("../../assets/images/StackIcon.png") : {uri: this.props.imageUrl}}
                         style={styles.image}/>
                 </TouchableOpacity>
                 <Text numberOfLines={1} style={styles.iconText}>{this.props.iconText}</Text>
