@@ -10,7 +10,6 @@ var React = require('react');
 var path = require('path');
 
 
-
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 var publicPath = '/';
@@ -139,7 +138,7 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                exclude: /node_modules\/(?!(react-native-elements|react-jsoneditor|react-native-sortable-grid|react-native-looped-carousel|react-native-modalbox|re-render|react-native-tab-view|react-native-vector-icons|react-native-drawer|react-native-scrollable-tab-view|react-native-popup-dialog|react-native-side-menu|react-native-tab-navigator)\/).*/,
+                exclude: /node_modules\/(?!(react-native-elements|re-render|react-native-vector-icons|react-native-drawer|react-native-popup-dialog|react-native-side-menu|react-native-tab-navigator|react-native-grid-component)\/).*/,
                 loader: 'babel-loader'
             },
             // "postcss" loader applies autoprefixer to our CSS.
