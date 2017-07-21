@@ -54,7 +54,7 @@ class SignupComponent extends React.Component {
                         buttonPressed: false,
                         backendErrorMessage: response
                     })}
-                    onSuccess={(response) => this.onAuthSuccessful(response.data)}>
+                    onSuccess={(response) => this.props.onAuthSuccessful(response.data)}>
                     <View style={{
                         width: '100%',
                         height: '100%',
