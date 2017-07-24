@@ -81,7 +81,7 @@ class OrganizationPane extends React.Component {
                                            image={value.organization.avatar}
                                            date={value.created_at}/>
                 </View>
-                <View style={{flex: 5}}>
+                <View style={{flex: 5, paddingTop: 20}}>
                     <RequestProcess name="get_applications"
                                     data={{"VERIS-RESOURCE": `Veris organization:${value.organization.uuid}:member:${value.uuid}`}}
                                     onSuccess={(response) => {
