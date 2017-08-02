@@ -10,7 +10,7 @@ class RequestProcess extends React.Component {
     render() {
         // noinspection JSUnusedLocalSymbols
         // eslint-disable-next-line
-        let {name, config, ...props} = this.props;
+        let {name, auth, config, ...props} = this.props;
 
         const paths = Object.keys(config.widget.schema.paths);
         const process = paths.find(
@@ -20,8 +20,8 @@ class RequestProcess extends React.Component {
         let headers = {
             'HOST-VERIS': 'apis.veris.in'
         };
-        if (props.auth.token) {
-            headers['Authorization'] = props.auth.token;
+        if (auth.token) {
+            headers['Authorization'] = auth.token;
         }
 
         return (
