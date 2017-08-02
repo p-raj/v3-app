@@ -16,7 +16,7 @@ import { connect } from 'react-redux';
 import {
     StyleSheet,
     View,
-    ActivityIndicator,
+    ActivityIndicator, Text,
 } from 'react-native';
 import WidgetContainer from './WidgetContainer';
 import { widgetSuccess } from '../../redux/actions/widget';
@@ -63,6 +63,9 @@ class Runtime extends React.Component {
                             <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
                                 <ActivityIndicator size={'large'} style={styles.activityIndicator}
                                                    color={theme.black}/>
+                                <Text style={{fontSize: 18, fontWeight: '400'}}>
+                                    Fetching Widgets
+                                </Text>
                             </View>
                         </Request.Start>
                         <Request.Success>

@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     textInput: {
         color: theme.black,
         height: 40,
-        fontSize: 16,
+        fontSize: 12,
         flex: 1,
     },
     texInputWrapper: {
