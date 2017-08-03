@@ -21,11 +21,12 @@ let theme = {
     marginBasic: 5,
     marginNormal: 10,
     marginLarge: 15,
-    marginExtraLarge: 20,
+    marginExtraLarge: 25,
     appIconSize: 60,
     appIconRadius: 10,
     iconSize: 32,
-    errorMessageColor:"#BC0000",
+    errorMessageColor: "#BC0000",
     iconColor: "#FEFEFE",
+    placeholderColor: "#b2b2b2",
 };
 export default theme;
