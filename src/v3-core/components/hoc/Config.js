@@ -44,31 +44,31 @@ export function withConfig(WrappedComponent) {
             };
         }
 
-        componentDidMount() {
-            NetInfo.isConnected.addEventListener(
-                'change',
-                this._handleConnectivityChange
-            );
-            NetInfo.isConnected.fetch().done(
-                (connectedToInternet) => {
-                    this.setState({connectedToInternet});
-                }
-            );
-        }
-
-        componentWillUnmount() {
-            NetInfo.isConnected.removeEventListener(
-                'change',
-                this._handleConnectivityChange
-            );
-        }
-
-        _handleConnectivityChange = (connectedToInternet) => {
-            console.log("======connectedToInternet=======", connectedToInternet);
-            this.setState({
-                connectedToInternet,
-            });
-        };
+        // componentDidMount() {
+        //     NetInfo.isConnected.addEventListener(
+        //         'change',
+        //         this._handleConnectivityChange
+        //     );
+        //     NetInfo.isConnected.fetch().done(
+        //         (connectedToInternet) => {
+        //             this.setState({connectedToInternet});
+        //         }
+        //     );
+        // }
+        //
+        // componentWillUnmount() {
+        //     NetInfo.isConnected.removeEventListener(
+        //         'change',
+        //         this._handleConnectivityChange
+        //     );
+        // }
+        //
+        // _handleConnectivityChange = (connectedToInternet) => {
+        //     console.log("======connectedToInternet=======", connectedToInternet);
+        //     this.setState({
+        //         connectedToInternet,
+        //     });
+        // };
 
         render() {
             // filter out extra props that are specific to this HOC and shouldn't be
@@ -82,21 +82,20 @@ export function withConfig(WrappedComponent) {
                     <WrappedComponent {...passThroughProps} />
                 );
             }
-            console.log("======connectedToInternetInRender=======", this.state.connectedToInternet);
-            if (!this.state.connectedToInternet) {
-                return (
-                    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                        <Text style={styles.informationText}>
-                            You are not connected to internet.
-                        </Text>
-                        <ActivityIndicator size={'large'} color={theme.black}/>
-                        <Text style={styles.loadingText}>
-                            Trying to establish a connection...
-                        </Text>
-                    </View>
-
-                )
-            }
+            // if (!this.state.connectedToInternet) {
+            //     return (
+            //         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            //             <Text style={styles.informationText}>
+            //                 You are not connected to internet.
+            //             </Text>
+            //             <ActivityIndicator size={'large'} color={theme.black}/>
+            //             <Text style={styles.loadingText}>
+            //                 Trying to establish a connection...
+            //             </Text>
+            //         </View>
+            //
+            //     )
+            // }
 
             // Pass props to wrapped component
             return (
@@ -111,7 +110,7 @@ export function withConfig(WrappedComponent) {
                             <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
                                 <ActivityIndicator size={'large'} color={theme.black}/>
                                 <Text style={styles.loadingText}>
-                                    Fetching your details
+                                    Establishing connection with server
                                 </Text>
                             </View>
                         </Request.Start>
