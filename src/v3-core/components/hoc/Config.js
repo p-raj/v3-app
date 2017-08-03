@@ -9,13 +9,67 @@
  * */
 import React from 'react';
 import Request from 're-quests';
-import { View } from 'react-native';
+import { ActivityIndicator, Text, View, StyleSheet, NetInfo } from 'react-native';
 import { connect } from 'react-redux';
 import { SYSTEM_WIDGETS } from '../../../utils/endpoints';
 import { saveWidgetConfig } from '../../../redux/actions/config';
+import theme from '../../../utils/theme';
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    loadingText: {
+        fontSize: 18,
+        fontWeight: '400',
+        color: theme.black,
+        backgroundColor: 'transparent'
+    },
+    informationText: {
+        fontSize: 22,
+        fontWeight: '500',
+        color: theme.black,
+        backgroundColor: 'transparent'
+    },
+});
 
 export function withConfig(WrappedComponent) {
+
     class WithConfig extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                connectedToInternet: true
+            };
+        }
+
+        componentDidMount() {
+            NetInfo.isConnected.addEventListener(
+                'change',
+                this._handleConnectivityChange
+            );
+            NetInfo.isConnected.fetch().done(
+                (connectedToInternet) => {
+                    this.setState({connectedToInternet});
+                }
+            );
+        }
+
+        componentWillUnmount() {
+            NetInfo.isConnected.removeEventListener(
+                'change',
+                this._handleConnectivityChange
+            );
+        }
+
+        _handleConnectivityChange = (connectedToInternet) => {
+            console.log("======connectedToInternet=======", connectedToInternet);
+            this.setState({
+                connectedToInternet,
+            });
+        };
+
         render() {
             // filter out extra props that are specific to this HOC and shouldn't be
             // passed through
@@ -28,7 +82,21 @@ export function withConfig(WrappedComponent) {
                     <WrappedComponent {...passThroughProps} />
                 );
             }
+            console.log("======connectedToInternetInRender=======", this.state.connectedToInternet);
+            if (!this.state.connectedToInternet) {
+                return (
+                    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                        <Text style={styles.informationText}>
+                            You are not connected to internet.
+                        </Text>
+                        <ActivityIndicator size={'large'} color={theme.black}/>
+                        <Text style={styles.loadingText}>
+                            Trying to establish a connection...
+                        </Text>
+                    </View>
 
+                )
+            }
 
             // Pass props to wrapped component
             return (
@@ -38,7 +106,15 @@ export function withConfig(WrappedComponent) {
                         'HOST-VERIS': 'apis.veris.in'
                     }}
                     onSuccess={this.onSuccess}>
-                    <View>
+                    <View style={styles.container}>
+                        <Request.Start>
+                            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                                <ActivityIndicator size={'large'} color={theme.black}/>
+                                <Text style={styles.loadingText}>
+                                    Fetching your details
+                                </Text>
+                            </View>
+                        </Request.Start>
                     </View>
                 </Request>
             );
