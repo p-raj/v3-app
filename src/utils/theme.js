@@ -28,6 +28,7 @@ let theme = {
     appIconSize: 60,
     appIconRadius: 10,
     iconSize: 32,
+    defaultImageSize: moderateScale(70, 0.3),
     errorMessageColor: "#BC0000",
     iconColor: "#FEFEFE",
     placeholderColor: "#b2b2b2",

@@ -1,25 +1,20 @@
 import React from 'react';
-import RN, { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View, StyleSheet, Image } from '../../components/ui-components';
 import theme from '../../utils/theme'
-import * as _ from 'lodash';
+import { moderateScale } from '../../utils/responsiveGuidelines';
 
 
-const styles = RN.StyleSheet.create({
+const styles = StyleSheet.create({
     iconContainer: {
-        width: 80,
-        height: 90,
+        width: moderateScale(80, 0.3),
+        height: moderateScale(90, 0.3),
     },
     image: {
-        width: 65,
-        height: 65,
-        borderRadius: 10,
-        backgroundColor: 'transparent',
+        borderRadius: moderateScale(10, 0.3),
         alignSelf: 'center'
     },
     iconText: {
-        color: theme.black,
         flex: 1,
-        backgroundColor: 'transparent',
         textAlign: 'center',
         fontSize: theme.h6,
         paddingTop: theme.paddingMinimal
@@ -38,7 +33,7 @@ class ImageIconComponent extends React.Component {
             <View style={styles.iconContainer}>
                 <TouchableOpacity onPress={this.props.onIconPress}>
                     <Image
-                        source={_.isEmpty(this.props.imageUrl) ? require("../../assets/images/StackIcon.png") : {uri: this.props.imageUrl}}
+                        source={this.props.imageUrl}
                         style={styles.image}/>
                 </TouchableOpacity>
                 <Text numberOfLines={1} style={styles.iconText}>{this.props.iconText}</Text>

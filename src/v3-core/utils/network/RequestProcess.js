@@ -17,18 +17,13 @@ class RequestProcess extends React.Component {
             (process) => config.widget.schema
                 .paths[process].post.summary === name);
 
-        let headers = {
-            'HOST-VERIS': 'apis.veris.in'
-        };
-        if (auth.token) {
-            headers['Authorization'] = auth.token;
-        }
-
         return (
             <Request
                 url={`${BASE_URL}${process}`}
                 method='post'
-                headers={headers}
+                headers={{
+                    'HOST-VERIS': 'apis.veris.in'
+                }}
                 {...props}
                 ref={(request) => {
                     this.request = request;

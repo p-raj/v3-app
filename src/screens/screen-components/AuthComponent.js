@@ -1,12 +1,8 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Text, TextInput, Image, StyleSheet, View, Theme } from '../../components/ui-components/'
 import { authSuccess } from '../../redux/actions/auth';
 import _ from 'lodash';
-import theme from '../../utils/theme'
 import AuthRequestComponent from '../screen-components/AuthRequestComponent';
-import TextInput from '../../components/ui-components/TextInput'
-import Text from '../../components/ui-components/Text'
-import { moderateScale } from '../../utils/responsiveGuidelines';
 
 const styles = StyleSheet.create({
     container: {
@@ -19,43 +15,38 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     brandTextContainer: {
-        marginHorizontal: theme.marginNormal
-    },
-    logo: {
-        alignSelf: 'flex-start',
-        width: moderateScale(60, 0.5),
-        height: moderateScale(60, 0.5),
+        marginHorizontal: Theme.marginNormal
     },
     ekkaText: {
-        fontSize: theme.h3,
+        fontSize: Theme.h3,
     },
     worldText: {
-        fontSize: theme.h5,
+        fontSize: Theme.h5,
     },
     welcomeText: {
-        fontSize: theme.h3,
+        fontSize: Theme.h3,
     },
     amazingAppsText: {
-        fontSize: theme.h4,
-        marginTop: theme.marginNormal,
+        fontSize: Theme.h4,
+        marginTop: Theme.marginNormal,
     },
     craftedText: {
-        fontSize: theme.h4,
-        marginBottom: theme.marginExtraLarge,
+        fontSize: Theme.h4,
+        marginBottom: Theme.marginExtraLarge,
     },
     textInput: {
-        marginBottom: theme.marginLarge,
+        marginBottom: Theme.marginLarge,
     },
     error: {
-        color: theme.errorMessageColor,
-        marginBottom: theme.marginLarge,
+        color: Theme.errorMessageColor,
+        marginBottom: Theme.marginLarge,
 
     },
     buttonContainer: {
         flexDirection: 'row',
         height: 40,
         justifyContent: 'space-between',
-        marginTop: theme.marginLarge
+        marginTop: Theme.marginLarge
     },
     button: {
         width: '45%'
@@ -98,9 +89,7 @@ export default class AuthScreen extends React.Component {
             <View style={styles.container}>
                 <View style={styles.brandRow}>
                     <Image
-                        source={require('../../assets/images/EkkaLogo.png')}
-                        resizeMode={'contain'}
-                        style={styles.logo}
+                        source={'EkkaLogo.png'}
                     />
                     <View style={styles.brandTextContainer}>
                         <Text style={styles.ekkaText}>
