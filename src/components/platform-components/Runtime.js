@@ -27,15 +27,13 @@ import Request from 're-quests';
 import RequestProcess from '../../v3-core/utils/network/RequestProcess';
 import { Redirect } from '../../v3-core/utils/router/index';
 import theme from '../../utils/theme'
-import NavBarComponent from '../ui-components/NavBarComponent';
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
     wrapper: {
-        flex: 1,
-        margin: '4%',
+        flex: 1
     }
 });
 
@@ -55,10 +53,10 @@ class Runtime extends React.Component {
                     url={`${LIST_RUNTIMES}${this.props.runtime.uuid}/widgets/`}
                     method={'get'}
                     onSuccess={(response) => {
-                        this.setState({sessionId: response.headers["x-vrt-session"]});
+                        this.setState({sessionId: response.headers['x-vrt-session']});
                         this.props.dispatch(widgetSuccess(this.props.runtime, response));
                     }}>
-                    <View style={{flex:1}}>
+                    <View style={{flex: 1}}>
                         <Request.Start>
                             <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
                                 <ActivityIndicator size={'large'} style={styles.activityIndicator}
@@ -70,31 +68,24 @@ class Runtime extends React.Component {
                         </Request.Start>
                         <Request.Success>
                             <View style={styles.wrapper}>
-                                <View style={{flex: 1}}>
-                                    <NavBarComponent
-                                        appName={this.props.runtime.name}
-                                        onCloseClicked={this.onAppClosed}
-                                        onBackClicked={this.onBackClicked}/>
-                                </View>
-                                <View style={{flex: 9, alignItems: 'center'}}>
-                                    <WidgetContainer
-                                        session={this.getSession()}
-                                        widgets={this.getWidgets()}
-                                        runtime={this.props.runtime}/>
-                                </View>
+                                <WidgetContainer
+                                    session={this.getSession()}
+                                    widgets={this.getWidgets()}
+                                    runtime={this.props.runtime}/>
                             </View>
                         </Request.Success>
                     </View>
-
                 </APIServerRequestViaClient>
-                {this.state.closeSession &&
-                <RequestProcess
-                    name="session_cancel"
-                    data={{uuid: this.state.sessionId}}>
-                    <Request.Success>
-                        <Redirect to={'/'}/>
-                    </Request.Success>
-                </RequestProcess>}
+                {
+                    this.state.closeSession &&
+                    <RequestProcess
+                        name="session_cancel"
+                        data={{uuid: this.state.sessionId}}>
+                        <Request.Success>
+                            <Redirect to={'/'}/>
+                        </Request.Success>
+                    </RequestProcess>
+                }
             </View>
         );
     }
@@ -106,23 +97,14 @@ class Runtime extends React.Component {
             if (session) {
                 this.props.dispatch(getSessionData(session));
             }
-        }, 3000);
+        }, 30000);
         this.setState({timer: timer});
     }
 
     componentWillUnmount() {
         clearInterval(this.state.timer);
-    }
-
-    onBackClicked = () => {
-
-    };
-
-    onAppClosed = () => {
-        // Clear session's data locally
         this.props.dispatch(clearSessionData(this.props.runtime));
-        this.setState({closeSession: true});
-    };
+    }
 
     getWidgets = () => {
         /*

@@ -11,10 +11,9 @@ import { dequeueAction, enqueueAction } from '../../redux/actions/actionQueue';
 import { Spinner } from '../../v3-core/re-render';
 import { toDotNotation } from '../../v3-core/utils';
 
-const {width} = Dimensions.get('window');
 const styles = StyleSheet.create({
     container: {
-        width: width * 0.92
+        flex: 1
     }
 });
 
@@ -125,7 +124,7 @@ class Widget extends React.Component {
         }
 
         return (
-            <View style={styles.container}>
+            <View style={{flex: 1}}>
 
                 {/*
                  * TODO:
