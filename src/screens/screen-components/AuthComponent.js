@@ -6,6 +6,7 @@ import theme from '../../utils/theme'
 import AuthRequestComponent from '../screen-components/AuthRequestComponent';
 import TextInput from '../../components/ui-components/TextInput'
 import Text from '../../components/ui-components/Text'
+import { moderateScale } from '../../utils/responsiveGuidelines';
 
 const styles = StyleSheet.create({
     container: {
@@ -18,28 +19,28 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     brandTextContainer: {
-        marginHorizontal: 20
+        marginHorizontal: theme.marginNormal
     },
     logo: {
         alignSelf: 'flex-start',
-        width: 140,
-        height: 140,
+        width: moderateScale(60, 0.5),
+        height: moderateScale(60, 0.5),
     },
     ekkaText: {
-        fontSize: theme.h2,
+        fontSize: theme.h3,
     },
     worldText: {
-        fontSize: theme.h4,
+        fontSize: theme.h5,
     },
     welcomeText: {
-        fontSize: theme.h0,
+        fontSize: theme.h3,
     },
     amazingAppsText: {
-        fontSize: theme.h2,
+        fontSize: theme.h4,
         marginTop: theme.marginNormal,
     },
     craftedText: {
-        fontSize: theme.h2,
+        fontSize: theme.h4,
         marginBottom: theme.marginExtraLarge,
     },
     textInput: {
@@ -54,10 +55,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         height: 40,
         justifyContent: 'space-between',
-        marginTop:theme.marginLarge
+        marginTop: theme.marginLarge
     },
-    button:{
-        width:'45%'
+    button: {
+        width: '45%'
     }
 
 });

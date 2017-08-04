@@ -1,11 +1,14 @@
+import { scale, moderateScale, verticalScale} from '../utils/responsiveGuidelines';
+
+
 let theme = {
-    h0: 44,
-    h1: 34,
-    h2: 28,
-    h3: 22,
-    h4: 18,
-    h5: 16,
-    h6: 14,
+    h0: moderateScale(40),
+    h1: moderateScale(34),
+    h2: moderateScale(28),
+    h3: moderateScale(22),
+    h4: moderateScale(18),
+    h5: moderateScale(16),
+    h6: moderateScale(14),
     white: "#FEFEFE",
     lightWhite: "#F5F5F5",
     extraLightWhite: "#F8F8F8",
