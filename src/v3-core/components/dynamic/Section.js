@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import View from '../../components/ui/View/index';
+import View from '../../components/ui/View';
 
 import Item from './Item';
 
@@ -24,7 +24,7 @@ class Section extends React.Component {
         });
 
         return (
-            <View>
+            <View style={{flex: 1}}>
                 {items}
             </View>
         );

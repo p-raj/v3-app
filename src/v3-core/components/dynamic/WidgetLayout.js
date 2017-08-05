@@ -15,7 +15,7 @@ class WidgetLayout extends React.Component {
                             section={section}/>
         });
         return (
-            <View>
+            <View style={{flex: 1}}>
                 {sections}
             </View>
         );

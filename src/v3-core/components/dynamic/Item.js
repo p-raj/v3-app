@@ -40,6 +40,7 @@ class Item extends React.Component {
         if (!isContainer && isSelectableItem) {
             return (
                 <View style={{
+                    flex: 1,
                     borderStyle: 'dashed',
                     borderWidth: showBorder ? 1 : 0,
                     borderColor: 'grey',
