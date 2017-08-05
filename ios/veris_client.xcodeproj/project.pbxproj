@@ -37,6 +37,7 @@
 		B0C87323990044D390D8B50E /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9F573980AF347F78673553D /* Zocial.ttf */; };
 		C54368742F684CD3911FF56B /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69D2689CE0C444389C504A2B /* Entypo.ttf */; };
 		C71FD2A2F7F14EF387F61394 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 892CF132AC2D4D46BC999CF6 /* SimpleLineIcons.ttf */; };
+		CAA29E8A1F349B7A008EA8CB /* EKKA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAA29E891F349B7A008EA8CB /* EKKA.jpg */; };
 		E41A6DC7B3CB4C89A3F5BECA /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75717C2B2E84AA0A06FB961 /* libRNVectorIcons.a */; };
 		F3F64F44F0CC4652880AC245 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A7F9E34764D38A12D826F /* MaterialIcons.ttf */; };
 /* End PBXBuildFile section */
@@ -307,6 +308,7 @@
 		A9F7F85475EC4CC687AEEF90 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		B44185E29A73491B95A0A379 /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		C75717C2B2E84AA0A06FB961 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+		CAA29E891F349B7A008EA8CB /* EKKA.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EKKA.jpg; sourceTree = "<group>"; };
 		D32DACBDE15D4CB4B08C208E /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		E9F573980AF347F78673553D /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		FACAFDAB3EFD43EF999074F5 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				CAA29E891F349B7A008EA8CB /* EKKA.jpg */,
 				13B07FAE1A68108700A75B9A /* veris_client */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* veris_clientTests */,
@@ -959,6 +962,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				CAA29E8A1F349B7A008EA8CB /* EKKA.jpg in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				C54368742F684CD3911FF56B /* Entypo.ttf in Resources */,
 				665E29FE13F04AB68FF7AEA4 /* EvilIcons.ttf in Resources */,
@@ -1167,7 +1171,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1202,7 +1206,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
