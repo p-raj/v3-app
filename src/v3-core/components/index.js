@@ -33,6 +33,18 @@ import { withDividerProps } from './hoc/Divider/Props';
 import { withIconProps } from './hoc/Icon/Props';
 import { withSpinnerProps } from './hoc/Spinner/Props';
 import { withRecyclerViewProps } from './hoc/RecyclerView/Props';
+import { withLayoutProps } from './hoc/HorizontalLayout/Props';
+
+import { compose } from 'recompose';
+
+
+const enhanced = compose(
+    // withEnv
+    withValues,
+    withFormat,
+    withStyle
+);
+
 
 /*
  * TODO
@@ -43,13 +55,9 @@ import { withRecyclerViewProps } from './hoc/RecyclerView/Props';
  * keep the main component clean.
  */
 class ComponentFactory {
-    static get(type) {
+    static get (type) {
         const Component = this.find(type);
-        return withValues(
-            withFormat(
-                withStyle(Component)
-            )
-        );
+        return enhanced(Component);
     }
 
     static find(type) {
@@ -67,9 +75,9 @@ class ComponentFactory {
                 return withRecyclerViewProps(RecyclerView);
 
             case 'vertical':
-                return VerticalLayout;
+                return withLayoutProps(VerticalLayout);
             case 'horizontal':
-                return HorizontalLayout;
+                return withLayoutProps(HorizontalLayout);
 
             case 'textarea':
                 return withTextAreaProps(TextArea);

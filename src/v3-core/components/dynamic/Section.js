@@ -2,34 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import View from '../../components/ui/View';
 
-import Item from './Item';
+import Component from './Component';
 
-class Section extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onItemSelect = this.onItemSelect.bind(this)
-    }
+export const Section = ({section}) => {
+    const components = section.items.map((component, index) => {
+        const {type, ...props} = component;
+        return <Component key={index} type={type} {...props} />
+    });
 
-    onItemSelect(value) {
-        this.props.onItemSelect(value)
-    }
-
-    render() {
-        const items = this.props.section.items.map((item, index) => {
-            return <Item key={index}
-                         isSelectableItem={this.props.isSelectableItem}
-                         showBorder={this.props.showBorder}
-                         onItemSelect={this.onItemSelect}
-                         item={item}/>
-        });
-
-        return (
-            <View style={{flex: 1}}>
-                {items}
-            </View>
-        );
-    }
-}
+    return (
+        <View style={{flex: 1}}>
+            {components}
+        </View>
+    );
+};
 
 Section.defaultProps = {
     section: {
@@ -42,15 +28,7 @@ Section.propTypes = {
         items: PropTypes.arrayOf(PropTypes.shape({
             type: PropTypes.string.isRequired
         })).isRequired
-    }).isRequired,
-
-    // TODO
-    // remove these from here,
-    // there should be wrapper components
-    // for the same :/
-    onItemSelect: PropTypes.func,
-    showBorder: PropTypes.bool,
-    isSelectableItem: PropTypes.bool
+    }).isRequired
 };
 
 export default Section;

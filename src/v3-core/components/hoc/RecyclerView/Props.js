@@ -17,7 +17,7 @@
  * */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Item from '../../dynamic/Item';
+import Component from '../../dynamic/Component';
 import { withValues } from '../withValues';
 import { toDotNotation } from '../../../utils';
 
@@ -38,10 +38,9 @@ class WithValueItem extends React.Component {
     }
 
     render() {
-        // eslint-disable-next-line
-        const {item, ...props} = this.props;
+        const {type, ...props} = this.props.item;
         return (
-            <Item item={item} {...props}/>
+            <Component type={type} {...props}/>
         )
     }
 }

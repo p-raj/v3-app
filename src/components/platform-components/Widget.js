@@ -1,35 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Dimensions, StyleSheet, View } from 'react-native';
 import _ from 'lodash';
-
-import WidgetLayout from '../../v3-core/components/dynamic/WidgetLayout';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { View } from 'react-native';
+import { connect } from 'react-redux';
+import { dequeueAction, enqueueAction } from '../../redux/actions/actionQueue';
 import * as actions from '../../redux/actions/actions';
 import updateComponentData from '../../redux/actions/updateComponentData';
-import { dequeueAction, enqueueAction } from '../../redux/actions/actionQueue';
-import { Spinner } from '../../v3-core/re-render';
+
 import { toDotNotation } from '../../v3-core/utils';
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    }
-});
+import CompositeTemplate from '../../v3-core/components/dynamic/Template';
 
 
-/**
- * Widget is responsible for laying out components
- * and defining actions.
- *
- * Everything here will be extremely dynamic.
- * & possibly very ugly,
- * even uglier than the Runtime component :D
- *
- * Analogy:
- * Widget (Web Page) ==> Schema (JS) + Layout (CSS) + Components (HTML)
- *
- */
 class Widget extends React.Component {
     // noinspection JSUnusedGlobalSymbols
     getChildContext() {
@@ -51,8 +32,8 @@ class Widget extends React.Component {
         };
     }
 
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
         this.state = {
             propChange: {}
         };
@@ -64,9 +45,9 @@ class Widget extends React.Component {
         // remove hardcoded data :/
         this.actionContext = {
             token: props.auth.access_token,
-            runtime: props.runtime,
             widget: props.widget,
-            session: props.session,
+            runtime: context.runtime,
+            session: context.session
         };
     }
 
@@ -113,16 +94,7 @@ class Widget extends React.Component {
         const {componentData, widget} = this.props;
         const templateName = (componentData && componentData[widget.uuid]) ?
             componentData[widget.uuid].template || 'init' : 'init';
-        const template = widget.template[templateName];
-
-        const sections = this.loadValues(widget.uuid, (template) ? template.sections : []);
-
-        if (templateName === 'init' && this.props.widgetState[this.props.widget.uuid] === 'loading') {
-            return (
-                <Spinner size={20}/>
-            )
-        }
-
+        // const sections = this.loadValues(widget.uuid, (template) ? template.sections : []);
         return (
             <View style={{flex: 1}}>
 
@@ -135,8 +107,7 @@ class Widget extends React.Component {
                  * Ideal way:
                  * namespace variables while creating config from server side.
                  */}
-                <WidgetLayout
-                    sections={sections}/>
+                <CompositeTemplate template={widget.template} name={templateName} />
             </View>
         );
     }
@@ -229,50 +200,6 @@ class Widget extends React.Component {
         // destructing data while performing operation
         // this.props.dispatch(updateComponentData(this.props.widget.name, name, data));
     };
-
-    /**
-     * This method takes in jasonette schema (sections) of a widget
-     * and inserts the previously filled values (componentData)
-     * into it and returns the populated sections.
-     * It is also used to insert new properties into a component (effect of $change.property)
-     * @param widgetUuid
-     * @param sections
-     * @returns sections with components having a value key
-     */
-    loadValues = (widgetUuid, sections) => {
-        // const widgetData = toDotNotation(componentData[widgetUuid]);
-        const mergeComponentData = (component) => {
-            if (!component.name) return;
-            // This check is required bcoz when a widget is resolved and its ui switched,
-            // its new component's values will be overwritten to undefined
-            // if (widgetData && widgetData[component.name]) {
-            //     component['value'] = widgetData[component.name];
-            // }
-
-            // If the current component has some component's property change pending
-            // then merge those properties into this component
-            if (this.state.propChange.componentName && this.state.propChange.componentName === component.name) {
-                _.merge(component, this.state.propChange.property);
-            }
-        };
-
-        const traverseComponents = (item) => {
-            if (!item.components) {
-                mergeComponentData(item);
-                return;
-            }
-            for (let component of item.components) {
-                traverseComponents(component);
-            }
-        };
-
-        for (let section of sections) {
-            for (let item of section.items) {
-                traverseComponents(item);
-            }
-        }
-        return sections;
-    };
 }
 
 Widget.childContextTypes = {
@@ -282,8 +209,17 @@ Widget.childContextTypes = {
     enqueue: PropTypes.func,
 };
 
+Widget.contextTypes = {
+    runtime: PropTypes.object,
+    session: PropTypes.string
+};
+
 Widget.propTypes = {
-    widget: PropTypes.object.isRequired
+    widget: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string,
+        template: PropTypes.object
+    }).isRequired
 };
 
 

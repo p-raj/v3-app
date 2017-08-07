@@ -18,15 +18,15 @@ import {
     View,
     ActivityIndicator, Text,
 } from 'react-native';
-import WidgetContainer from './WidgetContainer';
+import WidgetContainer from './WidgetManager';
 import { widgetSuccess } from '../../redux/actions/widget';
 import { clearSessionData, getSessionData } from '../../redux/actions/session';
 import APIServerRequestViaClient from '../../v3-core/utils/network/APIServerRequestViaClient';
 import { LIST_RUNTIMES } from '../../utils/endpoints';
 import Request from 're-quests';
 import RequestProcess from '../../v3-core/utils/network/RequestProcess';
-import { Redirect } from '../../v3-core/utils/router/index';
-import theme from '../../utils/theme'
+import { Redirect } from '../../v3-core/utils/router';
+import theme from '../../utils/theme';
 
 const styles = StyleSheet.create({
     container: {

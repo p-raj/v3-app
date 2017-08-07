@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
-import ImagePicker from '../../v3-core/components/pickers/ImagePicker/index';
+import ImagePicker from '../../v3-core/components/pickers/ImagePicker';
 import { closePicker } from '../../redux/actions/picker';
 import updateComponentData from '../../redux/actions/updateComponentData';
 

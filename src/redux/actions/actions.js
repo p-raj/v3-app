@@ -1,4 +1,4 @@
-import Action from '../../v3-core/actions/index';
+import Action from '../../v3-core/actions';
 import { enqueueAction } from './actionQueue';
 
 

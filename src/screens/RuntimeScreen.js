@@ -1,6 +1,6 @@
 import React from 'react';
 import RN, { Text, View } from 'react-native';
-import HorizontalLayout from '../v3-core/components/layouts/HorizontalLayout/index';
+import HorizontalLayout from '../v3-core/components/layouts/HorizontalLayout';
 import Request from 're-quests';
 import Runtime from '../components/platform-components/Runtime';
 import { withAuthentication } from '../v3-core/components/hoc/Auth';

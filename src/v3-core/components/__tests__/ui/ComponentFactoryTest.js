@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ComponentFactory from '../../index';
+import ComponentFactory from '../..';
 
 
 const componentList = ['button', 'image', 'babel', 'textarea', 'textfield'];
