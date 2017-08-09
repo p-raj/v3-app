@@ -7,7 +7,6 @@ import membershipsReducer from './membershipReducer';
 import runtimesReducer from './runtimesReducer';
 import widgetsReducer from './widgetsReducer';
 import componentDataReducer from './componentDataReducer';
-import widgetStateReducer from './widgetStateReducer';
 import actionQueue from './actionQueue';
 import pickerReducer from './pickerReducer';
 import configReducer from './configReducer';
@@ -23,7 +22,6 @@ let reducer = combineReducers({
     widgets: widgetsReducer,
     componentData: componentDataReducer,
 
-    widgetState: widgetStateReducer,
     actionQueue: actionQueue,
     picker: pickerReducer,
     config: configReducer,

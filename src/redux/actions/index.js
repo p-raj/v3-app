@@ -1,5 +1,4 @@
 import operation from '../../v3-core/actions/operation';
-import switchWidgetState from '../../v3-core/actions/switchWidgetState';
 import set from '../../v3-core/actions/set';
 import get from '../../v3-core/actions/get';
 import changeProperty from '../../v3-core/actions/change.property';
@@ -19,8 +18,6 @@ class ActionFactory {
         switch (type) {
             case '$operation':
                 return operation;
-            case '$switchWidgetState':
-                return switchWidgetState;
             case '$set':
                 return set;
             case '$get':

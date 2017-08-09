@@ -107,7 +107,7 @@ class Widget extends React.Component {
                  * Ideal way:
                  * namespace variables while creating config from server side.
                  */}
-                <CompositeTemplate template={widget.template} name={templateName} />
+                <CompositeTemplate template={widget.template} name={templateName}/>
             </View>
         );
     }
@@ -227,7 +227,6 @@ Widget = connect((store) => {
     return {
         auth: store.auth,
         componentData: store.componentData,
-        widgetState: store.widgetState,
         actionQueue: store.actionQueue,
     }
 })(Widget);
