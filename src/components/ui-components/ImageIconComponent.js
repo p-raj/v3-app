@@ -6,11 +6,11 @@ import { moderateScale } from '../../utils/responsiveGuidelines';
 
 const styles = StyleSheet.create({
     iconContainer: {
-        width: moderateScale(80, 0.3),
-        height: moderateScale(90, 0.3),
+        width: moderateScale(80, 0.05),
+        height: moderateScale(90, 0.05),
     },
     image: {
-        borderRadius: moderateScale(10, 0.3),
+        borderRadius: moderateScale(10, 0.05),
         alignSelf: 'center'
     },
     iconText: {

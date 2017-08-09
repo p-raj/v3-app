@@ -7,16 +7,17 @@ import { moderateScale } from '../../utils/responsiveGuidelines';
 
 const styles = StyleSheet.create({
     iconContainer: {
-        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        width: moderateScale(80, 0.05),
+        height: moderateScale(90, 0.05),
     },
     iconShape: {
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        width: moderateScale(60, 0.2),
-        height: moderateScale(60, 0.2),
+        width: moderateScale(70, 0.05),
+        height: moderateScale(70, 0.05),
         backgroundColor: '#333'
     },
     icon: {

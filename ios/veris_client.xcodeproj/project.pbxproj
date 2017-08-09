@@ -37,7 +37,7 @@
 		B0C87323990044D390D8B50E /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9F573980AF347F78673553D /* Zocial.ttf */; };
 		C54368742F684CD3911FF56B /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69D2689CE0C444389C504A2B /* Entypo.ttf */; };
 		C71FD2A2F7F14EF387F61394 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 892CF132AC2D4D46BC999CF6 /* SimpleLineIcons.ttf */; };
-		CAA29E8A1F349B7A008EA8CB /* EKKA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAA29E891F349B7A008EA8CB /* EKKA.jpg */; };
+		CA7D45D41F39925900C0E46F /* EkkaLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA7D45D31F39925900C0E46F /* EkkaLogo.jpg */; };
 		E41A6DC7B3CB4C89A3F5BECA /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75717C2B2E84AA0A06FB961 /* libRNVectorIcons.a */; };
 		F3F64F44F0CC4652880AC245 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A7F9E34764D38A12D826F /* MaterialIcons.ttf */; };
 /* End PBXBuildFile section */
@@ -308,7 +308,7 @@
 		A9F7F85475EC4CC687AEEF90 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		B44185E29A73491B95A0A379 /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		C75717C2B2E84AA0A06FB961 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
-		CAA29E891F349B7A008EA8CB /* EKKA.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EKKA.jpg; sourceTree = "<group>"; };
+		CA7D45D31F39925900C0E46F /* EkkaLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EkkaLogo.jpg; sourceTree = "<group>"; };
 		D32DACBDE15D4CB4B08C208E /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		E9F573980AF347F78673553D /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		FACAFDAB3EFD43EF999074F5 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
@@ -526,12 +526,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				CAA29E891F349B7A008EA8CB /* EKKA.jpg */,
+				CA7D45D31F39925900C0E46F /* EkkaLogo.jpg */,
 				13B07FAE1A68108700A75B9A /* veris_client */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* veris_clientTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				5FBDEBEB9CF4441297E9C556 /* Resources */,
+				CA3EB7311F3B210700B76B03 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -544,6 +545,18 @@
 				00E356EE1AD99517003FC87E /* veris_clientTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CA3EB7311F3B210700B76B03 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				C75717C2B2E84AA0A06FB961 /* libRNVectorIcons.a */,
+				A9F7F85475EC4CC687AEEF90 /* libRNImagePicker.a */,
+				6ADE8CBF0B7F4DCF80935688 /* libRCTCamera.a */,
+				FBDB9A72A87345E98A1E316C /* libRNBlur.a */,
+				459CDBC4FE964433BE258FCE /* libBVLinearGradient.a */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		CABF4BE51EE92D02001C1279 /* Products */ = {
@@ -962,7 +975,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				CAA29E8A1F349B7A008EA8CB /* EKKA.jpg in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				C54368742F684CD3911FF56B /* Entypo.ttf in Resources */,
 				665E29FE13F04AB68FF7AEA4 /* EvilIcons.ttf in Resources */,
@@ -974,6 +986,7 @@
 				4D47DAF7B52C4E258CD86EC8 /* Octicons.ttf in Resources */,
 				C71FD2A2F7F14EF387F61394 /* SimpleLineIcons.ttf in Resources */,
 				B0C87323990044D390D8B50E /* Zocial.ttf in Resources */,
+				CA7D45D41F39925900C0E46F /* EkkaLogo.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
