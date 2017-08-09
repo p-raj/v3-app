@@ -1,22 +1,23 @@
-import React  from 'react';
-import RN, { Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { Text, TouchableOpacity, View, StyleSheet } from '../../components/ui-components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import theme from '../../utils/theme'
+import { moderateScale } from '../../utils/responsiveGuidelines';
 
 
-const styles = RN.StyleSheet.create({
+const styles = StyleSheet.create({
     iconContainer: {
-        width: 80,
-        height: 80,
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
+        width: moderateScale(80, 0.05),
+        height: moderateScale(90, 0.05),
     },
     iconShape: {
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        width: 60,
-        height: 60,
+        width: moderateScale(70, 0.05),
+        height: moderateScale(70, 0.05),
         backgroundColor: '#333'
     },
     icon: {
@@ -48,7 +49,7 @@ class IconComponent extends React.Component {
                 <TouchableOpacity
                     style={styles.iconShape}
                     onPress={this.props.onIconPress}>
-                    <Icon name={this.props.iconLogo} size={32} color={theme.white}/>
+                    <Icon name={this.props.iconLogo} size={moderateScale(32, 0.3)} color={theme.white}/>
                 </TouchableOpacity>
                 <Text numberOfLines={1} style={styles.iconText}>{this.props.iconText}</Text>
             </View>

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         height: 40,
-        fontSize: theme.h3,
+        fontSize: theme.h4,
         borderWidth: 0,
         color: theme.black,
     },

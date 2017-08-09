@@ -53,6 +53,10 @@ class HomeScreen extends React.Component {
         };
     }
 
+    componentDidMount(){
+
+    }
+
     render() {
         return (
             <View style={styles.container}>

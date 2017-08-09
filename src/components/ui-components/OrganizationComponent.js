@@ -4,6 +4,7 @@ import humanReadableDateTime from '../../utils/HumanReadableDateTime';
 import theme from '../../utils/theme'
 import { withAuthentication } from '../../v3-core/components/hoc/Auth';
 import * as _ from 'lodash';
+import { moderateScale } from '../../utils/responsiveGuidelines';
 
 
 const styles = StyleSheet.create({
@@ -31,7 +32,8 @@ const styles = StyleSheet.create({
     },
     image: {
         backgroundColor: 'transparent',
-        flex: 1,
+        width: moderateScale(80, 0.05),
+        height: moderateScale(80, 0.05),
     }
 });
 
@@ -59,7 +61,7 @@ class OrganizationComponent extends React.Component {
                         <Image
                             source={{
                                 uri: _.isEmpty(this.props.image) ?
-                                    "http://via.placeholder.com/70x70" :
+                                    "http://via.placeholder.com/80x80" :
                                     this.props.image
                             }}
                             resizeMode="contain"

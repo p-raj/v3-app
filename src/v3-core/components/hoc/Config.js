@@ -44,31 +44,31 @@ export function withConfig(WrappedComponent) {
             };
         }
 
-        // componentDidMount() {
-        //     NetInfo.isConnected.addEventListener(
-        //         'change',
-        //         this._handleConnectivityChange
-        //     );
-        //     NetInfo.isConnected.fetch().done(
-        //         (connectedToInternet) => {
-        //             this.setState({connectedToInternet});
-        //         }
-        //     );
-        // }
-        //
-        // componentWillUnmount() {
-        //     NetInfo.isConnected.removeEventListener(
-        //         'change',
-        //         this._handleConnectivityChange
-        //     );
-        // }
-        //
-        // _handleConnectivityChange = (connectedToInternet) => {
-        //     console.log("======connectedToInternet=======", connectedToInternet);
-        //     this.setState({
-        //         connectedToInternet,
-        //     });
-        // };
+        componentDidMount() {
+            NetInfo.isConnected.addEventListener(
+                'change',
+                this._handleConnectivityChange
+            );
+            // NetInfo.isConnected.fetch().done(
+            //     (connectedToInternet) => {
+            //         this.setState({connectedToInternet});
+            //     }
+            // );
+        }
+
+        componentWillUnmount() {
+            NetInfo.isConnected.removeEventListener(
+                'change',
+                this._handleConnectivityChange
+            );
+        }
+
+        _handleConnectivityChange = (connectedToInternet) => {
+            console.log("======connectedToInternet=======", connectedToInternet);
+            this.setState({
+                connectedToInternet,
+            });
+        };
 
         render() {
             // filter out extra props that are specific to this HOC and shouldn't be

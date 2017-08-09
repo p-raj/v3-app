@@ -13,7 +13,9 @@ const styles = StyleSheet.create({
 export default class TextComponent extends React.Component {
     render() {
         return (
-            <Text style={[styles.defaultTextStyle, this.props.style]}>
+            <Text
+                numberOfLines={this.props.numberOfLines}
+                style={[styles.defaultTextStyle, this.props.style]}>
                 {this.props.children}
             </Text>
         )
