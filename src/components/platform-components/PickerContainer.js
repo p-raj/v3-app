@@ -39,7 +39,7 @@ class PickerContainer extends React.Component {
     onImageChange = (imagePath, file) => {
 
         console.log("Inside PickerContainer.js: imagePath", imagePath);
-        let widgetUuid = this.props.actionContext.widget.uuid;
+        let widgetUuid = this.props.env.widget.uuid;
         let fieldName = this.props.options.name;
 
         this.props.dispatch(updateComponentData(widgetUuid, fieldName, imagePath));
@@ -52,7 +52,7 @@ PickerContainer = connect((store) => {
     return {
         show: store.picker.show,
         pickerType: store.picker.pickerType,
-        actionContext: store.picker.actionContext,
+        env: store.picker.env,
         options: store.picker.options,
     }
 })(PickerContainer);

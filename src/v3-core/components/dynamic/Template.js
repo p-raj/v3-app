@@ -8,19 +8,45 @@ import Renderer from './Renderer';
  * or a valid URL to a JSON, which will be
  * rendered by the WidgetLayout.
  */
-const Template = ({template, ...props}) => {
-    if (typeof template === 'string') {
-        return <TemplateResolver url={template}/>;
+class Template extends React.Component {
+    static defaultProps = {
+        // TODO path to a default error template
+        template: {}
+    };
+    static contextTypes = {
+        perform: React.PropTypes.func,
+    };
+
+    componentWillReceiveProps(nextProps) {
+        const {template} = this.props;
+
+        // reference check is enough
+        if (template !== nextProps.template) {
+            const actions = nextProps.template['pre-render'] || [];
+            actions.map((action) => {
+                return this.context.perform(action);
+            });
+        }
     }
 
-    const sections = template.sections || [];
-    return <Renderer sections={sections}/>
-};
+    render() {
+        const {template} = this.props;
+        if (typeof template === 'string') {
+            return <TemplateResolver url={template}/>;
+        }
 
-Template.defaultProps = {
-    // TODO path to a default error template
-    template: {}
-};
+        const sections = template.sections || [];
+        return <Renderer sections={sections}/>
+    }
+
+    componentDidMount() {
+        const {template} = this.props;
+        const actions = template['pre-render'] || [];
+        actions.map((action) => {
+            return this.context.perform(action);
+        });
+    }
+}
 
 Template.propTypes = {
     template: PropTypes.oneOf(
@@ -29,6 +55,10 @@ Template.propTypes = {
                 items: PropTypes.arrayOf(PropTypes.shape({
                     type: PropTypes.string.isRequired
                 })).isRequired
+            })),
+            'pre-render': PropTypes.arrayOf(PropTypes.shape({
+                type: PropTypes.string.isRequired,
+                options: PropTypes.object
             }))
         }),
         PropTypes.string

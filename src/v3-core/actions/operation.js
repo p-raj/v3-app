@@ -4,9 +4,8 @@ import { RUNTIMES_API } from '../../utils/endpoints';
 
 
 export default function (obj) {
-    console.log(obj);
-    const {actionContext, data, options} = obj;
-    const {runtime, session, token, widget} = actionContext;
+    const {env, data, options} = obj;
+    const {runtime, session, widget} = env;
 
     let url = `${RUNTIMES_API}${runtime.uuid}/widgets/${widget.uuid}/${options.operationId}/`;
 
@@ -27,9 +26,7 @@ export default function (obj) {
 
     axios.post(url, data, {
         headers: {
-            "Authorization": `Bearer ${token}`,
-            "X-VRT-SESSION": session,
-            "HOST-VERIS": "apis.veris.in"
+            "X-VRT-SESSION": session
         }
     })
         .then((response) => {

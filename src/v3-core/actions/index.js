@@ -10,9 +10,9 @@ export default class Action {
         this.return = null;
     }
 
-    execute = (data, actionContext) => {
+    execute = (data, env) => {
         const action = this;
-        const mergeOptions = {options: this.options, data: data, actionContext};
+        const mergeOptions = {options: this.options, data: data, env: env};
         return new Promise(function (resolve, reject) {
             try {
                 const result = ActionRegistry.get(action.type)(mergeOptions);

@@ -7,7 +7,7 @@ export default function (state = {show: false}, action) {
                 ...state,
                 show: true,
                 pickerType: action.payload.pickerType,
-                actionContext: action.payload.actionContext,
+                env: action.payload.env,
                 options: action.payload.options
             };
         case CLOSE_PICKER:
