@@ -529,6 +529,7 @@
 				00E356EF1AD99517003FC87E /* veris_clientTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				5FBDEBEB9CF4441297E9C556 /* Resources */,
+				CA3EB7C11F3B29CE00B76B03 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -541,6 +542,18 @@
 				00E356EE1AD99517003FC87E /* veris_clientTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CA3EB7C11F3B29CE00B76B03 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				C75717C2B2E84AA0A06FB961 /* libRNVectorIcons.a */,
+				A9F7F85475EC4CC687AEEF90 /* libRNImagePicker.a */,
+				6ADE8CBF0B7F4DCF80935688 /* libRCTCamera.a */,
+				FBDB9A72A87345E98A1E316C /* libRNBlur.a */,
+				459CDBC4FE964433BE258FCE /* libBVLinearGradient.a */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		CABF4BE51EE92D02001C1279 /* Products */ = {
