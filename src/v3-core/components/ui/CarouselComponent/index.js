@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 class CarouselComponent extends React.Component {
 
@@ -12,10 +12,11 @@ class CarouselComponent extends React.Component {
     }
 
     render() {
-        let infinite = this.props.children.length !== 1;
+        // for saving server's ass, until its stable enough @AP :/
+        // disable infinite
         let settings = {
             dots: true,
-            infinite: infinite,
+            infinite: false,
             speed: 200,
             slidesToShow: 1,
             slidesToScroll: 1,
