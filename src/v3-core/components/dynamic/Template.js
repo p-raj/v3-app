@@ -50,7 +50,7 @@ TemplateResolver.propTypes = {
 const CompositeTemplate = ({template, name}) => {
     if (name && template[name]) {
         console.warn('Deprecated template layout structure!');
-        console.error('Composite template structure detected, ' +
+        console.warn('Composite template structure detected, ' +
             'switch to individual templates!');
         return <Template template={template[name]}/>
     }
