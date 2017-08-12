@@ -76,6 +76,7 @@ class Widget extends React.Component {
     render() {
         const {template, templateName} = this.props;
         const t = {
+            ...template[templateName],
             sections: this.findPropertyChanges(template[templateName])
         };
         return (

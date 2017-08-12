@@ -20,8 +20,8 @@ class Template extends React.Component {
     componentWillReceiveProps(nextProps) {
         const {template} = this.props;
 
-        // reference check is enough
-        if (template !== nextProps.template) {
+        // reference check is not enough
+        if (JSON.stringify(template) !== JSON.stringify(nextProps.template)) {
             const actions = nextProps.template['pre-render'] || [];
             actions.map((action) => {
                 return this.context.perform(action);
