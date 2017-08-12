@@ -18,6 +18,7 @@ import HorizontalLayout from './layouts/HorizontalLayout';
 import VerticalLayout from './layouts/VerticalLayout';
 
 import { withValues } from './hoc/withValues';
+import { withVariables } from './hoc/withVariables';
 import { withFormat } from './hoc/withFormat';
 import { withStyle } from './hoc/withStyle';
 
@@ -37,10 +38,10 @@ import { withLayoutProps } from './hoc/HorizontalLayout/Props';
 
 import { compose } from 'recompose';
 
-
+// the order is important for these HOCs
 const enhanced = compose(
-    // withEnv
     withValues,
+    withVariables,
     withFormat,
     withStyle
 );
