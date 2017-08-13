@@ -1,6 +1,7 @@
 import { Image } from 'react-native';
 
 import {
+    Animation,
     AutoComplete,
     Button,
     CheckBox,
@@ -33,6 +34,7 @@ import { withDividerProps } from './hoc/Divider/Props';
 import { withIconProps } from './hoc/Icon/Props';
 import { withSpinnerProps } from './hoc/Spinner/Props';
 import { withRecyclerViewProps } from './hoc/RecyclerView/Props';
+import { withAnimationProps } from './hoc/Animation/Props';
 
 /*
  * TODO
@@ -70,6 +72,9 @@ class ComponentFactory {
                 return VerticalLayout;
             case 'horizontal':
                 return HorizontalLayout;
+
+            case 'animation':
+                return withAnimationProps(Animation);
 
             case 'textarea':
                 return withTextAreaProps(TextArea);
