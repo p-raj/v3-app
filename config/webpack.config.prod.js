@@ -135,7 +135,7 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                exclude: /node_modules\/(?!(react-native-elements|react-native-tab-view|react-native-vector-icons|react-native-drawer|react-native-scrollable-tab-view|react-native-popup-dialog|react-native-side-menu|react-native-tab-navigator|react-native-sortable-grid)\/).*/,
+                exclude: /node_modules\/(?!(react-native-elements|react-native-tab-view|react-native-vector-icons|react-native-drawer|react-native-scrollable-tab-view|react-native-popup-dialog|react-native-side-menu|react-native-tab-navigator|react-native-grid-component)\/).*/,
                 loader: 'babel-loader'
             },
             // The notation here is somewhat confusing.
@@ -186,6 +186,7 @@ module.exports = {
         ];
     },
     plugins: [
+        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
         // Makes the public URL available as %PUBLIC_URL% in index.html, e.g.:
         // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
         // In production, it will be an empty string unless you specify "homepage"
