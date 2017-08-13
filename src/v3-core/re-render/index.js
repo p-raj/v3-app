@@ -1,3 +1,4 @@
+import Animation from './Animation';
 import AutoComplete from './AutoComplete';
 import Button from './Button';
 import CheckBox from './CheckBox';
@@ -16,7 +17,7 @@ import TextArea from './TextArea';
 import TextInput from './TextInput';
 
 export {
-    AutoComplete, Button, CheckBox, Dropdown,
+    Animation, AutoComplete, Button, CheckBox, Dropdown,
     Icon, Image, Text, MultiSelect,
     MultiSelectItem, ProgressBar, RadioGroup, RadioButton,
     RecyclerView, Spinner, TextArea, TextInput

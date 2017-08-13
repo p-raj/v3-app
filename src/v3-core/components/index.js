@@ -1,6 +1,7 @@
 import { Image } from 'react-native';
 
 import {
+    Animation,
     AutoComplete,
     Button,
     CheckBox,
@@ -35,6 +36,7 @@ import { withIconProps } from './hoc/Icon/Props';
 import { withSpinnerProps } from './hoc/Spinner/Props';
 import { withRecyclerViewProps } from './hoc/RecyclerView/Props';
 import { withLayoutProps } from './hoc/HorizontalLayout/Props';
+import { withAnimationProps } from './hoc/Animation/Props';
 
 import { compose } from 'recompose';
 
@@ -45,7 +47,6 @@ const enhanced = compose(
     withFormat,
     withStyle
 );
-
 
 /*
  * TODO
@@ -79,6 +80,9 @@ class ComponentFactory {
                 return withLayoutProps(VerticalLayout);
             case 'horizontal':
                 return withLayoutProps(HorizontalLayout);
+
+            case 'animation':
+                return withAnimationProps(Animation);
 
             case 'textarea':
                 return withTextAreaProps(TextArea);

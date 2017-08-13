@@ -138,7 +138,7 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                exclude: /node_modules\/(?!(react-native-elements|re-render|react-native-vector-icons|react-native-drawer|react-native-popup-dialog|react-native-side-menu|react-native-tab-navigator|react-native-grid-component)\/).*/,
+                exclude: /node_modules\/(?!(react-native-elements|re-render|react-native-vector-icons|react-native-drawer|react-native-popup-dialog|react-native-side-menu|react-native-tab-navigator|react-native-grid-component|lottie-react-native)\/).*/,
                 loader: 'babel-loader'
             },
             // "postcss" loader applies autoprefixer to our CSS.
