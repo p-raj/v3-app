@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 import ImagePicker from 'react-native-image-picker';
@@ -87,6 +88,6 @@ export default class IP extends React.Component {
 }
 
 IP.propTypes = {
-    launchType: React.PropTypes.oneOf(launchType).isRequired,
-    onImageChange: React.PropTypes.func,
+    launchType: PropTypes.oneOf(launchType).isRequired,
+    onImageChange: PropTypes.func,
 };

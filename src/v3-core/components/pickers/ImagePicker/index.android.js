@@ -72,6 +72,6 @@ export default class IP extends React.Component {
 }
 
 IP.propTypes = {
-    launchType: React.PropTypes.oneOf(launchType).isRequired,
-    onImageChange: React.PropTypes.func,
+    launchType: PropTypes.oneOf(launchType).isRequired,
+    onImageChange: PropTypes.func,
 };

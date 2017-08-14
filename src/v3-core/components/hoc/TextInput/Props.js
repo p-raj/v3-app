@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { themr } from 'react-css-themr';
 
 /**
@@ -22,8 +23,8 @@ export function withTextInputProps(WrappedComponent) {
     @themr('text-input')
     class WithTextInputProps extends React.Component {
         static contextTypes = {
-            setVariable: React.PropTypes.func,
-            enqueue: React.PropTypes.func,
+            setVariable: PropTypes.func,
+            enqueue: PropTypes.func,
         };
 
         render() {

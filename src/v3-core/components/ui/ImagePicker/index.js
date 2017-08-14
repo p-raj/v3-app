@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const launchType = ['picker', 'camera', 'gallery'];
 
@@ -76,6 +77,6 @@ export default class ImagePicker extends React.Component {
 }
 
 ImagePicker.propTypes = {
-    launchType: React.PropTypes.oneOf(launchType).isRequired,
-    onImageChange: React.PropTypes.func,
+    launchType: PropTypes.oneOf(launchType).isRequired,
+    onImageChange: PropTypes.func,
 };

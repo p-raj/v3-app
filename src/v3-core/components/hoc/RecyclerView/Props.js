@@ -66,9 +66,9 @@ export function withRecyclerViewProps(WrappedComponent) {
             orientation: 'vertical'
         };
         static contextTypes = {
-            widget: React.PropTypes.object,
-            setVariable: React.PropTypes.func,
-            enqueue: React.PropTypes.func,
+            widget: PropTypes.object,
+            setVariable: PropTypes.func,
+            enqueue: PropTypes.func,
         };
 
         render() {

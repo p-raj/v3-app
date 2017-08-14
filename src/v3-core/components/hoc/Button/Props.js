@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { themr } from 'react-css-themr';
 
 
@@ -28,7 +29,7 @@ export function withButtonProps(WrappedComponent) {
             }
         };
         static contextTypes = {
-            enqueue: React.PropTypes.func,
+            enqueue: PropTypes.func,
         };
 
         render() {

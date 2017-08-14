@@ -34,7 +34,7 @@ export function withImageProps(WrappedComponent) {
             }
         };
         static contextTypes = {
-            enqueue: React.PropTypes.func,
+            enqueue: PropTypes.func,
         };
 
         render() {

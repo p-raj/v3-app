@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 /**
@@ -19,8 +20,8 @@ import React from 'react';
 export function withTextAreaProps(WrappedComponent) {
     class WithTextAreaProps extends React.Component {
         static contextTypes = {
-            enqueue: React.PropTypes.func,
-            setVariable: React.PropTypes.func,
+            enqueue: PropTypes.func,
+            setVariable: PropTypes.func,
         };
 
         render() {

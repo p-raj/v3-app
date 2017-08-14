@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Text, TouchableOpacity, View } from 'react-native';
 import ReactModal from 'react-modal';
 import { IconButton } from 're-render';
@@ -71,6 +72,6 @@ export default class M extends Component {
     }
 }
 M.propTypes = {
-    buttonText: React.PropTypes.string.isRequired,
-    contentLabel: React.PropTypes.string.isRequired,
+    buttonText: PropTypes.string.isRequired,
+    contentLabel: PropTypes.string.isRequired,
 };
