@@ -2,6 +2,13 @@ import React from 'react';
 
 export function withSpinnerProps(WrappedComponent) {
     class WithSpinnerProps extends React.Component {
+        static defaultProps = {
+            hidden: false,
+            size: 'small',
+            style: {
+                color: '#000'
+            }
+        };
         render() {
             // filter out extra props that are specific to this HOC
             // and shouldn't be passed through
@@ -20,13 +27,6 @@ export function withSpinnerProps(WrappedComponent) {
     }
 
     WithSpinnerProps.displayName = `WithSpinnerProps(${getDisplayName(WrappedComponent)})`;
-    WithSpinnerProps.defaultProps = {
-        hidden: false,
-        size: 'small',
-        style: {
-            color: '#000'
-        }
-    };
     return WithSpinnerProps;
 }
 

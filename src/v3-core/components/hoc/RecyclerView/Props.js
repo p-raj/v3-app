@@ -61,8 +61,10 @@ WithValueItem.propTypes = {
 
 export function withRecyclerViewProps(WrappedComponent) {
     class WithRecyclerViewProps extends React.Component {
-        // contextTypes is a required static property to declare
-        // what you want from the context
+        static defaultProps = {
+            value: [],
+            orientation: 'vertical'
+        };
         static contextTypes = {
             widget: React.PropTypes.object,
             setVariable: React.PropTypes.func,
@@ -104,10 +106,6 @@ export function withRecyclerViewProps(WrappedComponent) {
     }
 
     WithRecyclerViewProps.displayName = `WithRecyclerViewProps(${getDisplayName(WrappedComponent)})`;
-    WithRecyclerViewProps.defaultProps = {
-        value: [],
-        orientation: 'vertical'
-    };
     WithRecyclerViewProps.propTypes = {
         value: PropTypes.arrayOf(PropTypes.object),
         orientation: PropTypes.oneOf(['horizontal', 'vertical'])

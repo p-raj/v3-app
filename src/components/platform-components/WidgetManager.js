@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView } from 'react-native';
+import { ThemeProvider } from 'react-css-themr';
 
 import Widget from './Widget';
 
@@ -23,7 +24,7 @@ class WidgetManager extends React.Component {
 
     render() {
         const widgets = this.props.widgets
-            // temporary hack for
+        // temporary hack for
             .sort((w1, w2) => w1.index - w2.index)
             .map((widget) => {
                 return <Widget
@@ -33,10 +34,13 @@ class WidgetManager extends React.Component {
             });
 
         // TODO widget layouts!!
+        const rootStyle = this.props.theme.root || {flex: 1};
         return (
-            <ScrollView style={{flex: 1}}>
-                {widgets}
-            </ScrollView>
+            <ThemeProvider theme={this.props.theme}>
+                <ScrollView style={rootStyle}>
+                    {widgets}
+                </ScrollView>
+            </ThemeProvider>
         );
     }
 }
@@ -49,7 +53,12 @@ WidgetManager.childContextTypes = {
 WidgetManager.propTypes = {
     widgets: PropTypes.arrayOf(PropTypes.object).isRequired,
     runtime: PropTypes.object.isRequired,
-    session: PropTypes.object.isRequired
+    session: PropTypes.object.isRequired,
+    theme: PropTypes.object
+};
+
+WidgetManager.defaultProps = {
+    theme: {}
 };
 
 export default WidgetManager;

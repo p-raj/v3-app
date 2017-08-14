@@ -1,4 +1,5 @@
 import React from 'react';
+import { themr } from 'react-css-themr';
 
 
 /**
@@ -19,6 +20,7 @@ import React from 'react';
  *
  * */
 export function withTextProps(WrappedComponent) {
+    @themr('text')
     class WithTextProps extends React.Component {
         static contextTypes = {
             enqueue: React.PropTypes.func,

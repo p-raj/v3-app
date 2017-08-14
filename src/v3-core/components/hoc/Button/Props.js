@@ -1,4 +1,5 @@
 import React from 'react';
+import { themr } from 'react-css-themr';
 
 
 /**
@@ -19,9 +20,13 @@ import React from 'react';
  *
  * */
 export function withButtonProps(WrappedComponent) {
+    @themr('button')
     class WithButtonProps extends React.Component {
-        // contextTypes is a required static property to declare
-        // what you want from the context
+        static defaultProps = {
+            style: {
+                color: '#000'
+            }
+        };
         static contextTypes = {
             enqueue: React.PropTypes.func,
         };
@@ -59,11 +64,6 @@ export function withButtonProps(WrappedComponent) {
     }
 
     WithButtonProps.displayName = `WithButtonProps(${getDisplayName(WrappedComponent)})`;
-    WithButtonProps.defaultProps = {
-        style: {
-            color: '#000'
-        }
-    };
     return WithButtonProps;
 }
 

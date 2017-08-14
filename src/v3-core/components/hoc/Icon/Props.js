@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { themr } from 'react-css-themr';
 
 
 /**
@@ -21,7 +22,14 @@ import PropTypes from 'prop-types';
  * */
 
 export function withIconProps(WrappedComponent) {
+    @themr('icon')
     class WithIconProps extends React.Component {
+        static defaultProps = {
+            type: 'font-awesome',
+            style: {
+                color: '#000'
+            }
+        };
         static contextTypes = {
             enqueue: React.PropTypes.func,
         };
@@ -31,7 +39,6 @@ export function withIconProps(WrappedComponent) {
 
             // eslint-disable-next-line
             const {color, ...passThroughStyle} = style;
-            console.log(this.props)
 
             return (
                 <WrappedComponent
@@ -52,12 +59,6 @@ export function withIconProps(WrappedComponent) {
     WithIconProps.displayName = `WithIconProps(${getDisplayName(WrappedComponent)})`;
     WithIconProps.propTypes = {
         icon: PropTypes.string.isRequired
-    };
-    WithIconProps.defaultProps = {
-        type: 'font-awesome',
-        style: {
-            color: '#000'
-        }
     };
     return WithIconProps;
 }

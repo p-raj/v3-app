@@ -1,4 +1,5 @@
 import React from 'react';
+import { themr } from 'react-css-themr';
 
 /**
  * A higher-order component (HOC) is an advanced technique
@@ -18,9 +19,8 @@ import React from 'react';
  *
  * */
 export function withTextInputProps(WrappedComponent) {
+    @themr('text-input')
     class WithTextInputProps extends React.Component {
-        // contextTypes is a required static property to declare
-        // what you want from the context
         static contextTypes = {
             setVariable: React.PropTypes.func,
             enqueue: React.PropTypes.func,

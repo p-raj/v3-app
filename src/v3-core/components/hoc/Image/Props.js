@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
+import { themr } from 'react-css-themr';
 
 /**
  * A higher-order component (HOC) is an advanced technique
@@ -20,7 +21,18 @@ import { TouchableOpacity } from 'react-native';
  *
  * */
 export function withImageProps(WrappedComponent) {
+    @themr('image')
     class WithImageProps extends React.Component {
+        static defaultProps = {
+            value: '',
+            style: {
+                marginTop: 16,
+                borderRadius: 56,
+                width: 56,
+                height: 56,
+                backgroundColor: '#333'
+            }
+        };
         static contextTypes = {
             enqueue: React.PropTypes.func,
         };
@@ -72,16 +84,6 @@ export function withImageProps(WrappedComponent) {
     }
 
     WithImageProps.displayName = `WithImageProps(${getDisplayName(WrappedComponent)})`;
-    WithImageProps.defaultProps = {
-        value: '',
-        style: {
-            marginTop: 16,
-            borderRadius: 56,
-            width: 56,
-            height: 56,
-            backgroundColor: '#333'
-        }
-    };
     WithImageProps.propTypes = {
         value: PropTypes.string.isRequired,
         style: PropTypes.shape({
