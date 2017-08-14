@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import QRCode from 'qrcode.react';
 import { View } from 'react-native';
 
@@ -20,8 +21,8 @@ export default class QrView extends React.Component {
 }
 
 QrView.propTypes = {
-    value: React.PropTypes.string.isRequired,
-    size: React.PropTypes.number,
-    bgColor: React.PropTypes.string,
-    fgColor: React.PropTypes.string,
+    value: PropTypes.string.isRequired,
+    size: PropTypes.number,
+    bgColor: PropTypes.string,
+    fgColor: PropTypes.string,
 };

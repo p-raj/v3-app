@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 /**
@@ -21,8 +22,8 @@ import React from 'react';
 export function withCheckBoxProps(WrappedComponent) {
     class WithCheckBoxProps extends React.Component {
         static contextTypes = {
-            setVariable: React.PropTypes.func,
-            enqueue: React.PropTypes.func,
+            setVariable: PropTypes.func,
+            enqueue: PropTypes.func,
         };
 
         render() {

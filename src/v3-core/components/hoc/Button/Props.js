@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 /**
@@ -23,7 +24,7 @@ export function withButtonProps(WrappedComponent) {
         // contextTypes is a required static property to declare
         // what you want from the context
         static contextTypes = {
-            enqueue: React.PropTypes.func,
+            enqueue: PropTypes.func,
         };
 
         render() {

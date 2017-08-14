@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import RN from 'react-native';
 import Drawer from 'react-native-drawer';
 
@@ -63,8 +64,8 @@ class Sidebar extends React.Component {
 
 Sidebar.propTypes = {
     ...Drawer.propTypes,
-    items: React.PropTypes.array.isRequired,
-    onItemClick: React.PropTypes.func.isRequired
+    items: PropTypes.array.isRequired,
+    onItemClick: PropTypes.func.isRequired
 };
 Sidebar.defaultProps = {};
 

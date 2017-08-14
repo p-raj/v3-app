@@ -22,7 +22,7 @@ import { TouchableOpacity } from 'react-native';
 export function withImageProps(WrappedComponent) {
     class WithImageProps extends React.Component {
         static contextTypes = {
-            enqueue: React.PropTypes.func,
+            enqueue: PropTypes.func,
         };
 
         render() {

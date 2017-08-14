@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * A higher-order component (HOC) is an advanced technique
@@ -22,8 +23,8 @@ export function withTextInputProps(WrappedComponent) {
         // contextTypes is a required static property to declare
         // what you want from the context
         static contextTypes = {
-            setVariable: React.PropTypes.func,
-            enqueue: React.PropTypes.func,
+            setVariable: PropTypes.func,
+            enqueue: PropTypes.func,
         };
 
         render() {

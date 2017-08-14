@@ -65,9 +65,9 @@ export function withRecyclerViewProps(WrappedComponent) {
         // contextTypes is a required static property to declare
         // what you want from the context
         static contextTypes = {
-            widget: React.PropTypes.object,
-            setVariable: React.PropTypes.func,
-            enqueue: React.PropTypes.func,
+            widget: PropTypes.object,
+            setVariable: PropTypes.func,
+            enqueue: PropTypes.func,
         };
 
         render() {

@@ -23,7 +23,7 @@ import PropTypes from 'prop-types';
 export function withIconProps(WrappedComponent) {
     class WithIconProps extends React.Component {
         static contextTypes = {
-            enqueue: React.PropTypes.func,
+            enqueue: PropTypes.func,
         };
 
         render() {
