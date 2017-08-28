@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Text, TouchableOpacity, View, StyleSheet, Image } from '../../components/ui-components';
 import theme from '../../utils/theme'
 import { moderateScale } from '../../utils/responsiveGuidelines';
@@ -43,9 +44,9 @@ class ImageIconComponent extends React.Component {
 }
 
 ImageIconComponent.propTypes = {
-    iconText: React.PropTypes.string.isRequired,
-    imageUrl: React.PropTypes.string.isRequired,
-    onIconPress: React.PropTypes.func.isRequired,
+    iconText: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    onIconPress: PropTypes.func.isRequired,
 };
 
 

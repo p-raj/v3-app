@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Text, TouchableOpacity, View, StyleSheet } from '../../components/ui-components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import theme from '../../utils/theme'
@@ -57,8 +58,8 @@ class IconComponent extends React.Component {
 }
 
 IconComponent.propTypes = {
-    iconText: React.PropTypes.string.isRequired,
-    onIconPress: React.PropTypes.func.isRequired,
+    iconText: PropTypes.string.isRequired,
+    onIconPress: PropTypes.func.isRequired,
 };
 
 

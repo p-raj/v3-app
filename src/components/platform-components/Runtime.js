@@ -12,6 +12,7 @@
  * of React based Applications.
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
     StyleSheet,
@@ -125,7 +126,7 @@ class Runtime extends React.Component {
 }
 
 Runtime.propTypes = {
-    runtime: React.PropTypes.object.isRequired
+    runtime: PropTypes.object.isRequired
 };
 
 Runtime = connect((store) => {
