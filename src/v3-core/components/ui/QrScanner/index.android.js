@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Camera from 'react-native-camera';
 import { Dimensions, StyleSheet, View } from 'react-native';
 import { Icon as IconButton } from '../../../re-render';

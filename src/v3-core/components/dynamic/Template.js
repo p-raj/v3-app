@@ -14,7 +14,7 @@ class Template extends React.Component {
         template: {}
     };
     static contextTypes = {
-        perform: React.PropTypes.func,
+        perform: PropTypes.func,
     };
 
     componentWillReceiveProps(nextProps) {
