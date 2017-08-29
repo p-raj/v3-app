@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
-import ImagePicker from '../../v3-core/components/pickers/ImagePicker';
+// import ImagePicker from '../../v3-core/components/pickers/ImagePicker';
 import { closePicker } from '../../redux/actions/picker';
 import updateComponentData from '../../redux/actions/updateComponentData';
 
@@ -23,14 +23,14 @@ class PickerContainer extends React.Component {
     getPickerComponent = (pickerType) => {
         console.log("pickerType", pickerType);
         switch (pickerType) {
-            case PIC_FROM_CAMERA:
-                return <ImagePicker launchType="camera"
-                                    onImageChange={this.onImageChange}
-                />;
-            case PIC_FROM_GALLERY:
-                return <ImagePicker launchType="gallery"
-                                    onImageChange={this.onImageChange}
-                />;
+            // case PIC_FROM_CAMERA:
+            //     return <ImagePicker launchType="camera"
+            //                         onImageChange={this.onImageChange}
+            //     />;
+            // case PIC_FROM_GALLERY:
+            //     return <ImagePicker launchType="gallery"
+            //                         onImageChange={this.onImageChange}
+            //     />;
             default :
                 return (<Text> Picker Not Implemented </Text>);
         }
