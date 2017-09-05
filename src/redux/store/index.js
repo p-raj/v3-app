@@ -10,14 +10,24 @@ const logger = createLogger();
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+const productionMiddlewares = [thunk];
+const developmentMiddlewares = [logger];
+
+const middlewares = [...productionMiddlewares];
+
+// eslint-disable-next-line no-undef
+if (process.env.NODE_ENV === 'development') {
+    middlewares.push(...developmentMiddlewares);
+}
+
 const store = createStore(reducer, {}, composeEnhancers(
     applyMiddleware(
-        thunk,
-        logger,
+        ...middlewares,
 
         /*
          * The middleware for syncing redux store & database.
-         * It should always be at the last. Since it writes the final state to the database
+         * It should always be at the last.
+         * Since it writes the final state to the database
          * */
         storage,
     )
