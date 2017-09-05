@@ -8,7 +8,7 @@ import storage from '../middlewares/storage';
 // https://github.com/evgenyrodionov/redux-logger/issues/20
 const logger = createLogger();
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+let composeEnhancers = compose;
 
 const productionMiddlewares = [thunk];
 const developmentMiddlewares = [logger];
@@ -18,19 +18,23 @@ const middlewares = [...productionMiddlewares];
 // eslint-disable-next-line no-undef
 if (process.env.NODE_ENV === 'development') {
     middlewares.push(...developmentMiddlewares);
+    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 }
 
-const store = createStore(reducer, {}, composeEnhancers(
-    applyMiddleware(
-        ...middlewares,
+const store = createStore(
+    reducer,
+    {},
+    composeEnhancers(
+        applyMiddleware(
+            ...middlewares,
 
-        /*
-         * The middleware for syncing redux store & database.
-         * It should always be at the last.
-         * Since it writes the final state to the database
-         * */
-        storage,
-    )
-));
+            /*
+             * The middleware for syncing redux store & database.
+             * It should always be at the last.
+             * Since it writes the final state to the database
+             * */
+            storage,
+        )
+    ));
 
 export default store;
