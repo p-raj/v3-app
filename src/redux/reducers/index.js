@@ -24,7 +24,10 @@ let reducer = combineReducers({
 
     actionQueue: actionQueue,
     picker: pickerReducer,
-    config: configReducer,
+
+    // store the initial
+    // configuration for the application
+    config: configReducer
 });
 
 export default reducer;

@@ -1,24 +1,12 @@
-/**
- * A higher-order component (HOC) is an advanced technique
- * in React for reusing component logic.
- * HOCs are not part of the React API, per se.
- * They are a pattern that emerges from React's compositional nature.
- *
- * > Use HOCs For Cross-Cutting Concerns
- * Authentication is a Cross-Cutting Concern for us :)
- *
- * */
-import React from 'react';
-import { connect } from 'react-redux';
-
 import _ from 'lodash';
 
-import AuthScreen from '../../../screens/screen-components/AuthComponent';
-
-import loadPersistentData from '../../../redux/actions/storage';
+import React from 'react';
+import { connect } from 'react-redux';
 import refreshToken from '../../../../src/redux/actions/refreshToken';
+
+import AuthScreen from '../../../screens/screen-components/AuthComponent';
 import { FAILED, START } from '../../../utils/constants';
-import { withConfig } from './Config';
+import { withConfig } from './withAppConfig';
 
 
 export function withAuthentication(WrappedComponent) {
@@ -57,7 +45,7 @@ export function withAuthentication(WrappedComponent) {
             // filter out extra props that are specific to this HOC and shouldn't be
             // passed through
             // eslint-disable-next-line
-            const {auth, storage, ...passThroughProps} = this.props;
+            const {auth, ...passThroughProps} = this.props;
 
             // Inject props into the wrapped component.
             // These are usually state values or
@@ -70,26 +58,11 @@ export function withAuthentication(WrappedComponent) {
 
             // Pass props to wrapped component
             return (
-                <Component
-                    auth={auth}
-                    {...passThroughProps}
-                />
+                <Component auth={auth} {...passThroughProps}/>
             );
         }
 
-        componentDidMount() {
-            // Dispatch action to load data from storage
-            if (!this.props.storage) {
-                this.props.dispatch(loadPersistentData())
-            }
-        }
-
         isAuthenticated = (props) => {
-            // when we are constructing the component
-            // it's highly unlikely that the client is authenticated
-            // since we aim this component to be used at the highest level
-            if (!props.storage) return false;
-
             if (_.isEmpty(props.auth) || !props.auth.token) {
                 // the data has been loaded from the storage
                 // but seems like the client hasn't authenticated yet :(
@@ -152,7 +125,6 @@ export function withAuthentication(WrappedComponent) {
     return withConfig(connect((store) => {
         return {
             auth: store.auth,
-            storage: store.storage,
             refreshToken: store.refreshToken
         }
     })(WithAuthentication));

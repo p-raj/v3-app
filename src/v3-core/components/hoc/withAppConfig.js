@@ -1,19 +1,11 @@
-/**
- * A higher-order component (HOC) is an advanced technique
- * in React for reusing component logic.
- * HOCs are not part of the React API, per se.
- * They are a pattern that emerges from React's compositional nature.
- *
- * > Use HOCs For Cross-Cutting Concerns
- *
- * */
-import React from 'react';
 import Request from 're-quests';
-import { ActivityIndicator, Text, View, StyleSheet, NetInfo } from 'react-native';
+import React from 'react';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
-import { SYSTEM_WIDGETS } from '../../../utils/endpoints';
 import { saveWidgetConfig } from '../../../redux/actions/config';
+import { SYSTEM_WIDGETS } from '../../../utils/endpoints';
 import theme from '../../../utils/theme';
+import { withPersistentStorage } from './withPersistentStorage';
 
 
 const styles = StyleSheet.create({
@@ -35,41 +27,7 @@ const styles = StyleSheet.create({
 });
 
 export function withConfig(WrappedComponent) {
-
     class WithConfig extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                connectedToInternet: true
-            };
-        }
-
-        componentDidMount() {
-            NetInfo.isConnected.addEventListener(
-                'change',
-                this._handleConnectivityChange
-            );
-            // NetInfo.isConnected.fetch().done(
-            //     (connectedToInternet) => {
-            //         this.setState({connectedToInternet});
-            //     }
-            // );
-        }
-
-        componentWillUnmount() {
-            NetInfo.isConnected.removeEventListener(
-                'change',
-                this._handleConnectivityChange
-            );
-        }
-
-        _handleConnectivityChange = (connectedToInternet) => {
-            console.log("======connectedToInternet=======", connectedToInternet);
-            this.setState({
-                connectedToInternet,
-            });
-        };
-
         render() {
             // filter out extra props that are specific to this HOC and shouldn't be
             // passed through
@@ -82,20 +40,6 @@ export function withConfig(WrappedComponent) {
                     <WrappedComponent {...passThroughProps} />
                 );
             }
-            // if (!this.state.connectedToInternet) {
-            //     return (
-            //         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            //             <Text style={styles.informationText}>
-            //                 You are not connected to internet.
-            //             </Text>
-            //             <ActivityIndicator size={'large'} color={theme.black}/>
-            //             <Text style={styles.loadingText}>
-            //                 Trying to establish a connection...
-            //             </Text>
-            //         </View>
-            //
-            //     )
-            // }
 
             // Pass props to wrapped component
             return (
@@ -125,11 +69,11 @@ export function withConfig(WrappedComponent) {
     }
 
     WithConfig.displayName = `WithConfig(${getDisplayName(WrappedComponent)})`;
-    return connect((store) => {
+    return withPersistentStorage(connect((store) => {
         return {
             config: store.config
         }
-    })(WithConfig);
+    })(WithConfig));
 }
 
 function getDisplayName(WrappedComponent) {
