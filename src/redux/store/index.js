@@ -35,7 +35,7 @@ const store = createStore(
              * */
             storage,
         ),
-        offline(offlineConfig)
+        // offline(offlineConfig)
     ));
 
 export default store;

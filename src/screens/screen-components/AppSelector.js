@@ -97,6 +97,8 @@ class AppSelector extends React.Component {
         return (
             <RequestProcess
                 name={'list_user_memberships'}
+                tag={'list_user_memberships'}
+                cache={30}
                 data={{member_user_uuid: this.props.auth.uuid}}
                 onSuccess={this.onMembershipsFetched}>
                 <View style={styles.container}>

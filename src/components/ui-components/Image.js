@@ -16,9 +16,7 @@ export default class ImageComponent extends React.Component {
     render() {
         return (
             <Image
-                source={(this.props.source.startsWith('www') || this.props.source.startsWith('http')) ?
-                    {uri: this.props.source} :
-                    require(`../../assets/images/${this.props.source}`)}
+                source={{uri: this.props.source}}
                 resizeMode={this.props.resizeMode || 'contain'}
                 style={[styles.image, this.props.style]}
             />

@@ -83,6 +83,8 @@ class OrganizationPane extends React.Component {
                 </View>
                 <View style={{flex: 5, paddingTop: 20}}>
                     <RequestProcess name="get_applications"
+                                    tag={`get-applications-${value.organization.uuid}`}
+                                    cache={30}
                                     data={{"VERIS-RESOURCE": `Veris organization:${value.organization.uuid}:member:${value.uuid}`}}
                                     onSuccess={(response) => {
                                         this.setState({

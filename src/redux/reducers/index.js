@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux';
+import { reducer as requestsReducer } from 're-quests';
+
 import authReducer from './authReducer';
 import { routerReducer } from 'react-router-redux';
 import { storageReducer } from './storageReducer';
@@ -24,6 +26,8 @@ let reducer = combineReducers({
 
     actionQueue: actionQueue,
     picker: pickerReducer,
+
+    requests: requestsReducer,
 
     // store the initial
     // configuration for the application

@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Request, { RequestStore } from 're-quests';
 import { connect } from 'react-redux';
 
-import Request from 're-quests';
+import store from '../../../redux/store';
 import { BASE_URL } from '../../../utils/endpoints';
 
 
@@ -18,17 +19,19 @@ class RequestProcess extends React.Component {
                 .paths[process].post.summary === name);
 
         return (
-            <Request
-                url={`${BASE_URL}${process}`}
-                method='post'
-                headers={{
-                    'HOST-VERIS': 'apis.veris.in'
-                }}
-                {...props}
-                ref={(request) => {
-                    this.request = request;
-                }}
-            />
+            <RequestStore store={store}>
+                <Request
+                    url={`${BASE_URL}${process}`}
+                    method='post'
+                    headers={{
+                        'HOST-VERIS': 'apis.veris.in'
+                    }}
+                    {...props}
+                    ref={(request) => {
+                        this.request = request;
+                    }}
+                />
+            </RequestStore>
         );
     }
 
