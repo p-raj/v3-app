@@ -1,6 +1,6 @@
 import { FAILED, START, SUCCESS } from '../../utils/constants';
 import * as TYPE from '../actions/widget';
-import { CLEAR_SESSION_DATA } from '../actions/session';
+import { CLEAR_APP_DATA } from '../actions/app/appData';
 
 
 export default function widgetsReducer(state = {}, action) {
@@ -25,7 +25,7 @@ export default function widgetsReducer(state = {}, action) {
                 statusCode: action.payload.status,
                 status: FAILED
             };
-        case CLEAR_SESSION_DATA:
+        case CLEAR_APP_DATA:
             return {
                 ...state,
                 ...action.payload

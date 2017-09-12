@@ -30,3 +30,8 @@ export const toDotNotation = (json = {}, prefix = undefined) => {
     }
     return dot;
 };
+
+
+export const getDisplayName = (WrappedComponent) => {
+    return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+};

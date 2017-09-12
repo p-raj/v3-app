@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as URL from '../../utils/endpoints';
+import * as URL from '../../../utils/endpoints';
 
 export const GET_SESSION_DATA_START = 'GET_SESSION_DATA_START';
 export const GET_SESSION_DATA_SUCCESS = 'GET_SESSION_DATA_SUCCESS';
@@ -39,23 +39,5 @@ function getSessionDataError(error) {
     return {
         type: GET_SESSION_DATA_ERROR,
         payload: error
-    };
-}
-
-/**
- * Action creator to remove session data for a given runtime
- * @type {string}
- */
-export const CLEAR_SESSION_DATA = 'CLEAR_SESSION_DATA';
-
-export function clearSessionData(runtime) {
-    let payload = {};
-    payload[runtime.uuid] = {
-        'session': undefined,
-    };
-
-    return {
-        type: CLEAR_SESSION_DATA,
-        payload
     };
 }

@@ -1,19 +1,11 @@
 import _ from 'lodash';
 
-import { UPDATE_COMPONENT_DATA } from '../actions/updateComponentData';
-import { CLEAR_SESSION_DATA, GET_SESSION_DATA_SUCCESS } from '../actions/session';
+import { CLEAR_APP_DATA } from '../../actions/app/appData';
+import { GET_SESSION_DATA_SUCCESS } from '../../actions/app/session';
 
 
-export default function componentDataReducer(state = {}, action) {
+export const sessionReducer = (state = {}, action) => {
     switch (action.type) {
-        case UPDATE_COMPONENT_DATA:
-            // FIXME Remove this chutiyappa
-            if (state.last_modified === action.payload.last_modified) {
-                return state;
-            }
-
-            let data = _.merge(state, action.payload);
-            return {...data};
         case GET_SESSION_DATA_SUCCESS:
             // FIXME:BUG When the runtime is initialized for the first time,
             // state is empty so state.last_modified is undefined
@@ -28,7 +20,29 @@ export default function componentDataReducer(state = {}, action) {
 
             let mergedData = _.merge(JSON.parse(JSON.stringify(state)), JSON.parse(JSON.stringify(action.payload)));
             return JSON.parse(JSON.stringify(mergedData));
-        case CLEAR_SESSION_DATA:
+        default:
+            return state;
+    }
+};
+
+
+export default function appDataReducer(state = {}, dispatcher) {
+    switch (dispatcher.type) {
+        case GET_SESSION_DATA_SUCCESS:
+            const session = sessionReducer(state, dispatcher);
+            return {
+                ...state,
+                session,
+
+                // far backwards compatibility
+                ...session,
+            };
+        case '$template':
+            const {action, context} = dispatcher.payload;
+            return {
+                [context.widget.uuid]: action.options
+            };
+        case CLEAR_APP_DATA:
             return {};
         default:
             return state;

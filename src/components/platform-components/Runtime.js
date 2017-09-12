@@ -1,33 +1,21 @@
-/**
- * The Runtimes will have a Profile to be displayed.
- *
- * Let's just give it a button to get started for now.
- *
- * We'll maintain the state of the Runtime here,
- * whether the runtime has been initiated,
- * how many widgets have been resolved etc.
- *
- * This component might be the smartest as
- * well ugliest component in the history
- * of React based Applications.
- */
-import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import {
-    StyleSheet,
-    View,
-    ActivityIndicator, Text,
-} from 'react-native';
-import WidgetContainer from './WidgetManager';
-import { widgetSuccess } from '../../redux/actions/widget';
-import { clearSessionData, getSessionData } from '../../redux/actions/session';
-import APIServerRequestViaClient from '../../v3-core/utils/network/APIServerRequestViaClient';
-import { LIST_RUNTIMES } from '../../utils/endpoints';
 import Request from 're-quests';
+import React from 'react';
+
+import { ActivityIndicator, StyleSheet, Text, View, } from 'react-native';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+
+import { clearAppData } from '../../redux/actions/app/appData';
+import { getSessionData } from '../../redux/actions/app/session';
+import { widgetSuccess } from '../../redux/actions/widget';
+import { LIST_RUNTIMES } from '../../utils/endpoints';
+import theme from '../../utils/theme';
+import APIServerRequestViaClient from '../../v3-core/utils/network/APIServerRequestViaClient';
 import RequestProcess from '../../v3-core/utils/network/RequestProcess';
 import { Redirect } from '../../v3-core/utils/router';
-import theme from '../../utils/theme';
+import WidgetManager from './WidgetManager';
+import { withActionQueue } from './withActionQueue';
 
 const styles = StyleSheet.create({
     container: {
@@ -48,6 +36,11 @@ class Runtime extends React.Component {
     }
 
     render() {
+        const {runtime} = this.props;
+        const EnhancedWidgetManager = compose(
+            withActionQueue(runtime.uuid)(WidgetManager)
+        );
+
         return (
             <View style={styles.container}>
                 <APIServerRequestViaClient
@@ -69,7 +62,7 @@ class Runtime extends React.Component {
                         </Request.Start>
                         <Request.Success>
                             <View style={styles.wrapper}>
-                                <WidgetContainer
+                                <EnhancedWidgetManager
                                     session={this.getSession()}
                                     widgets={this.getWidgets()}
                                     runtime={this.props.runtime}/>
@@ -104,7 +97,7 @@ class Runtime extends React.Component {
 
     componentWillUnmount() {
         clearInterval(this.state.timer);
-        this.props.dispatch(clearSessionData(this.props.runtime));
+        this.props.dispatch(clearAppData(this.props.runtime));
     }
 
     getWidgets = () => {
@@ -121,7 +114,8 @@ class Runtime extends React.Component {
     };
 
     getSession = () => {
-        return this.props.widgets[this.props.runtime.uuid] ? this.props.widgets[this.props.runtime.uuid].session : undefined;
+        return this.props.widgets[this.props.runtime.uuid] ?
+            this.props.widgets[this.props.runtime.uuid].session : undefined;
     }
 }
 
@@ -132,8 +126,7 @@ Runtime.propTypes = {
 Runtime = connect((store) => {
     return {
         auth: store.auth,
-        widgets: store.widgets,
-        componentData: store.componentData,
+        widgets: store.widgets
     }
 })(Runtime);
 

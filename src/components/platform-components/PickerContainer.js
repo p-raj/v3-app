@@ -3,7 +3,6 @@ import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 // import ImagePicker from '../../v3-core/components/pickers/ImagePicker';
 import { closePicker } from '../../redux/actions/picker';
-import updateComponentData from '../../redux/actions/updateComponentData';
 
 export const PIC_FROM_CAMERA = 'PIC_FROM_CAMERA';
 export const PIC_FROM_GALLERY = 'PIC_FROM_GALLERY';
@@ -37,12 +36,9 @@ class PickerContainer extends React.Component {
     };
 
     onImageChange = (imagePath, file) => {
-
         console.log("Inside PickerContainer.js: imagePath", imagePath);
-        let widgetUuid = this.props.env.widget.uuid;
-        let fieldName = this.props.options.name;
 
-        this.props.dispatch(updateComponentData(widgetUuid, fieldName, imagePath));
+        // this.props.dispatch(appData(widgetUuid, fieldName, imagePath));
         this.props.dispatch(closePicker());
     }
 }

@@ -10,12 +10,16 @@ export default class Action {
         this.return = null;
     }
 
-    execute = (data, env) => {
+    execute = (context, data) => {
         const action = this;
-        const mergeOptions = {options: this.options, data: data, env: env};
+        const args = {
+            options: this.options,
+            context,
+            data
+        };
         return new Promise(function (resolve, reject) {
             try {
-                const result = ActionRegistry.get(action.type)(mergeOptions);
+                const result = ActionRegistry.get(action.type)(args);
                 resolve(result);
             } catch (e) {
                 reject(e);

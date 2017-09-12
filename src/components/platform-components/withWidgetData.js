@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { toDotNotation } from '../../v3-core/utils/index';
+import { toDotNotation, getDisplayName } from '../../v3-core/utils';
 
 /**
  * Extract current hacky logics to separate manageable HOC,
@@ -53,11 +53,9 @@ export function withWidgetData(WrappedComponent) {
             const widgetData = (data && data[widget.uuid]) ?
                 data[widget.uuid] || {} : {};
 
-            // componentData for backwards compatibility
             return (
                 <WrappedComponent
                     data={widgetData}
-                    componentData={widgetData}
                     {...passThroughProps}
                 />
             );
@@ -70,11 +68,7 @@ export function withWidgetData(WrappedComponent) {
     WithWidgetData.displayName = `WithWidgetData(${getDisplayName(WrappedComponent)})`;
     return connect((store) => {
         return {
-            data: store.componentData,
+            data: store.data
         }
     })(WithWidgetData);
-}
-
-function getDisplayName(WrappedComponent) {
-    return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }

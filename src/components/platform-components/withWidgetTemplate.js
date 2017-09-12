@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { connect } from 'react-redux';
+import { getDisplayName } from '../../v3-core/utils';
 
 /**
  * Extract current hacky logics to separate manageable HOC,
@@ -41,11 +42,7 @@ export function withWidgetTemplate(WrappedComponent) {
     WithWidgetTemplate.displayName = `WithWidgetTemplate(${getDisplayName(WrappedComponent)})`;
     return connect((store) => {
         return {
-            data: store.componentData,
+            data: store.data,
         }
     })(WithWidgetTemplate);
-}
-
-function getDisplayName(WrappedComponent) {
-    return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }

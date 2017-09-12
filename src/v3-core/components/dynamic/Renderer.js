@@ -5,7 +5,7 @@ import View from '../../../v3-core/components/ui/View';
 import Section from './Section';
 
 
-class Renderer extends React.Component {
+class Renderer extends React.PureComponent {
     render() {
         const sections = this.props.sections
             .map((section, index) => {

@@ -1,6 +1,11 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { compose } from 'recompose';
 import Renderer from './Renderer';
+import { dequeue } from '../../../redux/actions/app/queue';
+import * as actions from '../../../redux/actions/app/actions';
+import { withActionQueue } from '../../../components/platform-components/withActionQueue';
 
 
 /**
@@ -9,6 +14,13 @@ import Renderer from './Renderer';
  * rendered by the WidgetLayout.
  */
 class Template extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            propChange: {}
+        }
+    }
+
     static defaultProps = {
         // TODO path to a default error template
         template: {}
@@ -27,6 +39,19 @@ class Template extends React.Component {
                 return this.context.perform(action);
             });
         }
+
+        const {actions, dispatch} = nextProps;
+
+        if (actions.length === 0) {
+            return;
+        }
+
+        // execute the first action
+        // & remove it from the queue
+        // debugger;
+        let action = actions[0];
+        this.execute(action.action, action.context, action.data);
+        dispatch(dequeue(action.action, action.context, action.data));
     }
 
     render() {
@@ -35,7 +60,7 @@ class Template extends React.Component {
             return <TemplateResolver url={template}/>;
         }
 
-        const sections = template.sections || [];
+        const sections = this.findPropertyChanges(template.sections || []);
         return <Renderer sections={sections}/>
     }
 
@@ -46,9 +71,65 @@ class Template extends React.Component {
             return this.context.perform(action);
         });
     }
+
+    execute = (action, context, data) => {
+        switch (action.type) {
+            case '$prop.change':
+                // Set the properties to be changed in local state
+                // A change in state will trigger re-render and so will the loadValues method
+                // But this time loadValues will also load the properties to be changed
+                // FIXME
+                this.setState({
+                    propChange: {
+                        componentName: action.options.componentName,
+                        property: {...action.options.property, ...data}
+                    }
+                });
+                this.props.dispatch(actions.execute(action, context, data));
+                break;
+            default:
+                this.props.dispatch(actions.execute(action, context, data));
+        }
+    };
+
+    /**
+     * This method takes in jasonette schema (sections) of a widget
+     * insert new properties into a component (effect of $prop.change)
+     * @param sections
+     * @returns sections with components having a value key
+     */
+    findPropertyChanges = (sections) => {
+        if (!sections) return [];
+        if (_.isEmpty(this.state.propChange)) return sections;
+
+        const changeProperty = (component) => {
+            if (!component.name) return;
+            if (this.state.propChange.componentName && this.state.propChange.componentName === component.name) {
+                _.merge(component, this.state.propChange.property);
+            }
+        };
+
+        const traverseComponents = (item) => {
+            if (!item.components) {
+                changeProperty(item);
+                return;
+            }
+            for (let component of item.components) {
+                traverseComponents(component);
+            }
+        };
+
+        for (let section of sections) {
+            for (let item of section.items) {
+                traverseComponents(item);
+            }
+        }
+        return [...sections];
+    }
 }
 
 Template.propTypes = {
+    actions: PropTypes.array.isRequired,
     template: PropTypes.oneOf(
         PropTypes.shape({
             sections: PropTypes.arrayOf(PropTypes.shape({
@@ -77,16 +158,23 @@ TemplateResolver.propTypes = {
 };
 
 
-const CompositeTemplate = ({template, name}) => {
-    if (name && template[name]) {
-        console.warn('Deprecated template layout structure!');
-        console.warn('Composite template structure detected, ' +
-            'switch to individual templates!');
-        return <Template template={template[name]}/>
-    }
+class CompositeTemplate extends React.PureComponent {
+    render() {
+        const {template, name} = this.props;
+        let EnhancedTemplate = compose(
+            withActionQueue('template')(Template)
+        );
 
-    return <Template template={template}/>
-};
+        if (name && template[name]) {
+            console.warn('Deprecated template layout structure!');
+            console.warn('Composite template structure detected, ' +
+                'switch to individual templates!');
+            return <EnhancedTemplate template={template[name]}/>
+        }
+
+        return <EnhancedTemplate template={template}/>
+    }
+}
 
 CompositeTemplate.propTypes = {
     template: PropTypes.object.isRequired,

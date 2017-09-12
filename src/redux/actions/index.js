@@ -14,7 +14,7 @@ import imagePick from '../../v3-core/actions/image.pick';
  * keep the main component clean.
  */
 class ActionFactory {
-    static get(type) {
+    static get = (type) => {
         switch (type) {
             case '$operation':
                 return operation;
@@ -29,7 +29,21 @@ class ActionFactory {
             default:
                 return null;
         }
-    }
+    };
+
+    static executor = type => context => {
+        switch (type) {
+            case '$set':
+            case '$get':
+            case '$template':
+                return context.widget.name;
+            case '$prop.change':
+                return 'template';
+            default:
+                return context.runtime.uuid;
+        }
+    };
+
 }
 
 export default ActionFactory;
