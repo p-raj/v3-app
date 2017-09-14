@@ -1,7 +1,6 @@
 import { FAILED, START, SUCCESS } from '../../utils/constants';
 
 import * as TYPE from '../actions/auth';
-import { LOAD_REDUX_STATE } from '../actions/storage';
 import { REFRESH_TOKEN_SUCCESS } from '../actions/refreshToken';
 
 
@@ -33,12 +32,6 @@ export default function auth(state = {}, action) {
                 status: FAILED
             };
         case TYPE.LOGOUT_CURRENT_USER:
-            return {};
-        case LOAD_REDUX_STATE:
-            if (action.payload) {
-                return {...action.payload.auth};
-            }
-
             return {};
         default:
             return state;

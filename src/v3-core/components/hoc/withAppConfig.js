@@ -1,11 +1,10 @@
-import Request from 're-quests';
 import React from 'react';
+import Request from 're-quests';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { saveWidgetConfig } from '../../../redux/actions/config';
 import { SYSTEM_WIDGETS } from '../../../utils/endpoints';
 import theme from '../../../utils/theme';
-import { withPersistentStorage } from './withPersistentStorage';
 
 
 const styles = StyleSheet.create({
@@ -69,11 +68,11 @@ export function withConfig(WrappedComponent) {
     }
 
     WithConfig.displayName = `WithConfig(${getDisplayName(WrappedComponent)})`;
-    return withPersistentStorage(connect((store) => {
+    return connect((store) => {
         return {
             config: store.config
         }
-    })(WithConfig));
+    })(WithConfig);
 }
 
 function getDisplayName(WrappedComponent) {
