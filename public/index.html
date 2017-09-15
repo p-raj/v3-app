@@ -56,5 +56,12 @@
   To begin the development, run `npm start`.
   To create a production bundle, use `npm run build`.
 -->
+<script>
+    (function () {
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js');
+        }
+    })();
+</script>
 </body>
 </html>
