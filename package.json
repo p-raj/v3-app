@@ -52,7 +52,8 @@
     "redux-offline": "^2.0.0",
     "redux-thunk": "^2.2.0",
     "rerender": "0.0.3",
-    "slick-carousel": "^1.7.1"
+    "slick-carousel": "^1.7.1",
+    "validator": "^8.2.0"
   },
   "devDependencies": {
     "autoprefixer": "7.1.2",

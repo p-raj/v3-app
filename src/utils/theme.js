@@ -1,4 +1,4 @@
-import { scale, moderateScale, verticalScale} from '../utils/responsiveGuidelines';
+import { moderateScale } from '../utils/responsiveGuidelines';
 
 
 let theme = {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import Request from 're-quests'
 import * as _ from 'lodash';
-import { validateEmail } from '../../utils/validations'
+import isEmail from 'validator/lib/isEmail';
 import Button from '../../components/ui-components/Button'
 
 const styles = StyleSheet.create({
@@ -13,8 +13,7 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
         flex: 1,
-        justifyContent: 'center',
-
+        justifyContent: 'center'
     }
 });
 
@@ -63,7 +62,7 @@ class AuthRequestComponent extends React.Component {
             return;
         }
         //check for a valid email
-        if (!validateEmail(this.props.email)) {
+        if (!isEmail(this.props.email)) {
             this.props.onAuthFailed({message: "This is not a valid email address."});
             return;
         }

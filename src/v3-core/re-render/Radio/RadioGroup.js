@@ -15,6 +15,8 @@ export default class RadioGroup extends React.Component {
 
     componentWillMount() {
         let selectedId = -1;
+
+        // eslint-disable-next-line array-callback-return
         this.props.children.map((child) => {
             // Set a pre selected radio button's id as selectedId
             if (child.props.checked)

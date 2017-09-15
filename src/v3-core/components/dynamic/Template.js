@@ -130,7 +130,7 @@ class Template extends React.Component {
 
 Template.propTypes = {
     actions: PropTypes.array.isRequired,
-    template: PropTypes.oneOf(
+    template: PropTypes.oneOf([
         PropTypes.shape({
             sections: PropTypes.arrayOf(PropTypes.shape({
                 items: PropTypes.arrayOf(PropTypes.shape({
@@ -143,7 +143,7 @@ Template.propTypes = {
             }))
         }),
         PropTypes.string
-    ).isRequired
+    ]).isRequired
 };
 
 const TemplateResolver = () => {
