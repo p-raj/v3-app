@@ -3,7 +3,6 @@ import { reducer as requestsReducer } from 're-quests';
 import { routerReducer } from 'react-router-redux';
 
 import authReducer from './authReducer';
-import { storageReducer } from './storageReducer';
 import refreshTokenReducer from './refreshTokenReducer';
 import membershipsReducer from './membershipReducer';
 import runtimesReducer from './runtimesReducer';
@@ -15,7 +14,6 @@ import configReducer from './configReducer';
 
 
 let reducer = combineReducers({
-    storage: storageReducer,
     auth: authReducer,
     refreshToken: refreshTokenReducer,
     memberships: membershipsReducer,
