@@ -4,6 +4,7 @@ import createLogger from 'redux-logger';
 import { offline } from 'redux-offline';
 import offlineConfig from 'redux-offline/lib/defaults';
 import thunk from 'redux-thunk';
+import storage from '../../v3-core/utils/storage';
 
 import reducer from '../reducers';
 
@@ -26,7 +27,12 @@ const store = createStore(
     compose(
         applyMiddleware(...middlewares),
         ...enhancers,
-        offline(offlineConfig)
+        offline({
+            ...offlineConfig,
+            persistOptions: {
+                storage: storage
+            }
+        })
     ));
 
 export default store;
