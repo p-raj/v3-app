@@ -130,7 +130,7 @@ class Template extends React.Component {
 
 Template.propTypes = {
     actions: PropTypes.array.isRequired,
-    template: PropTypes.oneOf([
+    template: PropTypes.oneOfType([
         PropTypes.shape({
             sections: PropTypes.arrayOf(PropTypes.shape({
                 items: PropTypes.arrayOf(PropTypes.shape({
