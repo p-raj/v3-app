@@ -30,7 +30,7 @@
     "react-native-blur": "^3.0.0-alpha",
     "react-native-camera": "^0.6.0",
     "react-native-elements": "^0.12.2",
-    "react-native-grid-component": "^1.0.7",
+    "react-native-grid-component": "github:DigiCred/react-native-grid-component",
     "react-native-image-picker": "^0.26.4",
     "react-native-linear-gradient": "^2.3.0",
     "react-native-looped-carousel": "^0.1.7",
@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "autoprefixer": "7.1.2",
-    "babel-core": "6.25.0",
+    "babel-cli": "^6.26.0",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
     "babel-loader": "7.1.1",
