@@ -19,7 +19,7 @@ import { dequeue } from 'app/redux/actions/queue';
 class WidgetManager extends React.Component {
     constructor(props) {
         super(props);
-
+        this.intervals = [];
         // moving it to render causes the widgets to be re-created
         // https://github.com/facebook/react/issues/8669
         this.widgets = props.widgets
@@ -57,7 +57,7 @@ class WidgetManager extends React.Component {
         // & remove it from the queue
         // debugger;
         let action = actions[0];
-        dispatch(Action.execute(action.action, action.context, action.data));
+        this.execute(action.action, action.context, action.data);
         dispatch(dequeue(action.action, action.context, action.data));
     }
 
@@ -72,6 +72,29 @@ class WidgetManager extends React.Component {
             </ThemeProvider>
         );
     }
+
+    componentWillUnmount() {
+        this.intervals.map((id) => {
+            return clearInterval(id);
+        });
+    }
+
+    execute = (action, context, data) => {
+        const {repeat, ...act} = action;
+
+        // periodic tasks
+        if (repeat) {
+            this.intervals.push(setInterval(() => {
+                this.execute(act, context, data);
+            }, repeat));
+        }
+
+        switch (action.type) {
+            default:
+                this.props.dispatch(Action.execute(action, context, this.data));
+                break;
+        }
+    };
 }
 
 WidgetManager.childContextTypes = {

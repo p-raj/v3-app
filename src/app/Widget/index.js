@@ -96,7 +96,7 @@ class Widget extends React.Component {
         // periodic tasks
         if (repeat) {
             this.intervals.push(setInterval(() => {
-                this.execute(act, data);
+                this.execute(act, context, data);
             }, repeat));
         }
 
