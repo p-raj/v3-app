@@ -7,9 +7,9 @@ import { connect } from 'react-redux';
 import Grid from 'react-native-grid-component';
 
 import { Redirect } from 'extensions/router';
-import RequestProcess from 'shell/v3-core/utils/network/RequestProcess';
+import RequestProcess from 'shell/utils/network/RequestProcess';
 import theme from 'shell/utils/theme'
-import { withAuthentication } from 'shell/v3-core/components/hoc/Auth';
+import { withAuthentication } from 'shell/components/hoc/Auth';
 import { selectMembership } from 'shell/redux/actions/membership';
 import OrganizationComponent from 'shell/components/ui-components/OrganizationComponent';
 import ImageIconComponent from 'shell/components/ui-components/ImageIconComponent';

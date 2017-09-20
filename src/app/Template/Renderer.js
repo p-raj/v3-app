@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Section from 'app/Template/Section';
-import View from 'shell/v3-core/components/ui/View';
+import { View } from 'components';
 
 
 class Renderer extends React.PureComponent {

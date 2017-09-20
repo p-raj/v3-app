@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import View from 'shell/v3-core/components/ui/View';
+import { View } from 'components';
+
 import Component from 'app/Template/Component';
 
 export const Section = ({section}) => {

@@ -13,9 +13,9 @@ import reducer from 'app/redux/reducers';
 import Runtime from 'app/Runtime';
 
 import storage from 'extensions/storage';
-import { withAuthentication } from 'shell/v3-core/components/hoc/Auth';
-import HorizontalLayout from 'shell/v3-core/components/layouts/HorizontalLayout';
-import RequestProcess from 'shell/v3-core/utils/network/RequestProcess';
+import { withAuthentication } from 'shell/components/hoc/Auth';
+import HorizontalLayout from 'components/HorizontalLayout';
+import RequestProcess from 'shell/utils/network/RequestProcess';
 
 const getAppDB = (app) => (state = {}) => {
     const appConfig = {

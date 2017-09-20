@@ -1,8 +1,8 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import humanReadableDateTime from '../../utils/HumanReadableDateTime';
-import theme from '../../utils/theme'
-import { withAuthentication } from '../../v3-core/components/hoc/Auth';
+import theme from 'shell/utils/theme'
+import { withAuthentication } from 'shell/components/hoc/Auth';
 import * as _ from 'lodash';
 
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, Image, ActivityIndicator, Text, Platform, Dimensions } from 'react-native';
-import { Button, TextInput } from '../../v3-core/re-render';
+import { Button, TextInput } from 'components';
 import { connect } from 'react-redux';
-import { withAuthentication } from '../../v3-core/components/hoc/Auth';
-import theme from '../../utils/theme'
-import RequestProcess from '../../v3-core/utils/network/RequestProcess';
+import { withAuthentication } from 'shell/components/hoc/Auth';
+import theme from 'shell/utils/theme'
+import RequestProcess from 'shell/utils/network/RequestProcess';
 import Request from 're-quests';
 
 

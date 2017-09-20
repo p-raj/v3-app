@@ -9,7 +9,7 @@ import { withWidgetData } from 'app/Widget/withWidgetData';
 import { withWidgetTemplate } from 'app/Widget/withWidgetTemplate';
 
 import CompositeTemplate from 'app/Template';
-import { toDotNotation } from 'shell/v3-core/utils';
+import { toDotNotation } from 'utils/index';
 
 
 class Widget extends React.Component {

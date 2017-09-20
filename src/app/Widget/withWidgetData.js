@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { getDisplayName } from 'recompose';
-import { toDotNotation } from 'shell/v3-core/utils';
+import { toDotNotation } from 'utils/index';
 
 /**
  * Extract current hacky logics to separate manageable HOC,

@@ -4,9 +4,9 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import theme from '../../utils/theme'
-import RequestProcess from '../../v3-core/utils/network/RequestProcess';
+import RequestProcess from 'shell/utils/network/RequestProcess';
 import Request from 're-quests';
-import ImagePicker from '../../v3-core/components/ui/ImagePicker';
+import ImagePicker from 'components/ImagePicker';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { updateAuth } from '../../redux/actions/auth';
 

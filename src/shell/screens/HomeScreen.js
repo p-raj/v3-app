@@ -4,11 +4,11 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import View from '../v3-core/components/ui/View';
-import { withAuthentication } from '../v3-core/components/hoc/Auth';
+import { View } from 'components';
+import { withAuthentication } from '../components/hoc/Auth';
 import AppSelector from './screen-components/AppSelector';
 import ProfileScreen from './screen-components/ProfileScreen';
-import BlurView from '../v3-core/components/ui/BlurView'
+import BlurView from 'components/BlurView'
 import SettingsScreen from './screen-components/SettingsScreen';
 import MarketplaceScreen from './screen-components/MarketplaceScreen';
 import theme from '../utils/theme'

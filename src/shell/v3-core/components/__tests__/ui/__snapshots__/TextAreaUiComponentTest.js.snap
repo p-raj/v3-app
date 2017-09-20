@@ -1,7 +1,0 @@
-exports[`Suite for testing textArea: renders a textArea as expected (matches the snapshot) 1`] = `
-<TextInput
-  onPress={[Function]}
-  style={Object {}}
-  underlineColorAndroid="transparent"
-  value="Label" />
-`;

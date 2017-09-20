@@ -2,12 +2,12 @@ import React from 'react';
 import { View } from 'react-native';
 import { Provider } from 'react-redux';
 
-import RuntimeScreen from 'shell/screens/RuntimeScreen';
+import { Route, Router } from 'extensions/router';
 
+import RuntimeScreen from 'shell/screens/RuntimeScreen';
 import PickerContainer from 'shell/components/platform-components/PickerContainer';
 import store from 'shell/redux/store';
 import HomeScreen from 'shell/screens/HomeScreen';
-import { Route, Router } from 'extensions/router';
 
 
 class App extends React.Component {

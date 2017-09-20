@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Dimensions, } from 'react-native';
 import { connect } from 'react-redux';
-import { withAuthentication } from '../../v3-core/components/hoc/Auth';
-import BlurView from '../../v3-core/components/ui/BlurView';
+import { withAuthentication } from 'shell/components/hoc/Auth';
+import BlurView from 'components/BlurView';
 import IconComponent from '../../components/ui-components/VectorIconComponent';
 import { logout } from '../../redux/actions/auth';
 

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Request from 're-quests';
 import React from 'react';
 
-import { ActivityIndicator, StyleSheet, Text, View, } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, View, } from 'components';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
@@ -13,8 +13,8 @@ import { getSessionData } from 'app/redux/actions/session';
 import { widgetSuccess } from 'app/redux/actions/widget';
 
 import { LIST_RUNTIMES } from 'shell/utils/endpoints';
-import APIServerRequestViaClient from 'shell/v3-core/utils/network/APIServerRequestViaClient';
-import RequestProcess from 'shell/v3-core/utils/network/RequestProcess';
+import APIServerRequestViaClient from 'shell/utils/network/APIServerRequestViaClient';
+import RequestProcess from 'shell/utils/network/RequestProcess';
 import { Redirect } from 'extensions/router';
 
 

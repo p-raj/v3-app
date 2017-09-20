@@ -92,6 +92,7 @@ module.exports = {
             'react-native': 'react-native-web',
 
             'app': path.resolve(paths.appSrc, 'app'),
+            'components': path.resolve(paths.appSrc, 'components'),
             'extensions': path.resolve(paths.appSrc, 'extensions'),
             'shell': path.resolve(paths.appSrc, 'shell'),
             'utils': path.resolve(paths.appSrc, 'utils')

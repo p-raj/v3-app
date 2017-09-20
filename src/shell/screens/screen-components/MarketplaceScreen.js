@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, Dimensions, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { withAuthentication } from '../../v3-core/components/hoc/Auth';
-import BlurView from '../../v3-core/components/ui/BlurView';
-import theme from '../../utils/theme'
+import { withAuthentication } from 'shell/components/hoc/Auth';
+import BlurView from 'components/BlurView';
+import theme from 'shell/utils/theme';
 
 
 const {height, width} = Dimensions.get('window');

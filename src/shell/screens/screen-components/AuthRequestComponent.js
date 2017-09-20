@@ -1,5 +1,5 @@
 import React from 'react';
-import RequestProcess from '../../v3-core/utils/network/RequestProcess';
+import RequestProcess from 'shell/utils/network/RequestProcess';
 import PropTypes from 'prop-types';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import Request from 're-quests'

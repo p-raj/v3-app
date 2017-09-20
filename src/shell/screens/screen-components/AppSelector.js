@@ -1,12 +1,12 @@
 import Request from 're-quests';
 import React from 'react';
 import { ActivityIndicator, StyleSheet, Text, View, Platform } from 'react-native';
-import RequestProcess from '../../v3-core/utils/network/RequestProcess';
-import theme from '../../utils/theme'
-import CarouselComponent from '../../v3-core/components/ui/CarouselComponent';
+import RequestProcess from 'shell/utils/network/RequestProcess';
+import theme from 'shell/utils/theme'
+import CarouselComponent from 'components/CarouselComponent';
 import { connect } from 'react-redux';
-import { withAuthentication } from '../../v3-core/components/hoc/Auth';
-import { saveMemberships } from '../../redux/actions/membership';
+import { withAuthentication } from 'shell/components/hoc/Auth';
+import { saveMemberships } from 'shell/redux/actions/membership';
 import OrganizationPane from './OrganizationPane';
 import * as _ from 'lodash';
 

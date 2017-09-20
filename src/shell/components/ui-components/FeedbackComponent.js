@@ -5,10 +5,11 @@ import {
 } from 'react-native';
 
 import Request from 're-quests';
-import RequestProcess from '../../v3-core/utils/network/RequestProcess';
-import theme from '../../utils/theme'
+import RequestProcess from 'shell/utils/network/RequestProcess';
+import theme from 'shell/utils/theme'
 import PopupDialog, { DialogTitle } from 'react-native-popup-dialog';
-import StarRatingComponent from '../../v3-core/components/ui/StarRating';
+import StarRatingComponent from 'components/StarRating';
+
 const {height, width} = Dimensions.get('window');
 
 
@@ -82,7 +83,7 @@ class FeedbackComponent extends React.Component {
                             <TextInput
                                 multiline={true}
                                 numberOfLines={4}
-                                placeholder={"Want to add some review?"}
+                                placeholder={'Want to add some review?'}
                                 style={{
                                     borderWidth: 1,
                                     borderColor: theme.black,
