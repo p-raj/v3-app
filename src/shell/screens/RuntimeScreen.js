@@ -5,6 +5,7 @@ import RN, { Text, View } from 'react-native';
 
 import { connect, Provider } from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
+import { devToolsEnhancer } from 'redux-devtools-extension/logOnlyInProduction';
 import { offline } from 'redux-offline';
 import offlineConfig from 'redux-offline/lib/defaults';
 import thunk from 'redux-thunk';
@@ -25,11 +26,18 @@ const getAppDB = (app) => (state = {}) => {
             storage: storage
         }
     };
+    let enhancers = [];
+    if (process.env.NODE_ENV === 'development') {
+        enhancers.push(devToolsEnhancer({
+            name: app.name
+        }))
+    }
     return createStore(
         reducer,
         state,
         compose(
             applyMiddleware(thunk),
+            ...enhancers,
             offline(appConfig)
         ));
 };
