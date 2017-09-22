@@ -1,18 +1,13 @@
 android
 ios
 node_modules
-scripts
-src
 coverage
 __tests__
 __mocks__
 .tmp
 .idea
-.babelrc
 .buckconfig
 .dockerignore
-.env.development
-.env.production
 .flowconfig
 .gitattributes
 .gitignore
@@ -20,8 +15,6 @@ __mocks__
 index.android.js
 index.electron.js
 index.ios.js
-index.js
-package.json
 package-lock.json
 README.md
 yarn.lock
