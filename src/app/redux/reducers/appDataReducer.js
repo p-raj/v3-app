@@ -40,6 +40,7 @@ export default function appDataReducer(state = {}, dispatcher) {
         case '$template':
             const {action, context} = dispatcher.payload;
             return {
+                ...state,
                 [context.widget.uuid]: action.options
             };
         case CLEAR_APP_DATA:

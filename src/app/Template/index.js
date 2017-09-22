@@ -1,12 +1,16 @@
+import * as actions from 'app/redux/actions/actions';
+import { dequeue } from 'app/redux/actions/queue';
+
+import Renderer from 'app/Template/Renderer';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { compose } from 'recompose';
-
-import Renderer from 'app/Template/Renderer';
-import { withActionQueue } from 'app/Widget/withActionQueue';
-import { dequeue } from 'app/redux/actions/queue';
-import * as actions from 'app/redux/actions/actions';
+import {
+    compose,
+    defaultProps,
+    getContext,
+    setPropTypes
+} from 'recompose';
 
 
 /**
@@ -14,7 +18,7 @@ import * as actions from 'app/redux/actions/actions';
  * or a valid URL to a JSON, which will be
  * rendered by the WidgetLayout.
  */
-class Template extends React.Component {
+export class Template extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,22 +26,14 @@ class Template extends React.Component {
         }
     }
 
-    static defaultProps = {
-        // TODO path to a default error template
-        template: {}
-    };
-    static contextTypes = {
-        perform: PropTypes.func,
-    };
-
     componentWillReceiveProps(nextProps) {
-        const {template} = this.props;
+        const {template, perform} = this.props;
 
         // reference check is not enough
         if (JSON.stringify(template) !== JSON.stringify(nextProps.template)) {
             const actions = nextProps.template['pre-render'] || [];
             actions.map((action) => {
-                return this.context.perform(action);
+                return perform(action);
             });
         }
 
@@ -57,19 +53,16 @@ class Template extends React.Component {
 
     render() {
         const {template} = this.props;
-        if (typeof template === 'string') {
-            return <TemplateResolver url={template}/>;
-        }
 
         const sections = this.findPropertyChanges(template.sections || []);
         return <Renderer sections={sections}/>
     }
 
     componentDidMount() {
-        const {template} = this.props;
+        const {template, perform} = this.props;
         const actions = template['pre-render'] || [];
         actions.map((action) => {
-            return this.context.perform(action);
+            return perform(action);
         });
     }
 
@@ -129,57 +122,32 @@ class Template extends React.Component {
     }
 }
 
-Template.propTypes = {
-    actions: PropTypes.array.isRequired,
-    template: PropTypes.oneOfType([
-        PropTypes.shape({
-            sections: PropTypes.arrayOf(PropTypes.shape({
-                items: PropTypes.arrayOf(PropTypes.shape({
-                    type: PropTypes.string.isRequired
-                })).isRequired
-            })),
-            'pre-render': PropTypes.arrayOf(PropTypes.shape({
-                type: PropTypes.string.isRequired,
-                options: PropTypes.object
-            }))
-        }),
-        PropTypes.string
-    ]).isRequired
-};
-
-const TemplateResolver = () => {
-    // TODO
-    // retrieve & save the template for later use
-    console.error('`TemplateResolver` has not been implemented yet');
-    return <Template template={{}}/>
-};
-
-TemplateResolver.propTypes = {
-    url: PropTypes.string.isRequired
-};
-
-
-class CompositeTemplate extends React.PureComponent {
-    render() {
-        const {template, name} = this.props;
-        let EnhancedTemplate = compose(
-            withActionQueue('template')(Template)
-        );
-
-        if (name && template[name]) {
-            console.warn('Deprecated template layout structure!');
-            console.warn('Composite template structure detected, ' +
-                'switch to individual templates!');
-            return <EnhancedTemplate template={template[name]}/>
+const enhanced = compose(
+    defaultProps({
+        template: {
+            // TODO path to a default error template
         }
+    }),
+    getContext({
+        perform: PropTypes.func
+    }),
+    setPropTypes({
+        actions: PropTypes.array.isRequired,
+        template: PropTypes.oneOfType([
+            PropTypes.shape({
+                sections: PropTypes.arrayOf(PropTypes.shape({
+                    items: PropTypes.arrayOf(PropTypes.shape({
+                        type: PropTypes.string.isRequired
+                    })).isRequired
+                })),
+                'pre-render': PropTypes.arrayOf(PropTypes.shape({
+                    type: PropTypes.string.isRequired,
+                    options: PropTypes.object
+                }))
+            }),
+            PropTypes.string
+        ]).isRequired
+    })
+);
 
-        return <EnhancedTemplate template={template}/>
-    }
-}
-
-CompositeTemplate.propTypes = {
-    template: PropTypes.object.isRequired,
-    name: PropTypes.string
-};
-
-export default CompositeTemplate;
+export default enhanced(Template);

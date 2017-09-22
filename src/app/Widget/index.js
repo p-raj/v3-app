@@ -8,7 +8,7 @@ import { dequeue, enqueue } from 'app/redux/actions/queue';
 import { withWidgetData } from 'app/Widget/withWidgetData';
 import { withWidgetTemplate } from 'app/Widget/withWidgetTemplate';
 
-import CompositeTemplate from 'app/Template';
+import Template from 'app/Template';
 import { toDotNotation } from 'utils/index';
 
 
@@ -70,9 +70,9 @@ class Widget extends React.Component {
     }
 
     render() {
-        const {template, templateName} = this.props;
+        const {template} = this.props;
         return (
-            <CompositeTemplate template={template} name={templateName}/>
+            <Template template={template} actions={[]}/>
         );
     }
 
