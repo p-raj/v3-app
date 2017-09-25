@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CheckBox as CB } from 'react-native-elements';
+import CB from 'components/RNECheckbox';
 
 
 export default class CheckBox extends React.Component {

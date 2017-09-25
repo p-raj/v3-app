@@ -29,7 +29,6 @@
     "react-native": "^0.42.3",
     "react-native-blur": "^3.0.0-alpha",
     "react-native-camera": "^0.6.0",
-    "react-native-elements": "^0.12.2",
     "react-native-grid-component": "github:DigiCred/react-native-grid-component",
     "react-native-image-picker": "^0.26.4",
     "react-native-linear-gradient": "^2.3.0",
@@ -52,7 +51,6 @@
     "redux-logger": "^2.7.4",
     "redux-offline": "^2.0.0",
     "redux-thunk": "^2.2.0",
-    "rerender": "0.0.3",
     "slick-carousel": "^1.7.1",
     "validator": "^8.2.0"
   },

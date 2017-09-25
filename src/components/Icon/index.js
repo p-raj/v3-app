@@ -1,5 +1,8 @@
 import React from 'react';
-import { Icon as RNEIcon } from 'react-native-elements';
+
+// TODO dynamic imports
+// material, evil, ion...
+import RNEIcon from 'react-native-vector-icons/FontAwesome';
 import { TouchableOpacity } from 'react-native';
 
 export default class Icon extends React.Component {

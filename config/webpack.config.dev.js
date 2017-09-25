@@ -152,7 +152,7 @@ module.exports = {
                         include: [
                             paths.appIndexJs,
                             paths.appSrc,
-                            /node_modules\/(react-native-elements|react-native-tab-view|react-native-vector-icons|react-native-drawer|react-native-scrollable-tab-view|react-native-popup-dialog|react-native-side-menu|react-native-tab-navigator|react-native-grid-component)\/.*/
+                            /node_modules\/(react-native-tab-view|react-native-vector-icons|react-native-drawer|react-native-scrollable-tab-view|react-native-popup-dialog|react-native-side-menu|react-native-tab-navigator|react-native-grid-component)\/.*/
                         ],
                         loader: require.resolve('babel-loader'),
                         options: {

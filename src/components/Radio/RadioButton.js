@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { CheckBox as RB } from 'react-native-elements';
+import RB from 'components/RNECheckbox';
 
 
 export default class RadioButton extends React.Component {
