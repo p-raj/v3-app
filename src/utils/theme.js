@@ -1,0 +1,36 @@
+import { scale, moderateScale, verticalScale} from '../utils/responsiveGuidelines';
+
+
+let theme = {
+    h0: moderateScale(40),
+    h1: moderateScale(34),
+    h2: moderateScale(28),
+    h3: moderateScale(22),
+    h4: moderateScale(18),
+    h5: moderateScale(16),
+    h6: moderateScale(14),
+    white: "#FEFEFE",
+    lightWhite: "#F5F5F5",
+    extraLightWhite: "#F8F8F8",
+    black: "#191919",
+    lightBlack: "#333333",
+    extraLightBlack: "#4c4c4c",
+    flatColorShades: ['#F55253', '#CC9561', '#FBAE31', "#00C18B", "#2D94D2", "#5C82FF", "#F9C72E", "#111111", "#C644FC", "#FF5E3A", "#34AADC"],
+    paddingMinimal: 2,
+    paddingBasic: 15,
+    paddingNormal: 20,
+    paddingLarge: 30,
+    paddingExtraLarge: 40,
+    marginBasic: 5,
+    marginNormal: 10,
+    marginLarge: 15,
+    marginExtraLarge: 25,
+    appIconSize: 60,
+    appIconRadius: 10,
+    iconSize: 32,
+    defaultImageSize: moderateScale(70, 0.3),
+    errorMessageColor: "#BC0000",
+    iconColor: "#FEFEFE",
+    placeholderColor: "#b2b2b2",
+};
+export default theme;

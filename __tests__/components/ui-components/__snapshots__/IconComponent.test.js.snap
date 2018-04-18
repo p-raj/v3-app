@@ -1,0 +1,91 @@
+exports[`test IconComponent to display AppIcon and give onPress callback 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "height": 80,
+      "justifyContent": "space-between",
+      "width": 80,
+    }
+  }>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderRadius": 10,
+            "justifyContent": "center",
+          },
+          Object {
+            "backgroundColor": "#333",
+            "height": 60,
+            "width": 60,
+          },
+        ],
+      ]
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}>
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 32,
+          },
+          Object {
+            "backgroundColor": "transparent",
+            "color": "#FEFEFE",
+            "margin": 0,
+            "padding": 0,
+          },
+          Object {
+            "fontFamily": "FontAwesome",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }>
+      ?
+    </Text>
+  </View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    numberOfLines={1}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "color": "#191919",
+        "flex": 1,
+        "fontSize": 14,
+        "paddingTop": 2,
+        "textAlign": "center",
+      }
+    }>
+    App name
+  </Text>
+</View>
+`;
